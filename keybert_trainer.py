@@ -12,12 +12,10 @@ TRAIN_CHAPTERS = [1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 15, 16, 17, 18, 19]
 TEST_CHAPTERS = [6, 10, 11, 12]
 
 def load_chapter(chapter_num: int) -> str:
-    """load a chapter from the textbook zip file."""
+    """load a chapter from the textbook folder."""
     try:
-        with zipfile.ZipFile('textbook.zip', 'r') as zip_ref:
-            chapter_file = f'ch{chapter_num}.txt'
-            with zip_ref.open(chapter_file) as f:
-                return f.read().decode('utf-8')
+        with open(f'textbook/ch{chapter_num}.txt', 'r') as f:
+            return f.read()
     except Exception as e:
         print(f"error loading chapter {chapter_num}: {e}")
         return ""
