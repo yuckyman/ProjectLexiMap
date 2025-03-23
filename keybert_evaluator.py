@@ -406,16 +406,6 @@ def main():
         
         chapter_elapsed = time.time() - chapter_start_time
         debug_print(f"Chapter {chapter_num} processed in {chapter_elapsed:.2f} seconds", important=True)
-        
-        # Save interim results every few chapters
-        if processed % 3 == 0 or processed == total_chapters:
-            debug_print(f"Saving interim results after processing {processed}/{total_chapters} chapters...")
-            try:
-                with open(f"keybert_results_interim_{processed}of{total_chapters}.json", "w") as f:
-                    json.dump(results, f, indent=2)
-                debug_print("Interim results saved successfully")
-            except Exception as e:
-                debug_print(f"Error saving interim results: {e}", important=True)
     
     # save detailed results
     debug_print("Saving final evaluation results...", important=True)
