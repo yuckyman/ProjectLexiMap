@@ -12,6 +12,8 @@ from nltk.corpus import stopwords
 import re
 from difflib import SequenceMatcher
 from pathlib import Path
+from sklearn.feature_extraction.text import TfidfVectorizer
+from functools import lru_cache
 
 # Create results directory if it doesn't exist
 RESULTS_DIR = Path("results")
@@ -28,7 +30,12 @@ TRAIN_CHAPTERS = [1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 15, 16, 17, 18, 19]
 TEST_CHAPTERS = [6, 10, 11, 12]
 
 # Using only NLTK's stopwords
-CUSTOM_STOPWORDS = []
+CUSTOM_STOPWORDS = ['chapter', 'figure', 'section', 'example', 'page', 'table', 'see', 'shown', 'thus', 'since', 'however', 'therefore', 'might', 'may', 'could', 'would', 'should', 'can', 'one', 'two', 'three', 'first', 'second', 'third', 'use', 'using', 'used', 'uses', 'following', 'show', 'consider', 'case', 'different', 'given', 'set', 'called', 'define', 'contains', 'describes', 'way', 'mean', 'note', 'defined', 'definition', 'approach']
+
+@lru_cache(maxsize=1000)
+def get_embedding(text, model):
+    """Cache embeddings to avoid recomputing them."""
+    return model.encode([text])[0]
 
 def load_chapter(chapter_num: int) -> str:
     """load a chapter from the textbook folder."""
@@ -168,6 +175,40 @@ def keyword_similarity(kw1: str, kw2: str) -> float:
     # Use sequence matcher for fuzzy matching
     return SequenceMatcher(None, kw1, kw2).ratio()
 
+def embedding_similarity(kw1, kw2, model):
+    # Get cached embeddings for both keywords
+    emb1 = get_embedding(kw1, model)
+    emb2 = get_embedding(kw2, model)
+    
+    # Calculate cosine similarity
+    sim = np.dot(emb1, emb2) / (np.linalg.norm(emb1) * np.linalg.norm(emb2))
+    return float(sim)
+
+def evaluate_with_embeddings(predicted_kws, actual_kws, model, threshold=0.75):
+    matches = []
+    used_actual = set()
+    
+    for pred_kw, pred_score in predicted_kws:
+        best_match = None
+        best_score = 0
+        
+        for actual_kw in actual_kws:
+            if actual_kw in used_actual:
+                continue
+                
+            # Use embeddings for similarity
+            sim = embedding_similarity(pred_kw, actual_kw, model)
+            
+            if sim > best_score and sim >= threshold:
+                best_score = sim
+                best_match = actual_kw
+        
+        if best_match:
+            matches.append((pred_kw, best_match, best_score))
+            used_actual.add(best_match)
+            
+    return matches
+
 def evaluate_keywords(predicted: List[Tuple[str, float]], actual: List[Tuple[str, float]], 
                       similarity_threshold: float = 0.7) -> Dict[str, float]:
     """
@@ -225,6 +266,63 @@ def evaluate_keywords(predicted: List[Tuple[str, float]], actual: List[Tuple[str
         "similarity_threshold": similarity_threshold
     }
 
+def extract_hybrid_keywords(text, keybert_model, top_n=30):
+    # Neural extraction with KeyBERT
+    neural_keywords = keybert_model.extract_keywords(
+        text, 
+        keyphrase_ngram_range=(1, 3),
+        stop_words='english',
+        use_mmr=True,
+        diversity=0.6,
+        top_n=top_n
+    )
+    
+    # Statistical extraction with TF-IDF
+    # For a single document, we'll treat paragraphs as "documents" for IDF calculation
+    paragraphs = re.split(r'\n\s*\n', text)
+    
+    vectorizer = TfidfVectorizer(
+        ngram_range=(1, 3),
+        stop_words='english',
+        min_df=1,  # Term must appear in at least 1 paragraph
+        max_df=0.8  # Term appears in at most 80% of paragraphs
+    )
+    
+    # Fit TF-IDF on paragraphs
+    tfidf_matrix = vectorizer.fit_transform(paragraphs)
+    
+    # Combine TF-IDF scores across paragraphs to get document-level importance
+    feature_names = vectorizer.get_feature_names_out()
+    tfidf_sum = np.sum(tfidf_matrix, axis=0).A1
+    
+    # Get top TF-IDF terms
+    top_indices = tfidf_sum.argsort()[-top_n:][::-1]
+    tfidf_keywords = [(feature_names[idx], float(tfidf_sum[idx])) for idx in top_indices]
+    
+    # Combine keywords from both methods
+    all_keywords = {}
+    
+    # Add neural keywords with normalization
+    max_neural = max([score for _, score in neural_keywords]) if neural_keywords else 1.0
+    for kw, score in neural_keywords:
+        all_keywords[kw.lower()] = score / max_neural
+    
+    # Add TF-IDF keywords with normalization
+    max_tfidf = max([score for _, score in tfidf_keywords]) if tfidf_keywords else 1.0
+    for kw, score in tfidf_keywords:
+        normalized_score = score / max_tfidf
+        if kw.lower() in all_keywords:
+            # If key exists in both, take weighted average
+            all_keywords[kw.lower()] = all_keywords[kw.lower()] * 0.6 + normalized_score * 0.4
+        else:
+            all_keywords[kw.lower()] = normalized_score * 0.8  # Slightly lower weight for TF-IDF only terms
+    
+    # Convert back to list, sort, and take top_n
+    final_keywords = [(kw, score) for kw, score in all_keywords.items()]
+    final_keywords.sort(key=lambda x: x[1], reverse=True)
+    
+    return final_keywords[:top_n]
+
 def main():
     print("Initializing KeyBERT with SentenceTransformer...")
     # Initialize keybert with a better sentence transformer model for educational content
@@ -247,7 +345,7 @@ def main():
     for i, chapter in enumerate(TRAIN_CHAPTERS):
         text = train_texts[i]
         # Using lower diversity (0.5) to capture more semantically related terms
-        train_keywords_by_chapter[chapter] = extract_keywords(text, keybert, top_n=25, diversity=0.5)
+        train_keywords_by_chapter[chapter] = extract_hybrid_keywords(text, keybert, top_n=25)
     
     # Combine all unique training keywords
     all_train_keywords = []
@@ -278,7 +376,7 @@ def main():
         if test_text:
             print(f"\nProcessing test chapter {chapter}...")
             # Extract keywords for test chapter with lower diversity
-            test_keywords = extract_keywords(test_text, keybert, top_n=25, diversity=0.5)
+            test_keywords = extract_hybrid_keywords(test_text, keybert, top_n=25)
             
             # Evaluate against training keywords
             metrics = evaluate_keywords(test_keywords, train_keywords)
