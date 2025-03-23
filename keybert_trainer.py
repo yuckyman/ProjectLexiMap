@@ -184,62 +184,129 @@ def embedding_similarity(kw1, kw2, model):
     sim = np.dot(emb1, emb2) / (np.linalg.norm(emb1) * np.linalg.norm(emb2))
     return float(sim)
 
-def evaluate_with_embeddings(predicted_kws, actual_kws, model, threshold=0.75):
-    matches = []
-    used_actual = set()
+def ngram_match(kw1: str, kw2: str) -> float:
+    """Calculate similarity based on shared ngrams."""
+    # Normalize keywords
+    kw1 = normalize_keyword(kw1)
+    kw2 = normalize_keyword(kw2)
     
-    for pred_kw, pred_score in predicted_kws:
-        best_match = None
-        best_score = 0
+    # Split into words
+    words1 = kw1.split()
+    words2 = kw2.split()
+    
+    # Calculate intersection of words
+    common = set(words1) & set(words2)
+    
+    if not common:  # No words in common
+        return 0.0
+    
+    # Calculate Jaccard similarity (intersection over union)
+    jaccard = len(common) / len(set(words1) | set(words2))
+    
+    # Calculate word overlap ratio
+    overlap_ratio = len(common) / min(len(words1), len(words2))
+    
+    # Weighted combination of both similarities
+    return 0.5 * jaccard + 0.5 * overlap_ratio
+
+def hierarchical_match(pred_kw: str, actual_kw: str) -> float:
+    """Use a hierarchical approach to matching keywords."""
+    norm_pred = normalize_keyword(pred_kw)
+    norm_actual = normalize_keyword(actual_kw)
+    
+    # Exact match
+    if norm_pred == norm_actual:
+        return 1.0
+    
+    # Perfect containment - one is exactly inside the other
+    if norm_pred in norm_actual:
+        # If predicted is a substring of actual but nearly as long, score it higher
+        length_ratio = len(norm_pred) / len(norm_actual)
+        if length_ratio > 0.7:  # Predicted captures most of the actual keyword
+            return 0.9
+        return 0.8 * length_ratio  # Lower score for smaller substrings
+    
+    if norm_actual in norm_pred:
+        # If actual is a substring of predicted but nearly as long, score it higher
+        length_ratio = len(norm_actual) / len(norm_pred)
+        if length_ratio > 0.7:  # Actual captures most of the predicted keyword
+            return 0.9
+        return 0.8 * length_ratio  # Lower score for smaller substrings
+    
+    # Word overlap using ngram matching
+    ngram_score = ngram_match(norm_pred, norm_actual)
+    if ngram_score > 0.6:  # Significant word overlap
+        return 0.7 + (0.2 * ngram_score)  # Scale between 0.7-0.9
+    
+    # Fall back to traditional string similarity for low overlap cases
+    return keyword_similarity(norm_pred, norm_actual) * 0.7  # Scale down string similarity
+
+def advanced_match_keywords(pred_kw: str, actual_kws: List[str], model, similarity_threshold: float = 0.7) -> Tuple[str, float]:
+    """
+    Match a predicted keyword against a list of actual keywords using multiple techniques.
+    
+    Args:
+        pred_kw: Predicted keyword to match
+        actual_kws: List of actual keywords to match against
+        model: Sentence transformer model for embedding similarity
+        similarity_threshold: Minimum similarity threshold
         
-        for actual_kw in actual_kws:
-            if actual_kw in used_actual:
-                continue
-                
-            # Use embeddings for similarity
-            sim = embedding_similarity(pred_kw, actual_kw, model)
-            
-            if sim > best_score and sim >= threshold:
-                best_score = sim
+    Returns:
+        Tuple of (best_match, similarity_score)
+    """
+    best_match = None
+    best_score = 0
+    
+    for actual_kw in actual_kws:
+        # Try hierarchical matching first
+        h_score = hierarchical_match(pred_kw, actual_kw)
+        
+        # If we get a strong hierarchical match
+        if h_score >= similarity_threshold:
+            if h_score > best_score:
+                best_score = h_score
                 best_match = actual_kw
+            continue
         
-        if best_match:
-            matches.append((pred_kw, best_match, best_score))
-            used_actual.add(best_match)
+        # Try embedding similarity if hierarchical matching wasn't strong enough
+        if h_score < similarity_threshold:
+            e_score = embedding_similarity(pred_kw, actual_kw, model)
             
-    return matches
+            # Use the better of the two scores
+            sim_score = max(h_score, e_score)
+            
+            if sim_score > best_score and sim_score >= similarity_threshold:
+                best_score = sim_score
+                best_match = actual_kw
+    
+    return best_match, best_score
 
 def evaluate_keywords(predicted: List[Tuple[str, float]], actual: List[Tuple[str, float]], 
-                      similarity_threshold: float = 0.7) -> Dict[str, float]:
+                      model, similarity_threshold: float = 0.7) -> Dict[str, float]:
     """
     Evaluate predicted keywords against actual keywords with multiple metrics.
-    Uses fuzzy matching to handle variations in terminology.
+    Uses hierarchical matching and embedding similarity to handle variations.
     """
     pred_keywords = [kw for kw, _ in predicted]
     actual_keywords = [kw for kw, _ in actual]
     
     print(f"Evaluating {len(pred_keywords)} predicted vs {len(actual_keywords)} actual keywords")
     
-    # Track matches using fuzzy matching
+    # Track matches using advanced matching
     matches = []
     used_actual = set()
     
     # For each predicted keyword, find best matching actual keyword
     for pred_kw in pred_keywords:
-        best_match = None
-        best_score = 0
+        # Skip already processed predictions (exact duplicates)
+        norm_pred = normalize_keyword(pred_kw)
         
-        for actual_kw in actual_keywords:
-            if actual_kw in used_actual:
-                continue
-                
-            similarity = keyword_similarity(pred_kw, actual_kw)
-            if similarity > best_score and similarity >= similarity_threshold:
-                best_score = similarity
-                best_match = actual_kw
+        # Find best match using advanced matching
+        available_actual = [kw for kw in actual_keywords if kw not in used_actual]
+        best_match, match_score = advanced_match_keywords(pred_kw, available_actual, model, similarity_threshold)
         
-        if best_match:
-            matches.append((pred_kw, best_match, best_score))
+        if best_match and match_score >= similarity_threshold:
+            matches.append((pred_kw, best_match, match_score))
             used_actual.add(best_match)
     
     # Calculate metrics
@@ -263,8 +330,36 @@ def evaluate_keywords(predicted: List[Tuple[str, float]], actual: List[Tuple[str
         "true_positives": true_positives,
         "false_positives": false_positives,
         "false_negatives": false_negatives,
-        "similarity_threshold": similarity_threshold
+        "similarity_threshold": similarity_threshold,
+        "matches": [(p, a, float(s)) for p, a, s in matches]  # Store all matches with scores
     }
+
+def evaluate_with_embeddings(predicted_kws, actual_kws, model, threshold=0.75):
+    # Note: This function is kept for backward compatibility
+    # We now recommend using the more advanced evaluate_keywords function above
+    matches = []
+    used_actual = set()
+    
+    for pred_kw, pred_score in predicted_kws:
+        best_match = None
+        best_score = 0
+        
+        for actual_kw in actual_kws:
+            if actual_kw in used_actual:
+                continue
+                
+            # Use embeddings for similarity
+            sim = embedding_similarity(pred_kw, actual_kw, model)
+            
+            if sim > best_score and sim >= threshold:
+                best_score = sim
+                best_match = actual_kw
+        
+        if best_match:
+            matches.append((pred_kw, best_match, best_score))
+            used_actual.add(best_match)
+            
+    return matches
 
 def extract_hybrid_keywords(text, keybert_model, top_n=30):
     # Neural extraction with KeyBERT
@@ -378,16 +473,27 @@ def main():
             # Extract keywords for test chapter with lower diversity
             test_keywords = extract_hybrid_keywords(test_text, keybert, top_n=25)
             
-            # Evaluate against training keywords
-            metrics = evaluate_keywords(test_keywords, train_keywords)
+            # Evaluate against training keywords using hierarchical matching and embedding similarity
+            metrics = evaluate_keywords(test_keywords, train_keywords, sentence_model, similarity_threshold=0.7)
             
             print(f"Results for chapter {chapter}:")
             for metric, value in metrics.items():
-                print(f"  - {metric}: {value:.4f}")
+                if metric != "matches":  # Skip printing all matches
+                    print(f"  - {metric}: {value:.4f}" if isinstance(value, float) else f"  - {metric}: {value}")
+            
+            # Print a few sample matches with their matching method
+            print("\nSample matches (showing match technique):")
+            for pred, actual, score in metrics["matches"][:5]:
+                technique = "Exact match" if score >= 0.95 else \
+                           "Containment" if score >= 0.8 else \
+                           "Word overlap" if score >= 0.7 else \
+                           "Embedding similarity"
+                print(f"  - '{pred}' → '{actual}' ({technique}, score: {score:.3f})")
             
             test_results[f"chapter_{chapter}"] = {
                 "keywords": [(kw, float(score)) for kw, score in test_keywords],  # Convert numpy floats to regular floats
-                "metrics": metrics
+                "metrics": {k: v for k, v in metrics.items() if k != "matches"},  # Don't store all matches in JSON
+                "sample_matches": [(p, a, float(s)) for p, a, s in metrics["matches"][:10]]  # Store just a few examples
             }
     
     # Save results
@@ -401,7 +507,9 @@ def main():
             "parameters": {
                 "model": model_name,
                 "top_n": 25,
-                "diversity": 0.5
+                "diversity": 0.5,
+                "similarity_threshold": 0.7,
+                "matching_approach": "hierarchical+embedding"
             }
         }, f, indent=2)
     
