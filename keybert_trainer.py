@@ -49,6 +49,59 @@ def load_chapter(chapter_num: int) -> str:
         print(f"Error loading chapter {chapter_num}: {e}")
         return ""
 
+def normalize_keyword(keyword: str) -> str:
+    """Normalize a keyword by removing special characters and converting to lowercase."""
+    # First clean any soft hyphens before normalization
+    keyword = keyword.replace("‐ ", "").replace("‐", "")
+    
+    # Remove special characters and extra whitespace
+    keyword = re.sub(r'[^\w\s-]', '', keyword.lower())
+    keyword = re.sub(r'\s+', ' ', keyword).strip()
+    return keyword
+
+def is_valid_keyword(keyword: str) -> bool:
+    """
+    Check if a keyword is valid using regex pattern.
+    Includes common characters for technical terms but excludes mathematical expressions.
+    """
+    # Skip empty keywords
+    if not keyword or len(keyword.strip()) == 0:
+        return False
+        
+    # For multi-word keywords, check each word
+    words = keyword.split()
+    if len(words) > 1:
+        # Allow multi-word terms even if individual parts wouldn't be valid alone
+        return True
+    
+    # Special cases for known technical terms with + signs
+    special_cases = ["C++", "C&C++", "A+B"]
+    if keyword in special_cases:
+        return True
+    
+    # Check for common mathematical expressions that should be excluded
+    math_patterns = [
+        r'=',                # equations
+        r'[*/÷]',            # arithmetic operators (excluding + which can be in C++)
+        r'\s[<>]\s',         # inequality signs with spaces
+        r'≠|≤|≥|→|←',        # special math symbols
+        r'∀|∃|∈|⊂|⊃|∪|∩',    # set theory symbols
+        r'\$\\',             # LaTeX marker
+        r'\\frac',           # LaTeX fraction
+        r'^[0-9+*/-]+$',     # pure arithmetic expressions
+    ]
+    
+    for pattern in math_patterns:
+        if re.search(pattern, keyword):
+            # Skip the check for special cases
+            if keyword in special_cases:
+                continue
+            return False
+    
+    # For single words, check if they match our pattern for normal terms
+    # Allow common characters used in technical terms, including commas
+    return bool(re.match(r'^[A-Za-z0-9\-\'_\\(),\[\]&+.:^]+$', keyword))
+
 def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 30, 
                     diversity: float = 0.5, min_df: int = 1) -> List[Tuple[str, float]]:
     """
@@ -106,6 +159,19 @@ def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 30,
                 min_df=min_df
             )
             
+            # Filter out invalid keywords (math formulae, etc.)
+            filtered_keywords = []
+            for kw, score in keywords:
+                if is_valid_keyword(kw):
+                    filtered_keywords.append((kw, score))
+                else:
+                    print(f"Filtered out invalid keyword: {kw}")
+            
+            if len(filtered_keywords) < len(keywords):
+                print(f"Filtered out {len(keywords) - len(filtered_keywords)} invalid keywords")
+            
+            keywords = filtered_keywords
+            
             if len(keywords) > 0:
                 all_keywords.extend(keywords)
             
@@ -150,13 +216,6 @@ def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 30,
             print(f"Fallback extraction failed too: {e2}")
     
     return final_keywords
-
-def normalize_keyword(keyword: str) -> str:
-    """Normalize a keyword by removing special characters and converting to lowercase."""
-    # Remove special characters and extra whitespace
-    keyword = re.sub(r'[^\w\s-]', '', keyword.lower())
-    keyword = re.sub(r'\s+', ' ', keyword).strip()
-    return keyword
 
 def keyword_similarity(kw1: str, kw2: str) -> float:
     """Calculate similarity between two keywords."""
@@ -371,6 +430,19 @@ def extract_hybrid_keywords(text, keybert_model, top_n=30):
         diversity=0.6,
         top_n=top_n
     )
+    
+    # Filter out invalid keywords from neural extraction
+    filtered_neural_keywords = []
+    for kw, score in neural_keywords:
+        if is_valid_keyword(kw):
+            filtered_neural_keywords.append((kw, score))
+        else:
+            print(f"Filtered out invalid neural keyword: {kw}")
+    
+    if len(filtered_neural_keywords) < len(neural_keywords):
+        print(f"Filtered out {len(neural_keywords) - len(filtered_neural_keywords)} invalid neural keywords")
+    
+    neural_keywords = filtered_neural_keywords
     
     # Statistical extraction with TF-IDF
     # For a single document, we'll treat paragraphs as "documents" for IDF calculation

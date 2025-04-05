@@ -1,0 +1,888 @@
+{
+  "train_keywords": [
+    [
+      "clarifying machine learning",
+      1.0
+    ],
+    [
+      "machine learning housing",
+      1.0
+    ],
+    [
+      "classifiers mnist",
+      1.0
+    ],
+    [
+      "training neural networks",
+      1.0
+    ],
+    [
+      "svm classifiers",
+      1.0
+    ],
+    [
+      "ensemble decision trees",
+      1.0
+    ],
+    [
+      "reducing dimensionality training",
+      1.0
+    ],
+    [
+      "potential unsupervised learning",
+      1.0
+    ],
+    [
+      "tensorflow datasets",
+      1.0
+    ],
+    [
+      "deep cnn",
+      1.0
+    ],
+    [
+      "recurrent networks",
+      1.0
+    ],
+    [
+      "neural text",
+      1.0
+    ],
+    [
+      "autoencoders gans",
+      1.0
+    ],
+    [
+      "atari deep reinforcement",
+      1.0
+    ],
+    [
+      "serving tensorflow models",
+      1.0
+    ],
+    [
+      "housing prices dataset",
+      0.9823954731216599
+    ],
+    [
+      "regression training algorithm",
+      0.9768252044834899
+    ],
+    [
+      "alan turing computing",
+      0.8968331700946783
+    ],
+    [
+      "chatbot capable fooling",
+      0.8857329415605615
+    ],
+    [
+      "learn real estate",
+      0.8648223828984597
+    ],
+    [
+      "learning datasets quora",
+      0.8555485696321912
+    ],
+    [
+      "home scikit_learn_data",
+      0.8517316017316016
+    ],
+    [
+      "based ml project",
+      0.8259226968904388
+    ],
+    [
+      "model",
+      0.8
+    ],
+    [
+      "data",
+      0.8
+    ],
+    [
+      "precision",
+      0.8
+    ],
+    [
+      "ns",
+      0.8
+    ],
+    [
+      "training",
+      0.8
+    ],
+    [
+      "dimensionality",
+      0.8
+    ],
+    [
+      "clusters",
+      0.8
+    ],
+    [
+      "dataset",
+      0.8
+    ],
+    [
+      "layer",
+      0.8
+    ],
+    [
+      "time",
+      0.8
+    ],
+    [
+      "word",
+      0.8
+    ],
+    [
+      "keras",
+      0.8
+    ],
+    [
+      "max",
+      0.8
+    ],
+    [
+      "assumes patterns rnn",
+      0.7832190662748939
+    ],
+    [
+      "action",
+      0.7802693545805572
+    ],
+    [
+      "pca",
+      0.7788119267237353
+    ],
+    [
+      "recall",
+      0.7770520361073758
+    ],
+    [
+      "attention",
+      0.772067863353064
+    ],
+    [
+      "state",
+      0.7498392635263318
+    ],
+    [
+      "labeled instances instead",
+      0.7433931484502447
+    ],
+    [
+      "versus clustering",
+      0.7323001631321371
+    ],
+    [
+      "set",
+      0.7294296374452313
+    ],
+    [
+      "learning",
+      0.7238505917581448
+    ],
+    [
+      "ensemble",
+      0.7166474518245369
+    ],
+    [
+      "using deep learning",
+      0.7117964320287652
+    ],
+    [
+      "deepmind bought google",
+      0.7058498133038307
+    ],
+    [
+      "polynomial_regression",
+      0.7043320205998183
+    ],
+    [
+      "tf",
+      0.6965720604599207
+    ],
+    [
+      "cluster",
+      0.6917992693679668
+    ],
+    [
+      "autoencoder",
+      0.6899268857628756
+    ],
+    [
+      "instances",
+      0.689516977898736
+    ],
+    [
+      "data unlabeled input",
+      0.6854812398042415
+    ],
+    [
+      "digit dataset",
+      0.6839826839826839
+    ],
+    [
+      "environment",
+      0.6729376572809302
+    ],
+    [
+      "specifically text classification",
+      0.6718977041557687
+    ],
+    [
+      "layers",
+      0.6690496068068867
+    ],
+    [
+      "images",
+      0.6689342874730926
+    ],
+    [
+      "gpu",
+      0.6599009264846813
+    ],
+    [
+      "policy",
+      0.6578089066200623
+    ],
+    [
+      "know logistic regression",
+      0.6546501060284762
+    ],
+    [
+      "visualization dataviz reducing",
+      0.6420279206465834
+    ],
+    [
+      "regression",
+      0.6390062647187196
+    ],
+    [
+      "test imitation game",
+      0.6309174012406138
+    ],
+    [
+      "nonlinear datasets model",
+      0.6305664950015147
+    ],
+    [
+      "neural network preprocessing",
+      0.6283132530120482
+    ],
+    [
+      "friendly ais",
+      0.6242566726593832
+    ],
+    [
+      "gradient",
+      0.6184768952839824
+    ],
+    [
+      "tasks detecting puppy",
+      0.5984606447865234
+    ],
+    [
+      "classification",
+      0.5903249533599859
+    ],
+    [
+      "cloud create tpustrategy",
+      0.5880507434183604
+    ],
+    [
+      "prefetching data api",
+      0.5870481927710843
+    ],
+    [
+      "underfitting curves reached",
+      0.5830051499545592
+    ]
+  ],
+  "test_results": {
+    "chapter_6": {
+      "keywords": [
+        [
+          "understand decision trees",
+          1.0
+        ],
+        [
+          "right",
+          0.8
+        ],
+        [
+          "decision",
+          0.7931837432726054
+        ],
+        [
+          "tree_clf fit visualize",
+          0.726983688139342
+        ],
+        [
+          "trees cart training",
+          0.7202101188830522
+        ],
+        [
+          "left",
+          0.717762876243637
+        ],
+        [
+          "max_depth sklearn tree",
+          0.6364390378766933
+        ],
+        [
+          "node",
+          0.6138440935090523
+        ],
+        [
+          "min_samples_leaf regression decision",
+          0.5557091512303014
+        ],
+        [
+          "pi",
+          0.5518377517547441
+        ],
+        [
+          "mse",
+          0.5408754171457216
+        ],
+        [
+          "tree",
+          0.5222947168557489
+        ],
+        [
+          "trees",
+          0.5148313544323151
+        ],
+        [
+          "prediction use scipy",
+          0.5080176942217307
+        ],
+        [
+          "training",
+          0.48934983380196917
+        ],
+        [
+          "grow forest",
+          0.4763616256566215
+        ],
+        [
+          "like svms",
+          0.47539397290572294
+        ],
+        [
+          "decision trees",
+          0.4642300685510036
+        ],
+        [
+          "chapter",
+          0.43242514726993075
+        ],
+        [
+          "figure",
+          0.42302265458925387
+        ],
+        [
+          "set",
+          0.41217800854326847
+        ],
+        [
+          "discussing train visualize",
+          0.39632291954658555
+        ],
+        [
+          "mleft",
+          0.3909276322502259
+        ],
+        [
+          "chapter sklearn datasets",
+          0.3866463920376002
+        ],
+        [
+          "decision tree",
+          0.38565887242491614
+        ]
+      ],
+      "metrics": {
+        "precision": 0.12,
+        "recall": 0.04,
+        "f1_score": 0.05999999999999999,
+        "true_positives": 3,
+        "false_positives": 22,
+        "false_negatives": 72,
+        "similarity_threshold": 0.7
+      },
+      "sample_matches": [
+        [
+          "training",
+          "training",
+          1.0
+        ],
+        [
+          "decision trees",
+          "ensemble decision trees",
+          0.7583242058753967
+        ],
+        [
+          "set",
+          "set",
+          1.0
+        ]
+      ]
+    },
+    "chapter_10": {
+      "keywords": [
+        [
+          "artificial neural",
+          1.0
+        ],
+        [
+          "keras",
+          0.8
+        ],
+        [
+          "model",
+          0.7762679455319553
+        ],
+        [
+          "deep stacks computations",
+          0.5837498215050693
+        ],
+        [
+          "layers",
+          0.5774011241018554
+        ],
+        [
+          "layer",
+          0.5730893950103939
+        ],
+        [
+          "output",
+          0.5688138777419413
+        ],
+        [
+          "10",
+          0.5557042488184313
+        ],
+        [
+          "fashion_mnist keras datasets",
+          0.5551906325860345
+        ],
+        [
+          "training",
+          0.5414726682944069
+        ],
+        [
+          "network architectures visualize",
+          0.5219191774953591
+        ],
+        [
+          "neurons",
+          0.5098206038032669
+        ],
+        [
+          "biologically unrealistic models",
+          0.502927316864201
+        ],
+        [
+          "use",
+          0.48843267380349764
+        ],
+        [
+          "function",
+          0.4873613092377158
+        ],
+        [
+          "better understand mlps",
+          0.4652291874910752
+        ],
+        [
+          "neural",
+          0.43745919762942553
+        ],
+        [
+          "network",
+          0.4265290173006435
+        ],
+        [
+          "tensorflow facebook",
+          0.4245323432814508
+        ],
+        [
+          "planes inspired birds",
+          0.41539340282735965
+        ],
+        [
+          "learning",
+          0.39443766944275094
+        ],
+        [
+          "neuron",
+          0.3874279804982629
+        ],
+        [
+          "set",
+          0.38558079439046683
+        ],
+        [
+          "loss",
+          0.3778032143412768
+        ],
+        [
+          "using",
+          0.37407630563122407
+        ]
+      ],
+      "metrics": {
+        "precision": 0.28,
+        "recall": 0.09333333333333334,
+        "f1_score": 0.14,
+        "true_positives": 7,
+        "false_positives": 18,
+        "false_negatives": 68,
+        "similarity_threshold": 0.7
+      },
+      "sample_matches": [
+        [
+          "keras",
+          "keras",
+          1.0
+        ],
+        [
+          "model",
+          "model",
+          1.0
+        ],
+        [
+          "layers",
+          "layers",
+          1.0
+        ],
+        [
+          "layer",
+          "layer",
+          1.0
+        ],
+        [
+          "training",
+          "training",
+          1.0
+        ],
+        [
+          "learning",
+          "learning",
+          1.0
+        ],
+        [
+          "set",
+          "set",
+          1.0
+        ]
+      ]
+    },
+    "chapter_11": {
+      "keywords": [
+        [
+          "deep network",
+          1.0
+        ],
+        [
+          "layers",
+          0.8
+        ],
+        [
+          "training",
+          0.7956788858311543
+        ],
+        [
+          "regularization techniques large",
+          0.7639733135656042
+        ],
+        [
+          "layer",
+          0.7112227737016347
+        ],
+        [
+          "learning",
+          0.6937247226923817
+        ],
+        [
+          "model",
+          0.6821798631262812
+        ],
+        [
+          "gradients problems popular",
+          0.6585618977020015
+        ],
+        [
+          "11",
+          0.6407894870082601
+        ],
+        [
+          "keras",
+          0.6400935099490459
+        ],
+        [
+          "dropout",
+          0.594469481456577
+        ],
+        [
+          "function",
+          0.5568923667445906
+        ],
+        [
+          "activation",
+          0.5441589117001562
+        ],
+        [
+          "costly label training",
+          0.5347664936990364
+        ],
+        [
+          "sufficient keras implementing",
+          0.5280948851000742
+        ],
+        [
+          "rate",
+          0.5223504896166655
+        ],
+        [
+          "overfitting max",
+          0.5206819866567828
+        ],
+        [
+          "neural",
+          0.5082018258568178
+        ],
+        [
+          "close backpropagation kicks",
+          0.4868791697553744
+        ],
+        [
+          "momentum",
+          0.45985327037989676
+        ],
+        [
+          "help tackle complex",
+          0.45292809488510005
+        ],
+        [
+          "hundreds types objects",
+          0.44195700518902886
+        ],
+        [
+          "learning rate",
+          0.43797250901159973
+        ],
+        [
+          "rid bn layer",
+          0.4355819125277984
+        ],
+        [
+          "networks",
+          0.42388504870657917
+        ]
+      ],
+      "metrics": {
+        "precision": 0.28,
+        "recall": 0.09333333333333334,
+        "f1_score": 0.14,
+        "true_positives": 7,
+        "false_positives": 18,
+        "false_negatives": 68,
+        "similarity_threshold": 0.7
+      },
+      "sample_matches": [
+        [
+          "deep network",
+          "deep cnn",
+          0.872352123260498
+        ],
+        [
+          "layers",
+          "layers",
+          1.0
+        ],
+        [
+          "training",
+          "training",
+          1.0
+        ],
+        [
+          "layer",
+          "layer",
+          1.0
+        ],
+        [
+          "learning",
+          "learning",
+          1.0
+        ],
+        [
+          "model",
+          "model",
+          1.0
+        ],
+        [
+          "keras",
+          "keras",
+          1.0
+        ]
+      ]
+    },
+    "chapter_12": {
+      "keywords": [
+        [
+          "tensorflow constructs",
+          1.0
+        ],
+        [
+          "tf",
+          0.8
+        ],
+        [
+          "custom regression mlp",
+          0.5985098151597651
+        ],
+        [
+          "use keras model",
+          0.5930649090127526
+        ],
+        [
+          "function",
+          0.5683153886502075
+        ],
+        [
+          "popular deep learning",
+          0.5377561255194154
+        ],
+        [
+          "nets self normalizing",
+          0.535750107465253
+        ],
+        [
+          "tensorflow",
+          0.5349909664536087
+        ],
+        [
+          "model",
+          0.516208763795896
+        ],
+        [
+          "self training",
+          0.490041553231122
+        ],
+        [
+          "keras",
+          0.4868899702563721
+        ],
+        [
+          "self",
+          0.44943249205066843
+        ],
+        [
+          "layer",
+          0.4481804558451232
+        ],
+        [
+          "computing gradients example",
+          0.4264221235133973
+        ],
+        [
+          "auto graph",
+          0.4076515260065912
+        ],
+        [
+          "custom",
+          0.40764065954063916
+        ],
+        [
+          "regularizers weight",
+          0.3764149591632039
+        ],
+        [
+          "loss",
+          0.3718242626227785
+        ],
+        [
+          "play nice numpy",
+          0.34646797535463536
+        ],
+        [
+          "method",
+          0.34113835642336165
+        ],
+        [
+          "layers",
+          0.3253792623386369
+        ],
+        [
+          "park custom layers",
+          0.3140851124802981
+        ],
+        [
+          "use",
+          0.2915086040127281
+        ],
+        [
+          "api",
+          0.29028813603061815
+        ],
+        [
+          "built google",
+          0.2880068777761857
+        ]
+      ],
+      "metrics": {
+        "precision": 0.24,
+        "recall": 0.08,
+        "f1_score": 0.11999999999999998,
+        "true_positives": 6,
+        "false_positives": 19,
+        "false_negatives": 69,
+        "similarity_threshold": 0.7
+      },
+      "sample_matches": [
+        [
+          "tf",
+          "tf",
+          1.0
+        ],
+        [
+          "model",
+          "model",
+          1.0
+        ],
+        [
+          "self training",
+          "training",
+          0.7973548173904419
+        ],
+        [
+          "keras",
+          "keras",
+          1.0
+        ],
+        [
+          "layer",
+          "layer",
+          1.0
+        ],
+        [
+          "layers",
+          "layers",
+          1.0
+        ]
+      ]
+    }
+  },
+  "parameters": {
+    "model": "all-mpnet-base-v2",
+    "top_n": 25,
+    "diversity": 0.5,
+    "similarity_threshold": 0.7,
+    "matching_approach": "hierarchical+embedding"
+  }
+}

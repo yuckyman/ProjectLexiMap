@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import json
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Optional
 import matplotlib.pyplot as plt
 import seaborn as sns
 from collections import defaultdict
@@ -27,10 +27,56 @@ def debug_print(message: str, important: bool = False):
 
 def normalize_keyword(keyword: str) -> str:
     """Normalize a keyword by removing special characters and converting to lowercase."""
+    # First clean any soft hyphens before normalization
+    keyword = keyword.replace("‐ ", "").replace("‐", "")
+    
     # Remove special characters and extra whitespace
     keyword = re.sub(r'[^\w\s-]', '', keyword.lower())
     keyword = re.sub(r'\s+', ' ', keyword).strip()
     return keyword
+
+def is_valid_keyword(keyword: str) -> bool:
+    """
+    Check if a keyword is valid using regex pattern.
+    Includes common characters for technical terms but excludes mathematical expressions.
+    """
+    # Skip empty keywords
+    if not keyword or len(keyword.strip()) == 0:
+        return False
+        
+    # For multi-word keywords, check each word
+    words = keyword.split()
+    if len(words) > 1:
+        # Allow multi-word terms even if individual parts wouldn't be valid alone
+        return True
+    
+    # Special cases for known technical terms with + signs
+    special_cases = ["C++", "C&C++", "A+B"]
+    if keyword in special_cases:
+        return True
+    
+    # Check for common mathematical expressions that should be excluded
+    math_patterns = [
+        r'=',                # equations
+        r'[*/÷]',            # arithmetic operators (excluding + which can be in C++)
+        r'\s[<>]\s',         # inequality signs with spaces
+        r'≠|≤|≥|→|←',        # special math symbols
+        r'∀|∃|∈|⊂|⊃|∪|∩',    # set theory symbols
+        r'\$\\',             # LaTeX marker
+        r'\\frac',           # LaTeX fraction
+        r'^[0-9+*/-]+$',     # pure arithmetic expressions
+    ]
+    
+    for pattern in math_patterns:
+        if re.search(pattern, keyword):
+            # Skip the check for special cases
+            if keyword in special_cases:
+                continue
+            return False
+    
+    # For single words, check if they match our pattern for normal terms
+    # Allow common characters used in technical terms, including commas
+    return bool(re.match(r'^[A-Za-z0-9\-\'_\\(),\[\]&+.:^]+$', keyword))
 
 def keyword_similarity(kw1: str, kw2: str) -> float:
     """Calculate similarity between two keywords."""
@@ -49,16 +95,24 @@ def keyword_similarity(kw1: str, kw2: str) -> float:
     # Use sequence matcher for fuzzy matching
     return SequenceMatcher(None, kw1, kw2).ratio()
 
-def find_best_match(keyword: str, candidates: List[str], threshold: float = 0.8) -> Tuple[str, float]:
+def find_best_match(keyword: str, candidates: List[str], threshold: float = 0.8) -> Tuple[Optional[str], float]:
     """Find the best matching keyword from a list of candidates."""
     best_match = None
     best_score = 0
     
-    for candidate in candidates:
-        score = keyword_similarity(keyword, candidate)
-        if score > best_score and score >= threshold:
-            best_score = score
-            best_match = candidate
+    # Also try reversed word order for multi-word terms
+    alt_keywords = [keyword]
+    words = keyword.split()
+    if len(words) > 1:
+        # Add reversed order as alternative
+        alt_keywords.append(" ".join(words[::-1]))
+    
+    for alt_keyword in alt_keywords:
+        for candidate in candidates:
+            score = keyword_similarity(alt_keyword, candidate)
+            if score > best_score and score >= threshold:
+                best_score = score
+                best_match = candidate
     
     return best_match, best_score
 
@@ -73,7 +127,9 @@ def load_index_keywords() -> Dict[int, List[str]]:
         with open(cache_file, 'r', encoding='utf-8') as f:
             result = json.load(f)
             debug_print(f"Successfully loaded {len(result)} chapters from cache")
-            return {int(k): v for k, v in result.items()}
+            # Process hierarchical terms
+            expanded_result = expand_hierarchical_terms(result)
+            return {int(k): v for k, v in expanded_result.items()}
     
     debug_print("Processing index keywords (first run)...", important=True)
     keywords = defaultdict(list)
@@ -124,11 +180,45 @@ def load_index_keywords() -> Dict[int, List[str]]:
             json.dump(result, f, indent=2)
         debug_print("Keywords cached successfully")
         
+        # Process hierarchical terms
+        expanded_result = expand_hierarchical_terms(result)
+        
         # Convert back to int keys for return
-        return {int(k): v for k, v in result.items()}
+        return {int(k): v for k, v in expanded_result.items()}
     except Exception as e:
         debug_print(f"Error in load_index_keywords: {str(e)}", important=True)
         raise
+
+def expand_hierarchical_terms(index_data: Dict[str, List[str]]) -> Dict[str, List[str]]:
+    """
+    Expand hierarchical terms in the index (e.g., "machine learning, supervised" to also include 
+    "supervised machine learning").
+    """
+    debug_print("Expanding hierarchical terms in index...")
+    expanded_data = {k: list(v) for k, v in index_data.items()}  # Make a copy with new lists
+    
+    expansion_count = 0
+    for chapter, keywords in expanded_data.items():
+        additional_terms = []
+        
+        for keyword in keywords:
+            if "," in keyword:
+                parts = [part.strip() for part in keyword.split(",")]
+                if len(parts) > 1:
+                    # Create alternative arrangement: "Y X" from "X, Y"
+                    alt_keyword = f"{parts[1]} {parts[0]}"
+                    alt_keyword = normalize_keyword(alt_keyword)
+                    if alt_keyword and alt_keyword not in keywords and alt_keyword not in additional_terms:
+                        additional_terms.append(alt_keyword)
+                        expansion_count += 1
+        
+        # Add all new terms
+        keywords.extend(additional_terms)
+    
+    if expansion_count > 0:
+        debug_print(f"Added {expansion_count} alternative terms from hierarchical index entries")
+    
+    return expanded_data
 
 def load_chapter(chapter_num: int) -> str:
     """load a chapter from the textbook folder."""
@@ -195,6 +285,19 @@ def extract_keywords(text: str, keybert: KeyBERT, chapter_num: int = None, top_n
             diversity=0.7
         )
         
+        # Filter out invalid keywords (math formulae, etc.)
+        filtered_keywords = []
+        for kw, score in keywords:
+            if is_valid_keyword(kw):
+                filtered_keywords.append((kw, score))
+            else:
+                debug_print(f"Filtered out invalid keyword: {kw}")
+        
+        if len(filtered_keywords) < len(keywords):
+            debug_print(f"Filtered out {len(keywords) - len(filtered_keywords)} invalid keywords")
+        
+        keywords = filtered_keywords
+        
         elapsed = time.time() - start_time
         debug_print(f"Extracted {len(keywords)} keywords in {elapsed:.2f} seconds", important=True)
         if keywords:
@@ -257,23 +360,46 @@ def calculate_metrics(predicted: List[Tuple[str, float]], ground_truth: List[str
     debug_print("Normalizing predicted keywords...")
     pred_keywords = [(normalize_keyword(kw), score) for kw, score in predicted]
     
-    # For each predicted keyword, find the best matching ground truth keyword
-    debug_print("Finding best matches...")
-    match_count = 0
-    total_predictions = len(pred_keywords)
-    
+    # First, try to match exact matches and obvious variations
+    debug_print("Looking for exact and close matches first...")
     for i, (pred_kw, pred_score) in enumerate(pred_keywords):
-        if i % 20 == 0 or i == total_predictions - 1:
-            debug_print(f"Matching keyword {i+1}/{total_predictions} ({(i+1)/total_predictions*100:.1f}%)")
+        for truth_kw in ground_truth:
+            if truth_kw in used_truth:
+                continue
+                
+            # Check for exact match after normalization
+            if pred_kw == truth_kw:
+                matches.append((pred_kw, truth_kw, 1.0))
+                used_truth.add(truth_kw)
+                break
+                
+            # Check if one contains the other completely
+            if pred_kw in truth_kw or truth_kw in pred_kw:
+                matches.append((pred_kw, truth_kw, 0.9))
+                used_truth.add(truth_kw)
+                break
+    
+    # For remaining predictions, find the best matching ground truth keyword
+    debug_print("Finding best matches for remaining keywords...")
+    remaining_predictions = [(kw, score) for kw, score in pred_keywords 
+                             if not any(kw == m[0] for m in matches)]
+    remaining_truths = [kw for kw in ground_truth if kw not in used_truth]
+    
+    match_count = 0
+    total_remaining = len(remaining_predictions)
+    
+    for i, (pred_kw, pred_score) in enumerate(remaining_predictions):
+        if i % 20 == 0 or i == total_remaining - 1:
+            debug_print(f"Matching remaining keyword {i+1}/{total_remaining} ({(i+1)/total_remaining*100:.1f}%)")
             
-        best_match, match_score = find_best_match(pred_kw, ground_truth, similarity_threshold)
+        best_match, match_score = find_best_match(pred_kw, remaining_truths, similarity_threshold)
         if best_match and best_match not in used_truth:
             matches.append((pred_kw, best_match, match_score))
             used_truth.add(best_match)
             match_count += 1
     
     elapsed = time.time() - start_time
-    debug_print(f"Matching complete in {elapsed:.2f} seconds, found {match_count} matches")
+    debug_print(f"Matching complete in {elapsed:.2f} seconds, found {len(matches)} matches")
     
     true_positives = len(matches)
     false_positives = len(predicted) - true_positives
