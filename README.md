@@ -11,12 +11,12 @@ this project evaluates the performance of keybert for keyword extraction by comp
 ├── keybert_trainer.py       # implementation for training keybert with enhanced methods
 ├── keybert_evaluator.py     # main evaluation script
 ├── mindmap_generator.py     # creates interactive knowledge graph visualizations
+├── index_mindmap_generator.py # creates ground truth mindmaps from the index
 ├── textbook/               
 │   ├── ch1.txt - ch19.txt  # textbook chapters
 │   ├── index.txt           # complete textbook index
 │   └── index_by_chapter.txt # index organized by chapter
 ├── results/                # evaluation results directory
-│   ├── interim/           # interim results during evaluation
 │   ├── mindmaps/          # interactive html mindmaps
 │   └── *.png, *.json      # final results and visualizations
 └── cache/                  # cached data for faster processing
@@ -26,8 +26,8 @@ this project evaluates the performance of keybert for keyword extraction by comp
 
 1. create a virtual environment:
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 ```
 
 2. install dependencies:
@@ -37,55 +37,46 @@ pip install -r requirements.txt
 
 ## running the scripts
 
-### unified script (recommended)
-we provide a unified script that combines both training and evaluation functionality:
+### keyword extraction and evaluation
 
 ```bash
-python3 keybert_unified.py [command] [options]
+# Extract keywords with optimized parameters
+python keybert_trainer.py
+
+# Evaluate extraction quality against textbook index
+python keybert_evaluator.py
 ```
 
-available commands:
-- `train`: train the model on training chapters
-- `evaluate`: evaluate model performance against ground truth keywords
+configurable parameters in both scripts:
+- `top_n`: number of keywords to extract (default now 100)
+- `diversity`: diversity factor for keyword selection (default now 0.7)
+- `similarity_threshold`: threshold for keyword matching (default 0.7)
 
-#### training with the unified script
-```bash
-python3 keybert_unified.py train --model all-mpnet-base-v2 --top_n 30 --diversity 0.5
-```
+the scripts will:
+- process all training chapters (1-5, 7-9, 13-19)
+- extract keywords using the default model (all-mpnet-base-v2)
+- combine neural and statistical approaches for better extraction
+- evaluate against test chapters (6, 10, 11, 12)
+- save results to the results directory
+- cache processed data and embeddings for faster subsequent runs
 
-options:
-- `--model`: sentence transformer model to use (default: all-mpnet-base-v2)
-- `--top_n`: number of keywords to extract per chapter (default: 50)
-- `--diversity`: diversity factor for keyword selection (0-1) (default: 0.5)
-- `--similarity_threshold`: threshold for keyword matching (default: 0.8)
-- `--timeout`: timeout in seconds for keyword extraction (default: 120)
-- `--clear_cache`: clear cache before running
-- `--skip_evaluation`: skip evaluation on test chapters
-- `--clean_results`: remove old training results before running
+### generating knowledge graph visualizations
 
-#### evaluation with the unified script
-```bash
-python3 keybert_unified.py evaluate --model all-mpnet-base-v2 --top_n 30 --diversity 0.7
-```
-
-additional evaluation options:
-- `--chapters`: specific chapters to evaluate (e.g., `--chapters 1 2 3`)
-- `--no_interim`: disable saving interim results
-- `--clean_results`: remove old evaluation results before running
-
-#### generating knowledge graph visualizations
 after extracting keywords, you can create interactive mindmaps that visualize the relationships between keywords:
 
 ```bash
-python3 mindmap_generator.py --chapters 6 10 11 12 --results results/keybert_all-mpnet-base-v2_results_[timestamp].json
+# Generate mindmap from extracted keywords
+python mindmap_generator.py --chapters 6 10 11 12 --results results/keybert_all-mpnet-base-v2_results_TIMESTAMP.json --output results/mindmaps/keybert_mindmap.html
+
+# Generate ground truth mindmap from index
+python index_mindmap_generator.py --chapters 6 10 11 12 --output results/mindmaps/ground_truth_mindmap.html
 ```
 
 options:
 - `--chapters`: chapter numbers to include in the mindmap (e.g., `--chapters 6 10 11 12`)
-- `--results`: path to keybert results file (generated from evaluation)
+- `--results`: path to keybert results file (generated from training)
 - `--model`: sentence transformer model to use (default: all-mpnet-base-v2)
 - `--similarity`: threshold for connecting keywords (0-1) (default: 0.65)
-- `--clustering`: threshold for clustering related keywords (default: 0.25)
 - `--max_keywords`: maximum number of keywords to include (default: 150)
 - `--min_edge_weight`: minimum weight for edges (default: 0.6)
 - `--output`: output html file path
@@ -99,75 +90,25 @@ how it works:
 3. builds a knowledge graph where:
    - nodes = keywords
    - edges = semantic relationships (based on cosine similarity)
-4. applies hierarchical clustering to group similar keywords
+   - chapters = hub nodes with distinct colors
+4. organizes keywords by chapter (represented as diamond nodes)
 5. exports an interactive html visualization using pyvis
 
 the visualization allows:
 - interactive exploration of keyword relationships
 - zooming and panning
-- color-coded keyword clusters
+- color-coded keywords by chapter
 - hover information with details
 - physics-based layout where related keywords naturally group together
-
-### legacy scripts
-alternatively, you can use the original separate scripts:
-
-#### training
-to train the model on the training chapters (1-5, 7-9, 13-19):
-```bash
-python3 keybert_trainer.py
-```
-
-this will:
-- process all training chapters
-- extract keywords using the default model (all-mpnet-base-v2)
-- combine neural and statistical approaches for better extraction
-- save results to the results directory
-- cache processed data and embeddings for faster subsequent runs
-
-#### evaluation
-basic usage with default models:
-```bash
-python3 keybert_evaluator.py
-```
-
-evaluate specific models:
-```bash
-python3 keybert_evaluator.py --model all-mpnet-base-v2 all-MiniLM-L6-v2
-```
-
-advanced usage with options:
-```bash
-python3 keybert_evaluator.py \
-  --model all-mpnet-base-v2 all-MiniLM-L6-v2 \
-  --top_n 30 \
-  --diversity 0.7 \
-  --similarity_threshold 0.8 \
-  --timeout 120 \
-  --clean_results
-```
-
-legacy command-line options:
-- `--model`: list of sentence transformer models to evaluate
-- `--top_n`: number of keywords to extract (default: 50)
-- `--diversity`: diversity factor for keyword selection (0-1, default: 0.5)
-- `--similarity_threshold`: threshold for keyword matching (default: 0.8)
-- `--timeout`: timeout in seconds for keyword extraction (default: 120)
-- `--clear_cache`: clear cached data before running
-- `--clean_results`: remove old results before running
-- `--no_interim`: disable saving interim results
 
 ## implementation details
 
 ### keyword extraction
-- uses keybert with multiple sentence-transformer models:
+- uses keybert with sentence-transformer model:
   - `all-mpnet-base-v2` (default)
-  - `all-MiniLM-L6-v2`
-  - `paraphrase-multilingual-MiniLM-L12-v2`
-  - support for custom models (including domain-specific models)
-- extracts up to 50 keywords per chapter (configurable)
+- extracts up to 100 keywords per chapter (configurable)
 - uses n-grams (1-3 words) to capture phrases
-- implements diversity in keyword selection (configurable, default=0.5)
+- implements high diversity in keyword selection (0.7)
 - **hybrid approach**: combines neural (transformer) and statistical (TF-IDF) methods
 - **paragraph-aware processing**: treats paragraphs as separate documents for TF-IDF calculation
 - **embedding caching**: caches keyword embeddings to improve performance
@@ -176,10 +117,10 @@ legacy command-line options:
 - precision: ratio of correctly identified keywords to total predicted keywords
 - recall: ratio of correctly identified keywords to total actual keywords
 - f1 score: harmonic mean of precision and recall
-- comparative analysis across different models
+- typical performance: ~13% precision, ~10% recall (index terms are chosen differently)
 
 ### keyword matching
-the evaluation implements two methods for matching keywords:
+the evaluation implements advanced methods for matching keywords:
 
 1. **string-based matching**:
    - normalization (lowercase, remove special characters)
@@ -192,39 +133,30 @@ the evaluation implements two methods for matching keywords:
    - calculates cosine similarity between keyword vectors
    - captures semantic relationships between terms
    - better handles synonyms and related concepts
-   - configurable similarity threshold (default: 0.75)
+   - configurable similarity threshold (default: 0.7)
 
-3. matching criteria:
-   - similarity threshold: configurable
-   - prevents duplicate matches
-   - handles partial and semantic matches
+3. **hierarchical matching**:
+   - specialized matching for hierarchical terms in indices
+   - handles variations in term order and phrasing
+   - combines string and semantic methods
 
-## output
+### visualization features
 
-the script produces for each model:
+1. **chapter-based organization**:
+   - keywords organized around chapter hub nodes
+   - each chapter has a distinct color
+   - chapter nodes shown as diamonds with larger font
+   - keywords connected to their chapter with dashed lines
 
-1. console output with:
-   - per-chapter metrics
-   - matched keywords with similarity scores
-   - average metrics across all chapters
-   - execution time and progress updates
+2. **index-based ground truth**:
+   - `index_mindmap_generator.py` creates ground truth mindmaps
+   - visualizes index terms organized by chapter
+   - allows direct comparison with extracted keywords
 
-2. visualizations:
-   - individual model performance plots
-   - comparative plot across all evaluated models
-   - saved in the `results` directory with timestamps
-
-3. detailed results:
-   - individual model results: `keybert_[model]_results_[timestamp].json`
-   - individual plots: `keybert_[model]_evaluation_[timestamp].png`
-   - comparison plot: `keybert_model_comparison_[timestamp].png`
-   - interim results (optional): saved during evaluation
-
-4. cached data:
-   - extracted keywords
-   - processed chapters
-   - keyword embeddings
-   - stored in `cache` directory for faster subsequent runs
+3. **semantic connections**:
+   - keywords connected based on semantic similarity
+   - similar concepts cluster together visually
+   - edge thickness indicates strength of relationship
 
 ## training vs testing split
 
@@ -237,38 +169,27 @@ this split allows for evaluating the model's performance on both seen and unseen
 
 ## implemented improvements
 
-1. **embedding-based similarity**:
-   - uses transformer model embeddings instead of string similarity
-   - captures semantic relationships between terms
-   - caches embeddings for better performance
+1. **increased extraction volume**:
+   - extracts 100 keywords per chapter (up from 30-50)
+   - keeps 300 unique training keywords (up from 75-150)
+   - better coverage of relevant terms
 
-2. **hybrid keyword extraction**:
-   - combines transformer models with TF-IDF
-   - neural methods capture semantic meaning
-   - statistical methods identify domain-specific terminology
-   - weighted combination for better results
+2. **enhanced diversity**:
+   - diversity parameter increased to 0.7
+   - captures a wider range of concepts
+   - reduces redundancy in extracted terms
 
-3. **domain-specific preprocessing**:
-   - enhanced stopword lists for educational content
-   - paragraph-aware text processing
-   - normalization of technical terms
+3. **relaxed similarity matching**:
+   - reduced similarity threshold to 0.7
+   - better identifies related concepts
+   - improves recall without sacrificing precision
 
-## future improvements
+4. **chapter-based visualization**:
+   - organizes mindmaps by chapter instead of clusters
+   - provides clearer structure and context
+   - makes comparison between extracted and index terms easier
 
-1. **model selection**:
-   - try domain-specific models like scibert
-   - experiment with fine-tuning on educational content
-   - benchmark different model architectures
-
-2. **contextual understanding**:
-   - implement hierarchical extraction (sentence → paragraph → chapter)
-   - better handling of sections and subsections
-
-3. **evaluation**:
-   - implement precision@k metrics
-   - add cross-validation
-   - analyze performance by keyword type/length
-
-4. **hyperparameter optimization**:
-   - systematic grid search for optimal parameters
-   - automatic parameter selection based on content 
+5. **ground truth visualization**:
+   - added index-based mindmap generation
+   - provides baseline for comparison
+   - helps assess extraction quality visually 

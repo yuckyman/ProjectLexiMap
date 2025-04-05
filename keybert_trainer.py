@@ -102,8 +102,8 @@ def is_valid_keyword(keyword: str) -> bool:
     # Allow common characters used in technical terms, including commas
     return bool(re.match(r'^[A-Za-z0-9\-\'_\\(),\[\]&+.:^]+$', keyword))
 
-def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 30, 
-                    diversity: float = 0.5, min_df: int = 1) -> List[Tuple[str, float]]:
+def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 100, 
+                    diversity: float = 0.7, min_df: int = 1) -> List[Tuple[str, float]]:
     """
     Extract keywords from text using keybert with parameters optimized for educational content.
     
@@ -150,12 +150,12 @@ def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 30,
             # Extract keywords with MMR (Maximal Marginal Relevance)
             keywords = keybert.extract_keywords(
                 chunk,
-                keyphrase_ngram_range=(1, 2),  # Allow up to trigrams
+                keyphrase_ngram_range=(1, 3),  # Allow up to trigrams
                 stop_words=stop_words,
                 use_maxsum=False,  # Use MMR instead for better extraction with mpnet
                 use_mmr=True,
                 diversity=diversity,
-                top_n=min(30, top_n),  # Extract more from each chunk
+                top_n=min(100, top_n),  # Extract more from each chunk
                 min_df=min_df
             )
             
@@ -420,14 +420,14 @@ def evaluate_with_embeddings(predicted_kws, actual_kws, model, threshold=0.75):
             
     return matches
 
-def extract_hybrid_keywords(text, keybert_model, top_n=30):
+def extract_hybrid_keywords(text, keybert_model, top_n=100):
     # Neural extraction with KeyBERT
     neural_keywords = keybert_model.extract_keywords(
         text, 
         keyphrase_ngram_range=(1, 3),
         stop_words='english',
         use_mmr=True,
-        diversity=0.6,
+        diversity=0.7,
         top_n=top_n
     )
     
@@ -511,8 +511,8 @@ def main():
     train_keywords_by_chapter = {}
     for i, chapter in enumerate(TRAIN_CHAPTERS):
         text = train_texts[i]
-        # Using lower diversity (0.5) to capture more semantically related terms
-        train_keywords_by_chapter[chapter] = extract_hybrid_keywords(text, keybert, top_n=25)
+        # Using higher diversity (0.7) to capture more varied terms
+        train_keywords_by_chapter[chapter] = extract_hybrid_keywords(text, keybert, top_n=100)
     
     # Combine all unique training keywords
     all_train_keywords = []
@@ -528,7 +528,7 @@ def main():
             unique_train_keywords.append((kw, score))
     
     # Keep top keywords
-    train_keywords = unique_train_keywords[:75]  # Increase number of keywords
+    train_keywords = unique_train_keywords[:300]  # Increased from 150 to 300
     
     print("\nTop training keywords:")
     for kw, score in train_keywords[:10]:
@@ -542,8 +542,8 @@ def main():
         test_text = load_chapter(chapter)
         if test_text:
             print(f"\nProcessing test chapter {chapter}...")
-            # Extract keywords for test chapter with lower diversity
-            test_keywords = extract_hybrid_keywords(test_text, keybert, top_n=25)
+            # Extract keywords for test chapter with higher diversity
+            test_keywords = extract_hybrid_keywords(test_text, keybert, top_n=100)
             
             # Evaluate against training keywords using hierarchical matching and embedding similarity
             metrics = evaluate_keywords(test_keywords, train_keywords, sentence_model, similarity_threshold=0.7)
@@ -578,8 +578,8 @@ def main():
             "test_results": test_results,
             "parameters": {
                 "model": model_name,
-                "top_n": 25,
-                "diversity": 0.5,
+                "top_n": 100,
+                "diversity": 0.7,
                 "similarity_threshold": 0.7,
                 "matching_approach": "hierarchical+embedding"
             }

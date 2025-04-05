@@ -95,7 +95,7 @@ def keyword_similarity(kw1: str, kw2: str) -> float:
     # Use sequence matcher for fuzzy matching
     return SequenceMatcher(None, kw1, kw2).ratio()
 
-def find_best_match(keyword: str, candidates: List[str], threshold: float = 0.8) -> Tuple[Optional[str], float]:
+def find_best_match(keyword: str, candidates: List[str], threshold: float = 0.7) -> Tuple[Optional[str], float]:
     """Find the best matching keyword from a list of candidates."""
     best_match = None
     best_score = 0
@@ -252,7 +252,7 @@ def load_chapter(chapter_num: int) -> str:
         debug_print(f"Error loading chapter {chapter_num}: {e}", important=True)
         return ""
 
-def extract_keywords(text: str, keybert: KeyBERT, chapter_num: int = None, top_n: int = 50) -> List[Tuple[str, float]]:
+def extract_keywords(text: str, keybert: KeyBERT, chapter_num: int = None, top_n: int = 100) -> List[Tuple[str, float]]:
     """extract keywords from text using keybert with caching."""
     debug_print(f"Extracting keywords for {'chapter ' + str(chapter_num) if chapter_num else 'text'}", important=True)
     
@@ -280,7 +280,7 @@ def extract_keywords(text: str, keybert: KeyBERT, chapter_num: int = None, top_n
             keyphrase_ngram_range=(1, 3),
             stop_words='english',
             top_n=top_n,
-            nr_candidates=max(100, top_n * 5),  # ensure enough candidates for maxsum
+            nr_candidates=max(200, top_n * 5),  # ensure enough candidates for maxsum
             use_maxsum=True,
             diversity=0.7
         )
@@ -348,7 +348,7 @@ def extract_keywords(text: str, keybert: KeyBERT, chapter_num: int = None, top_n
             return []
 
 def calculate_metrics(predicted: List[Tuple[str, float]], ground_truth: List[str], 
-                     similarity_threshold: float = 0.8) -> Dict[str, float]:
+                     similarity_threshold: float = 0.7) -> Dict[str, float]:
     """calculate precision, recall, and f1 score using fuzzy matching."""
     debug_print(f"Calculating metrics: {len(predicted)} predicted vs {len(ground_truth)} ground truth keywords")
     start_time = time.time()

@@ -138,71 +138,60 @@ class MindMapGenerator:
         self.embedding_cache[text] = embedding
         return embedding
     
-    def load_keywords_from_results(self, results_file: str) -> Dict[int, List[Tuple[str, float]]]:
-        """Load keywords from evaluation results file."""
+    def load_keywords_from_json(self, file_path: str) -> Dict[int, List[Tuple[str, float]]]:
+        """Load keywords from a KeyBERT results JSON file."""
         if self.verbose:
-            debug_print(f"Loading keywords from {results_file}...")
+            debug_print(f"Loading keywords from {file_path}...")
         
         try:
-            with open(results_file, 'r', encoding='utf-8') as f:
-                results = json.load(f)
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
             
             keywords_by_chapter = {}
             
-            # Check for different possible structures
-            if "chapter_metrics" in results:
-                # Format from keybert_evaluator.py
-                for chapter_str, chapter_data in results.get("chapter_metrics", {}).items():
-                    try:
-                        chapter_num = int(chapter_str)
-                    except ValueError:
-                        # Try to extract chapter number from string like "chapter_6"
+            # Check which format the results are in
+            if 'results' in data:
+                # Old format with 'results' and 'chapter_X' keys
+                for chapter_key, chapter_data in data['results'].items():
+                    if chapter_key.startswith('chapter_'):
                         try:
-                            chapter_num = int(chapter_str.split('_')[-1])
+                            chapter_num = int(chapter_key.split('_')[1])
+                            keywords = chapter_data.get('extracted_keywords', [])
+                            keywords_by_chapter[chapter_num] = keywords
                         except (ValueError, IndexError):
                             continue
-                            
-                    extracted_keywords = chapter_data.get("extracted_keywords", [])
-                    # Convert to list of tuples if needed
-                    if isinstance(extracted_keywords, dict):
-                        extracted_keywords = [(k, v) for k, v in extracted_keywords.items()]
-                    keywords_by_chapter[chapter_num] = extracted_keywords
-            
-            elif "results" in results:
-                # Format from keybert_unified.py
-                for chapter_key, chapter_data in results.get("results", {}).items():
-                    # Extract chapter number from string like "chapter_6"
-                    try:
-                        if chapter_key.startswith("chapter_"):
-                            chapter_num = int(chapter_key.split("_")[1])
-                        else:
+            elif 'train_keywords' in data and 'test_results' in data:
+                # New format from keybert_trainer.py
+                # Add training keywords to all chapters they belong to
+                train_chapters = [1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 15, 16, 17, 18, 19]
+                for chapter in train_chapters:
+                    keywords_by_chapter[chapter] = data['train_keywords']
+                
+                # Add test results for each test chapter
+                for chapter_key, chapter_data in data['test_results'].items():
+                    if chapter_key.startswith('chapter_'):
+                        try:
+                            chapter_num = int(chapter_key.split('_')[1])
+                            keywords = chapter_data.get('keywords', [])
+                            keywords_by_chapter[chapter_num] = keywords
+                        except (ValueError, IndexError):
                             continue
-                        
-                        extracted_keywords = chapter_data.get("extracted_keywords", [])
-                        # Check if it's already a list of lists/tuples
-                        if extracted_keywords and isinstance(extracted_keywords[0], (list, tuple)):
-                            keywords_by_chapter[chapter_num] = [
-                                (kw, score) for kw, score in extracted_keywords
-                            ]
-                        else:
-                            # Handle other formats if needed
-                            keywords_by_chapter[chapter_num] = extracted_keywords
-                    except (ValueError, IndexError, AttributeError) as e:
-                        if self.verbose:
-                            debug_print(f"Error processing chapter key {chapter_key}: {e}")
-                        continue
+            else:
+                if self.verbose:
+                    debug_print("Unrecognized JSON format", important=True)
             
             if self.verbose:
                 debug_print(f"Loaded keywords for {len(keywords_by_chapter)} chapters")
-                if not keywords_by_chapter:
-                    debug_print("No keywords were found in the results file - check the file format", important=True)
-                    debug_print("If using the default file, try running: python keybert_unified.py evaluate", important=True)
+            
+            if not keywords_by_chapter:
+                debug_print("No keywords were found in the results file - check the file format", important=True)
+                debug_print("If using the default file, try running: python keybert_unified.py evaluate", important=True)
             
             return keywords_by_chapter
-        
+            
         except Exception as e:
             if self.verbose:
-                debug_print(f"Error loading keywords from results: {e}", important=True)
+                debug_print(f"Error loading keywords: {str(e)}", important=True)
             return {}
     
     def build_graph(self, chapters: List[int], keywords_by_chapter: Dict[int, List[Tuple[str, float]]]) -> nx.Graph:
@@ -239,6 +228,10 @@ class MindMapGenerator:
             G.add_node("No keywords found", size=20, title="No keywords were found in the specified chapters", color="#ff0000")
             return G
             
+        # Get a good color palette for chapters
+        chapter_palette = sns.color_palette("hls", len(chapters)).as_hex()
+        chapter_colors = {ch: chapter_palette[i] for i, ch in enumerate(sorted(chapters))}
+        
         # Add nodes
         for keyword, score, chapter in all_keywords:
             # Add node with attributes
@@ -248,7 +241,9 @@ class MindMapGenerator:
                     score=score,
                     chapter=chapter,
                     size=score * self.node_scaling_factor,
-                    title=f"Keyword: {keyword}<br>Score: {score:.3f}<br>Chapter: {chapter}"
+                    title=f"Keyword: {keyword}<br>Score: {score:.3f}<br>Chapter: {chapter}",
+                    group=chapter,  # Use chapter number as group
+                    color=chapter_colors[chapter]  # Assign color based on chapter
                 )
         
         # Compute embeddings for all keywords
@@ -291,9 +286,32 @@ class MindMapGenerator:
             if self.verbose:
                 debug_print(f"Created graph with {len(G.nodes)} nodes and {edge_count} edges")
             
-            # Apply clustering to identify keyword clusters
-            if len(G.nodes) > 1:
-                self.apply_clustering(G, embeddings)
+            # Add chapter nodes and connect them to their keywords
+            for chapter in chapters:
+                if chapter in keywords_by_chapter and keywords_by_chapter[chapter]:
+                    # Add chapter node
+                    chapter_node_name = f"Chapter {chapter}"
+                    G.add_node(
+                        chapter_node_name,
+                        title=f"Chapter {chapter}",
+                        size=15,  # Make chapter nodes bigger
+                        shape="diamond",  # Different shape for chapter nodes
+                        group=chapter,
+                        color=chapter_colors[chapter],
+                        font={"size": 20, "bold": True}  # Bigger font for chapter labels
+                    )
+                    
+                    # Connect chapter node to all its keywords
+                    for keyword, _, kw_chapter in all_keywords:
+                        if kw_chapter == chapter and G.has_node(keyword):
+                            G.add_edge(
+                                chapter_node_name,
+                                keyword,
+                                weight=1.0,  # Strong connection
+                                width=1.0,   # Consistent width
+                                color={"color": chapter_colors[chapter], "opacity": 0.7},
+                                dashes=True  # Dashed lines for chapter connections
+                            )
         else:
             if self.verbose:
                 debug_print("No valid embeddings found. Unable to calculate similarities.", important=True)
@@ -351,8 +369,8 @@ class MindMapGenerator:
             "forceAtlas2Based": {
               "gravitationalConstant": -100,
               "centralGravity": 0.01,
-              "springLength": 100,
-              "springConstant": 0.08
+              "springLength": 200,
+              "springConstant": 0.05
             },
             "maxVelocity": 50,
             "solver": "forceAtlas2Based",
@@ -366,6 +384,12 @@ class MindMapGenerator:
             "navigationButtons": true,
             "keyboard": true,
             "hover": true
+          },
+          "layout": {
+            "improvedLayout": true,
+            "hierarchical": {
+              "enabled": false
+            }
           }
         }
         """)
@@ -376,27 +400,54 @@ class MindMapGenerator:
             size = float(attrs.get('size', 10)) if hasattr(attrs.get('size', 10), 'item') else attrs.get('size', 10)
             group = int(attrs.get('group', 0)) if hasattr(attrs.get('group', 0), 'item') else attrs.get('group', 0)
             
+            # Prepare node attributes
+            node_attrs = {
+                "label": node,
+                "title": attrs.get('title', node),
+                "size": size,
+                "color": attrs.get('color', "#1f77b4"),
+                "group": group
+            }
+            
+            # Add shape if specified
+            if 'shape' in attrs:
+                node_attrs['shape'] = attrs['shape']
+                
+            # Add font attributes if specified
+            if 'font' in attrs:
+                node_attrs['font'] = attrs['font']
+            
             net.add_node(
                 node,
-                label=node,
-                title=attrs.get('title', node),
-                size=size,
-                color=attrs.get('color', "#1f77b4"),
-                group=group
+                **node_attrs
             )
         
         # Add edges
         for u, v, attrs in G.edges(data=True):
             # Convert numpy types to native Python types
             width = float(attrs.get('width', 1)) if hasattr(attrs.get('width', 1), 'item') else attrs.get('width', 1)
-            weight = float(attrs.get('weight', 0.5)) if hasattr(attrs.get('weight', 0.5), 'item') else attrs.get('weight', 0.5)
+            
+            # Prepare edge attributes
+            edge_attrs = {
+                "width": width,
+                "title": attrs.get('title', ''),
+                "arrowStrikethrough": False
+            }
+            
+            # Add color if specified
+            if 'color' in attrs:
+                edge_attrs['color'] = attrs['color']
+            else:
+                weight = float(attrs.get('weight', 0.5)) if hasattr(attrs.get('weight', 0.5), 'item') else attrs.get('weight', 0.5)
+                edge_attrs['color'] = {'opacity': min(1.0, weight + 0.2)}
+                
+            # Add dashes if specified
+            if 'dashes' in attrs and attrs['dashes']:
+                edge_attrs['dashes'] = True
             
             net.add_edge(
                 u, v,
-                width=width,
-                title=attrs.get('title', ''),
-                arrowStrikethrough=False,
-                color={'opacity': min(1.0, weight + 0.2)}
+                **edge_attrs
             )
         
         # Add custom HTML header with title
@@ -415,7 +466,7 @@ class MindMapGenerator:
                          title: str = "KeyBERT Knowledge Graph"):
         """Generate a mind map from extracted keywords."""
         # Load keywords from results
-        keywords_by_chapter = self.load_keywords_from_results(results_file)
+        keywords_by_chapter = self.load_keywords_from_json(results_file)
         
         # Build graph
         G = self.build_graph(chapters, keywords_by_chapter)
