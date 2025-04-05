@@ -10,12 +10,14 @@ this project evaluates the performance of keybert for keyword extraction by comp
 ├── requirements.txt
 ├── keybert_trainer.py       # implementation for training keybert with enhanced methods
 ├── keybert_evaluator.py     # main evaluation script
+├── mindmap_generator.py     # creates interactive knowledge graph visualizations
 ├── textbook/               
 │   ├── ch1.txt - ch19.txt  # textbook chapters
 │   ├── index.txt           # complete textbook index
 │   └── index_by_chapter.txt # index organized by chapter
 ├── results/                # evaluation results directory
 │   ├── interim/           # interim results during evaluation
+│   ├── mindmaps/          # interactive html mindmaps
 │   └── *.png, *.json      # final results and visualizations
 └── cache/                  # cached data for faster processing
 ```
@@ -70,6 +72,42 @@ additional evaluation options:
 - `--chapters`: specific chapters to evaluate (e.g., `--chapters 1 2 3`)
 - `--no_interim`: disable saving interim results
 - `--clean_results`: remove old evaluation results before running
+
+#### generating knowledge graph visualizations
+after extracting keywords, you can create interactive mindmaps that visualize the relationships between keywords:
+
+```bash
+python3 mindmap_generator.py --chapters 6 10 11 12 --results results/keybert_all-mpnet-base-v2_results_[timestamp].json
+```
+
+options:
+- `--chapters`: chapter numbers to include in the mindmap (e.g., `--chapters 6 10 11 12`)
+- `--results`: path to keybert results file (generated from evaluation)
+- `--model`: sentence transformer model to use (default: all-mpnet-base-v2)
+- `--similarity`: threshold for connecting keywords (0-1) (default: 0.65)
+- `--clustering`: threshold for clustering related keywords (default: 0.25)
+- `--max_keywords`: maximum number of keywords to include (default: 150)
+- `--min_edge_weight`: minimum weight for edges (default: 0.6)
+- `--output`: output html file path
+- `--title`: title for the visualization
+- `--no_cache`: disable embedding cache
+- `--quiet`: suppress verbose output
+
+how it works:
+1. loads extracted keywords from evaluation results
+2. creates embeddings for each keyword using sentence transformers
+3. builds a knowledge graph where:
+   - nodes = keywords
+   - edges = semantic relationships (based on cosine similarity)
+4. applies hierarchical clustering to group similar keywords
+5. exports an interactive html visualization using pyvis
+
+the visualization allows:
+- interactive exploration of keyword relationships
+- zooming and panning
+- color-coded keyword clusters
+- hover information with details
+- physics-based layout where related keywords naturally group together
 
 ### legacy scripts
 alternatively, you can use the original separate scripts:

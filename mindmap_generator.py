@@ -315,7 +315,6 @@ class MindMapGenerator:
         # Apply clustering
         clustering = AgglomerativeClustering(
             n_clusters=n_clusters,
-            affinity='cosine',
             linkage='average',
             distance_threshold=None
         )
@@ -373,23 +372,31 @@ class MindMapGenerator:
         
         # Add nodes
         for node, attrs in G.nodes(data=True):
+            # Convert numpy types to native Python types
+            size = float(attrs.get('size', 10)) if hasattr(attrs.get('size', 10), 'item') else attrs.get('size', 10)
+            group = int(attrs.get('group', 0)) if hasattr(attrs.get('group', 0), 'item') else attrs.get('group', 0)
+            
             net.add_node(
                 node,
                 label=node,
                 title=attrs.get('title', node),
-                size=attrs.get('size', 10),
+                size=size,
                 color=attrs.get('color', "#1f77b4"),
-                group=attrs.get('group', 0)
+                group=group
             )
         
         # Add edges
         for u, v, attrs in G.edges(data=True):
+            # Convert numpy types to native Python types
+            width = float(attrs.get('width', 1)) if hasattr(attrs.get('width', 1), 'item') else attrs.get('width', 1)
+            weight = float(attrs.get('weight', 0.5)) if hasattr(attrs.get('weight', 0.5), 'item') else attrs.get('weight', 0.5)
+            
             net.add_edge(
                 u, v,
-                width=attrs.get('width', 1),
+                width=width,
                 title=attrs.get('title', ''),
                 arrowStrikethrough=False,
-                color={'opacity': min(1.0, attrs.get('weight', 0.5) + 0.2)}
+                color={'opacity': min(1.0, weight + 0.2)}
             )
         
         # Add custom HTML header with title

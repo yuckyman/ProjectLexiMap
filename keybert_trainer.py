@@ -41,7 +41,7 @@ def load_chapter(chapter_num: int) -> str:
     """load a chapter from the textbook folder."""
     try:
         print(f"Loading chapter {chapter_num}...")
-        with open(f'textbook/ch{chapter_num}.txt', 'r') as f:
+        with open(f'textbook/ch{chapter_num}.txt', 'r', encoding='utf-8') as f:
             content = f.read()
             print(f"Chapter {chapter_num} loaded: {len(content)} chars")
             return content
