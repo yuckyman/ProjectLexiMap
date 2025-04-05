@@ -1,0 +1,5195 @@
+{
+  "chapter_1": {
+    "extracted_keywords": [
+      [
+        "does machine learning",
+        0.6254
+      ],
+      [
+        "definition machine learning",
+        0.6102
+      ],
+      [
+        "define machine learning",
+        0.605
+      ],
+      [
+        "machine learning really",
+        0.5818
+      ],
+      [
+        "launching machine learning",
+        0.5769
+      ],
+      [
+        "machine learning actually",
+        0.5609
+      ],
+      [
+        "know machine learning",
+        0.558
+      ],
+      [
+        "machine learning just",
+        0.5403
+      ],
+      [
+        "machine learning landscape",
+        0.5389
+      ],
+      [
+        "machine learning called",
+        0.5355
+      ],
+      [
+        "machine learning start",
+        0.5348
+      ],
+      [
+        "machine learn",
+        0.5346
+      ],
+      [
+        "qualify machine learning",
+        0.5334
+      ],
+      [
+        "machine learning use",
+        0.5316
+      ],
+      [
+        "machine learning went",
+        0.5301
+      ],
+      [
+        "ask machine learning",
+        0.5271
+      ],
+      [
+        "use machine learning",
+        0.524
+      ],
+      [
+        "computers ability learn",
+        0.5178
+      ],
+      [
+        "machine learning tackle",
+        0.5172
+      ],
+      [
+        "computers learn",
+        0.5166
+      ],
+      [
+        "explore machine learning",
+        0.5131
+      ],
+      [
+        "finally machine learning",
+        0.5118
+      ],
+      [
+        "computers learn data",
+        0.5048
+      ],
+      [
+        "hear machine learning",
+        0.5045
+      ],
+      [
+        "challenges machine learning",
+        0.5036
+      ],
+      [
+        "typical machine learning",
+        0.5013
+      ],
+      [
+        "categorize machine learning",
+        0.5013
+      ],
+      [
+        "far know machine",
+        0.4977
+      ],
+      [
+        "machine learning great",
+        0.4926
+      ],
+      [
+        "machine learning field",
+        0.4874
+      ],
+      [
+        "data machine learn",
+        0.4864
+      ],
+      [
+        "machine learning automated",
+        0.4848
+      ],
+      [
+        "machine learning want",
+        0.4819
+      ],
+      [
+        "machine learning tasks",
+        0.4802
+      ],
+      [
+        "machine learning basics",
+        0.48
+      ],
+      [
+        "machine learning machine",
+        0.4791
+      ],
+      [
+        "learning algorithms learn",
+        0.4774
+      ],
+      [
+        "machine learning science",
+        0.477
+      ],
+      [
+        "machine learning shines",
+        0.4741
+      ],
+      [
+        "know machine",
+        0.4709
+      ],
+      [
+        "learning machine",
+        0.4708
+      ],
+      [
+        "careful machine learning",
+        0.4707
+      ],
+      [
+        "building machine learning",
+        0.4688
+      ],
+      [
+        "filter machine learning",
+        0.4678
+      ],
+      [
+        "classify machine learning",
+        0.4651
+      ],
+      [
+        "best machine learning",
+        0.4635
+      ],
+      [
+        "learning machine learning",
+        0.461
+      ],
+      [
+        "machine learning making",
+        0.4603
+      ],
+      [
+        "algorithms learn",
+        0.4583
+      ],
+      [
+        "learning algorithms feed",
+        0.4574
+      ]
+    ],
+    "ground_truth": [
+      "cross-validation",
+      "agents",
+      "clustering algorithms",
+      "hierarchical clustering algorithms",
+      "importance of data over",
+      "supervised learning",
+      "unsupervised learning",
+      "visualization algorithms",
+      "anomaly detection",
+      "restricted boltzmann machines",
+      "rbms",
+      "association rule learning",
+      "attributes",
+      "batch learning",
+      "better life index",
+      "causal models",
+      "classification mlps",
+      "corpus development",
+      "data mismatch",
+      "importance of over algorithms",
+      "noisy data",
+      "deep belief networks",
+      "dbns",
+      "overfitting",
+      "development sets",
+      "dev sets",
+      "feature engineering",
+      "feature extraction",
+      "feature selection",
+      "features",
+      "final trained models",
+      "fitness functions",
+      "fully-specified model architecture",
+      "generalization error",
+      "hold outs",
+      "holdout validation",
+      "hyperparameters",
+      "hyperparameter tuning",
+      "learning rate",
+      "incremental learning",
+      "inference",
+      "instance-based learning",
+      "k-nearest neighbors regression",
+      "labels",
+      "linear models",
+      "classification with",
+      "machine learning",
+      "ml",
+      "testing and validating",
+      "measure of similarity",
+      "mini-batches",
+      "model parameters",
+      "model selection",
+      "model-based learning",
+      "training",
+      "no free lunch",
+      "nfl",
+      "novelty detection",
+      "offline learning",
+      "online learning",
+      "optical character recognition",
+      "ocr",
+      "out-of-core learning",
+      "out-of-sample error",
+      "penalties",
+      "policies",
+      "prediction problems",
+      "regression problems",
+      "regularization",
+      "reinforcement learning",
+      "rl",
+      "responsibilities",
+      "clustering",
+      "rewards",
+      "sampling bias",
+      "sampling noise",
+      "linear model",
+      "semi-supervised learning",
+      "spam filters",
+      "test sets",
+      "train-dev sets",
+      "training data",
+      "irrelevant features",
+      "nonrepresentative",
+      "poor quality",
+      "underfitting",
+      "training instances",
+      "training samples",
+      "training sets",
+      "algorithms covered",
+      "common tasks",
+      "utility functions",
+      "validation sets"
+    ],
+    "metrics": {
+      "precision": 0.02,
+      "recall": 0.010752688172043012,
+      "f1": 0.013986013986013988,
+      "true_positives": 1,
+      "false_positives": 49,
+      "false_negatives": 92
+    }
+  },
+  "chapter_2": {
+    "extracted_keywords": [
+      [
+        "machine learning datasets",
+        0.5829
+      ],
+      [
+        "machine learning projects",
+        0.5789
+      ],
+      [
+        "machine learning housing",
+        0.5575
+      ],
+      [
+        "data artificial datasets",
+        0.5391
+      ],
+      [
+        "artificial datasets",
+        0.5381
+      ],
+      [
+        "learn data",
+        0.5297
+      ],
+      [
+        "learning datasets quora",
+        0.527
+      ],
+      [
+        "learning algorithms dataset",
+        0.525
+      ],
+      [
+        "datasets housing",
+        0.5239
+      ],
+      [
+        "real data learning",
+        0.5224
+      ],
+      [
+        "learning datasets",
+        0.5096
+      ],
+      [
+        "data learning machine",
+        0.5077
+      ],
+      [
+        "dataset based data",
+        0.5066
+      ],
+      [
+        "housing dataset",
+        0.5041
+      ],
+      [
+        "algorithms dataset want",
+        0.5026
+      ],
+      [
+        "creates datasets housing",
+        0.501
+      ],
+      [
+        "data machine learning",
+        0.5003
+      ],
+      [
+        "machine learning project",
+        0.4968
+      ],
+      [
+        "real world data",
+        0.496
+      ],
+      [
+        "idea machine learning",
+        0.4942
+      ],
+      [
+        "dataset based",
+        0.4936
+      ],
+      [
+        "housing dataset try",
+        0.4915
+      ],
+      [
+        "dataset capable making",
+        0.4912
+      ],
+      [
+        "dataset want",
+        0.4896
+      ],
+      [
+        "machine learning best",
+        0.4867
+      ],
+      [
+        "training data dataset",
+        0.4864
+      ],
+      [
+        "data dataset",
+        0.4847
+      ],
+      [
+        "learn real estate",
+        0.4845
+      ],
+      [
+        "data learning",
+        0.4843
+      ],
+      [
+        "datasets",
+        0.484
+      ],
+      [
+        "datasets housing housing",
+        0.4837
+      ],
+      [
+        "learn data able",
+        0.4837
+      ],
+      [
+        "artificial datasets fortunately",
+        0.4818
+      ],
+      [
+        "real estate business",
+        0.4816
+      ],
+      [
+        "easily dataset",
+        0.4789
+      ],
+      [
+        "dataset interested",
+        0.4768
+      ],
+      [
+        "machine learning pipeline",
+        0.4752
+      ],
+      [
+        "machine learning software",
+        0.4737
+      ],
+      [
+        "learning machine learning",
+        0.4725
+      ],
+      [
+        "unfortunately housing dataset",
+        0.4723
+      ],
+      [
+        "irvine machine learning",
+        0.4694
+      ],
+      [
+        "attribute machine learn",
+        0.4689
+      ],
+      [
+        "dataset",
+        0.4685
+      ],
+      [
+        "data scientist real",
+        0.468
+      ],
+      [
+        "perform unknown datasets",
+        0.4668
+      ],
+      [
+        "dataset interested try",
+        0.4664
+      ],
+      [
+        "exploring data",
+        0.4659
+      ],
+      [
+        "working real data",
+        0.465
+      ],
+      [
+        "machine learning repository",
+        0.4634
+      ],
+      [
+        "algorithms dataset",
+        0.4629
+      ]
+    ],
+    "ground_truth": [
+      "cross-validation",
+      "evaluating",
+      "average absolute deviation",
+      "california housing prices dataset",
+      "mnist dataset",
+      "components",
+      "correlation coefficient",
+      "mean absolute error",
+      "mae",
+      "downloading",
+      "geographical data",
+      "data preparation",
+      "custom transformers",
+      "data cleaning",
+      "feature scaling",
+      "handling text and categorical attributes",
+      "transformation pipelines",
+      "data snooping bias",
+      "attribute combinations",
+      "computing correlations",
+      "test training and exploration sets",
+      "duck typing",
+      "dummy attributes",
+      "embedding",
+      "estimators",
+      "euclidean norm",
+      "data downloading",
+      "data visualization",
+      "framing the problem",
+      "launching monitoring and maintaining",
+      "machine learning project checklist",
+      "model fine-tuning",
+      "model selection and training",
+      "project goals",
+      "selecting performance measure",
+      "verifying assumptions",
+      "exploration sets",
+      "folds",
+      "histograms",
+      "hyperparameter tuning",
+      "isolated environments",
+      "k-fold cross-validation",
+      "labels",
+      "machine learning",
+      "ml",
+      "manhattan norm",
+      "rmse",
+      "min-max scaling",
+      "model selection",
+      "fine-tuning",
+      "training",
+      "multiple regression problems",
+      "multivariate regression problems",
+      "normalization",
+      "dense arrays",
+      "installing",
+      "serializing large arrays",
+      "one-hot encoding",
+      "one-hot vectors",
+      "pearsons r",
+      "pipelines",
+      "predictors",
+      "univariate regression problems",
+      "representation learning",
+      "root mean square error",
+      "converting text to numbers",
+      "dataset dictionary structure",
+      "design principles",
+      "gridsearchcv",
+      "k-fold cross-validation feature",
+      "mean_squared_error function",
+      "missing value handling",
+      "saving models",
+      "splitting datasets into subsets",
+      "stratified sampling",
+      "transformation sequences",
+      "transformers and",
+      "sparse matrix",
+      "standard correlation coefficient",
+      "standardization",
+      "tail-heavy histograms",
+      "deploying on ai platforms",
+      "test sets",
+      "example project",
+      "transformations",
+      "workspace creation"
+    ],
+    "metrics": {
+      "precision": 0.12,
+      "recall": 0.06976744186046512,
+      "f1": 0.08823529411764704,
+      "true_positives": 6,
+      "false_positives": 44,
+      "false_negatives": 80
+    }
+  },
+  "chapter_3": {
+    "extracted_keywords": [
+      [
+        "classification systems mnist",
+        0.6847
+      ],
+      [
+        "classifiers mnist",
+        0.6629
+      ],
+      [
+        "train classifiers mnist",
+        0.642
+      ],
+      [
+        "popular datasets mnist",
+        0.6062
+      ],
+      [
+        "datasets mnist",
+        0.604
+      ],
+      [
+        "digits mnist dataset",
+        0.5998
+      ],
+      [
+        "images mnist dataset",
+        0.595
+      ],
+      [
+        "learn classifiers",
+        0.5897
+      ],
+      [
+        "classification predicting classes",
+        0.5882
+      ],
+      [
+        "classification predicting",
+        0.5838
+      ],
+      [
+        "mnist learns machine",
+        0.5803
+      ],
+      [
+        "learn classifiers generally",
+        0.5795
+      ],
+      [
+        "classification know",
+        0.5734
+      ],
+      [
+        "mnist dataset actually",
+        0.5717
+      ],
+      [
+        "mnist dataset",
+        0.5708
+      ],
+      [
+        "classifiers digit",
+        0.5706
+      ],
+      [
+        "classification tasks outputs",
+        0.566
+      ],
+      [
+        "classifiers mnist problem",
+        0.5653
+      ],
+      [
+        "mnist dataset sklearn",
+        0.5627
+      ],
+      [
+        "classifiers",
+        0.5611
+      ],
+      [
+        "classification tasks",
+        0.56
+      ],
+      [
+        "scikit learn classifiers",
+        0.5591
+      ],
+      [
+        "closely mnist dataset",
+        0.5584
+      ],
+      [
+        "build good classification",
+        0.558
+      ],
+      [
+        "classification outputs",
+        0.5564
+      ],
+      [
+        "classify digit images",
+        0.5557
+      ],
+      [
+        "datasets mnist following",
+        0.5541
+      ],
+      [
+        "digits learning algorithms",
+        0.5516
+      ],
+      [
+        "classifiers especially",
+        0.5491
+      ],
+      [
+        "classification classifiers",
+        0.5468
+      ],
+      [
+        "classification classifiers train",
+        0.5464
+      ],
+      [
+        "classification systems",
+        0.5452
+      ],
+      [
+        "good classification systems",
+        0.5451
+      ],
+      [
+        "classification binary classifiers",
+        0.5449
+      ],
+      [
+        "classifiers digit detector",
+        0.5446
+      ],
+      [
+        "classifiers train",
+        0.5441
+      ],
+      [
+        "classification",
+        0.5436
+      ],
+      [
+        "data mnist",
+        0.543
+      ],
+      [
+        "predictions training",
+        0.5423
+      ],
+      [
+        "machine classifiers",
+        0.5422
+      ],
+      [
+        "classifiers generally",
+        0.5394
+      ],
+      [
+        "classifier learn",
+        0.5389
+      ],
+      [
+        "train classifiers",
+        0.5386
+      ],
+      [
+        "classification regression",
+        0.5385
+      ],
+      [
+        "predicting values classification",
+        0.5385
+      ],
+      [
+        "using mnist dataset",
+        0.5355
+      ],
+      [
+        "regression classifiers",
+        0.5348
+      ],
+      [
+        "classifiers various",
+        0.534
+      ],
+      [
+        "classifiers want classify",
+        0.5326
+      ],
+      [
+        "classifiers want",
+        0.5306
+      ]
+    ],
+    "ground_truth": [
+      "accuracy",
+      "cross-validation",
+      "area under the curve",
+      "auc",
+      "binary classifiers",
+      "error analysis",
+      "multiclass classification",
+      "multilabel classification",
+      "multioutput classification",
+      "performance measures",
+      "confusion matrix",
+      "skewed datasets",
+      "decision function",
+      "f1 score",
+      "false positive rate",
+      "fpr",
+      "folds",
+      "gradient descent",
+      "gd",
+      "stochastic gradient descent",
+      "harmonic mean",
+      "k-fold cross-validation",
+      "approaches to training",
+      "precision",
+      "recall",
+      "roc curve",
+      "multinomial classifiers",
+      "randint function",
+      "one-versus-all",
+      "ova",
+      "one-versus-one",
+      "ovo",
+      "one-versus-the-rest",
+      "ovr",
+      "online learning",
+      "sgd",
+      "receiver operating characteristic",
+      "roc",
+      "computing classifier metrics",
+      "cross_val_score function",
+      "sgdclassifier class",
+      "sensitivity",
+      "training models",
+      "true negative rate",
+      "tnr",
+      "true positive rate",
+      "tpr"
+    ],
+    "metrics": {
+      "precision": 0.04,
+      "recall": 0.0425531914893617,
+      "f1": 0.041237113402061855,
+      "true_positives": 2,
+      "false_positives": 48,
+      "false_negatives": 45
+    }
+  },
+  "chapter_4": {
+    "extracted_keywords": [
+      [
+        "learning models training",
+        0.6183
+      ],
+      [
+        "model training",
+        0.6034
+      ],
+      [
+        "models training",
+        0.5955
+      ],
+      [
+        "learning models",
+        0.5926
+      ],
+      [
+        "training models",
+        0.5827
+      ],
+      [
+        "training models far",
+        0.5796
+      ],
+      [
+        "model training discuss",
+        0.5619
+      ],
+      [
+        "training neural networks",
+        0.5589
+      ],
+      [
+        "model formance training",
+        0.5528
+      ],
+      [
+        "models training algorithms",
+        0.5497
+      ],
+      [
+        "regression training",
+        0.5475
+      ],
+      [
+        "training model",
+        0.5441
+      ],
+      [
+        "training examples learns",
+        0.5433
+      ],
+      [
+        "neural networks discussed",
+        0.5387
+      ],
+      [
+        "model trained",
+        0.5369
+      ],
+      [
+        "models trained",
+        0.5369
+      ],
+      [
+        "study neural networks",
+        0.5335
+      ],
+      [
+        "machine learning models",
+        0.5332
+      ],
+      [
+        "function training model",
+        0.5326
+      ],
+      [
+        "step good learning",
+        0.5312
+      ],
+      [
+        "feature training",
+        0.5289
+      ],
+      [
+        "features training",
+        0.5249
+      ],
+      [
+        "using simple learning",
+        0.5216
+      ],
+      [
+        "training model trained",
+        0.5199
+      ],
+      [
+        "learning",
+        0.5195
+      ],
+      [
+        "training algorithms",
+        0.5181
+      ],
+      [
+        "using learning",
+        0.518
+      ],
+      [
+        "building training neural",
+        0.517
+      ],
+      [
+        "simple learning",
+        0.5163
+      ],
+      [
+        "function training",
+        0.5139
+      ],
+      [
+        "model trained training",
+        0.5135
+      ],
+      [
+        "learning rate steps",
+        0.5134
+      ],
+      [
+        "examples learns",
+        0.5132
+      ],
+      [
+        "regression model trained",
+        0.511
+      ],
+      [
+        "calculations training",
+        0.509
+      ],
+      [
+        "training algorithm use",
+        0.5083
+      ],
+      [
+        "training neural",
+        0.5083
+      ],
+      [
+        "gradient descent training",
+        0.5073
+      ],
+      [
+        "learning step",
+        0.5062
+      ],
+      [
+        "model feed training",
+        0.505
+      ],
+      [
+        "underfitting training",
+        0.5047
+      ],
+      [
+        "model right training",
+        0.5004
+      ],
+      [
+        "training algorithms like",
+        0.5002
+      ],
+      [
+        "model learning",
+        0.4982
+      ],
+      [
+        "performs training data",
+        0.4973
+      ],
+      [
+        "algorithm use training",
+        0.4957
+      ],
+      [
+        "long learning",
+        0.4956
+      ],
+      [
+        "chapter training models",
+        0.4947
+      ],
+      [
+        "used classification tasks",
+        0.4945
+      ],
+      [
+        "learning algorithms",
+        0.4931
+      ]
+    ],
+    "ground_truth": [
+      "logistic",
+      "sigmoid",
+      "argmax operator",
+      "batch gradient descent",
+      "bias terms",
+      "biasvariance trade-off",
+      "calculus",
+      "large margin classification",
+      "linear svm classification",
+      "closed-form solution",
+      "column vectors",
+      "convergence",
+      "convex function",
+      "cross-entropy loss",
+      "log loss",
+      "mean squared error",
+      "iris dataset",
+      "decision boundaries",
+      "computational complexity",
+      "early stopping",
+      "elastic net",
+      "epochs",
+      "feature vector",
+      "full gradient descent",
+      "global minimum",
+      "gradient descent",
+      "gd",
+      "mini-batch gradient descent",
+      "stochastic gradient descent",
+      "learning rate",
+      "identity matrix",
+      "independent and identically distributed",
+      "iid",
+      "random initialization",
+      "intercept terms",
+      "kullbackleibler divergence",
+      "lasso regression",
+      "learning curves",
+      "learning schedules",
+      "linear algebra",
+      "linear regression model",
+      "approaches to training",
+      "normal equation",
+      "local minimum",
+      "log-odds",
+      "logistic regression",
+      "estimating probabilities",
+      "softmax regression",
+      "training and cost function",
+      "logit",
+      "rmse",
+      "mini-batches",
+      "multinomial logistic regression",
+      "normalized exponential",
+      "inv function",
+      "sgd",
+      "parameter matrix",
+      "parameter space",
+      "parameter vector",
+      "partial derivatives",
+      "polynomial regression",
+      "linear regression",
+      "ridge regression",
+      "regularization terms",
+      "regularized linear models",
+      "root mean square error",
+      "linear regression",
+      "simulated annealing",
+      "singular value decomposition",
+      "svd",
+      "softmax function",
+      "subgradient vector",
+      "support vector machines",
+      "svms",
+      "tikhonov regularization",
+      "tolerance",
+      "feature vectors",
+      "parameter vectors",
+      "subgradient vectors"
+    ],
+    "metrics": {
+      "precision": 0.04,
+      "recall": 0.02531645569620253,
+      "f1": 0.031007751937984496,
+      "true_positives": 2,
+      "false_positives": 48,
+      "false_negatives": 77
+    }
+  },
+  "chapter_5": {
+    "extracted_keywords": [
+      [
+        "svms best explained",
+        0.7137
+      ],
+      [
+        "svm classification fundamental",
+        0.7116
+      ],
+      [
+        "understanding svms",
+        0.708
+      ],
+      [
+        "svm classifiers",
+        0.7079
+      ],
+      [
+        "classifiers svm",
+        0.6968
+      ],
+      [
+        "explains svms",
+        0.6944
+      ],
+      [
+        "svm classification",
+        0.6894
+      ],
+      [
+        "svm classifiers just",
+        0.6865
+      ],
+      [
+        "classifiers svm classifiers",
+        0.6844
+      ],
+      [
+        "linear svm classifiers",
+        0.6801
+      ],
+      [
+        "svm classifiers method",
+        0.6796
+      ],
+      [
+        "svm classifier",
+        0.6795
+      ],
+      [
+        "deeper understanding svms",
+        0.6771
+      ],
+      [
+        "svm classifiers using",
+        0.6768
+      ],
+      [
+        "svms svm classifier",
+        0.6748
+      ],
+      [
+        "svm classifier use",
+        0.6747
+      ],
+      [
+        "svm classification classes",
+        0.672
+      ],
+      [
+        "linear svm classification",
+        0.6655
+      ],
+      [
+        "svms described",
+        0.6646
+      ],
+      [
+        "class svms",
+        0.6644
+      ],
+      [
+        "concepts svms",
+        0.6628
+      ],
+      [
+        "section explains svms",
+        0.6625
+      ],
+      [
+        "learn svm classification",
+        0.6622
+      ],
+      [
+        "classes svm classification",
+        0.6607
+      ],
+      [
+        "classification linear svm",
+        0.6604
+      ],
+      [
+        "svms svm",
+        0.6588
+      ],
+      [
+        "svm classification class",
+        0.6579
+      ],
+      [
+        "fundamental idea svms",
+        0.6579
+      ],
+      [
+        "vector machine svm",
+        0.6558
+      ],
+      [
+        "regression classifiers svm",
+        0.6544
+      ],
+      [
+        "think svm classifier",
+        0.6535
+      ],
+      [
+        "linear svm classifier",
+        0.6534
+      ],
+      [
+        "class svms used",
+        0.6527
+      ],
+      [
+        "svm classifier model",
+        0.6526
+      ],
+      [
+        "dataset svm classifiers",
+        0.649
+      ],
+      [
+        "svm classifier using",
+        0.6489
+      ],
+      [
+        "machine svm",
+        0.6462
+      ],
+      [
+        "svms",
+        0.6434
+      ],
+      [
+        "classes svm",
+        0.6432
+      ],
+      [
+        "svm classification linear",
+        0.6427
+      ],
+      [
+        "understanding svms word",
+        0.6382
+      ],
+      [
+        "svm classifiers efficient",
+        0.6378
+      ],
+      [
+        "svms described papers",
+        0.6355
+      ],
+      [
+        "does svm",
+        0.6349
+      ],
+      [
+        "svc class svms",
+        0.6343
+      ],
+      [
+        "learn svm",
+        0.6339
+      ],
+      [
+        "svm classifier prediction",
+        0.6316
+      ],
+      [
+        "svm",
+        0.6273
+      ],
+      [
+        "core concepts svms",
+        0.6272
+      ],
+      [
+        "svm algorithm",
+        0.6268
+      ]
+    ],
+    "ground_truth": [
+      "hard margin classification",
+      "nonlinear svm classification",
+      "soft margin classification",
+      "constrained optimization",
+      "hinge loss",
+      "feature scaling",
+      "decision trees",
+      "training and visualizing",
+      "dual problem",
+      "gaussian radial basis function",
+      "rbf",
+      "hinge loss function",
+      "hyperplanes",
+      "kernel trick",
+      "kernelized svm",
+      "kernels",
+      "landmarks",
+      "levenshtein distance",
+      "liblinear library",
+      "libsvm library",
+      "machine learning",
+      "ml",
+      "margin violations",
+      "mercers conditions",
+      "mercers theorem",
+      "online svms",
+      "polynomial features",
+      "polynomial kernels",
+      "primal problem",
+      "quadratic programming",
+      "qp",
+      "radial basis function",
+      "svm regression",
+      "svm classification classes",
+      "svm models",
+      "tolerance hyperparameter",
+      "sigmoid kernel",
+      "similarity functions",
+      "slack variables",
+      "string kernels",
+      "string subsequence kernel",
+      "subderivatives",
+      "decision function and prediction",
+      "training objective",
+      "support vectors"
+    ],
+    "metrics": {
+      "precision": 0.06,
+      "recall": 0.06666666666666667,
+      "f1": 0.06315789473684212,
+      "true_positives": 3,
+      "false_positives": 47,
+      "false_negatives": 42
+    }
+  },
+  "chapter_6": {
+    "extracted_keywords": [
+      [
+        "decision trees training",
+        0.7027
+      ],
+      [
+        "regression decision trees",
+        0.6966
+      ],
+      [
+        "svms decision trees",
+        0.6904
+      ],
+      [
+        "decision trees trained",
+        0.6782
+      ],
+      [
+        "decision tree training",
+        0.6775
+      ],
+      [
+        "decision trees make",
+        0.6717
+      ],
+      [
+        "understand decision trees",
+        0.6668
+      ],
+      [
+        "decision tree predicts",
+        0.6655
+      ],
+      [
+        "decision tree regression",
+        0.662
+      ],
+      [
+        "decision trees",
+        0.6588
+      ],
+      [
+        "decision trees fundamental",
+        0.654
+      ],
+      [
+        "decision trees generally",
+        0.6516
+      ],
+      [
+        "decision trees like",
+        0.6493
+      ],
+      [
+        "000 decision trees",
+        0.6484
+      ],
+      [
+        "overfitting decision trees",
+        0.6451
+      ],
+      [
+        "decision tree scikit",
+        0.6445
+      ],
+      [
+        "classification regression tree",
+        0.6444
+      ],
+      [
+        "decision tree trained",
+        0.6432
+      ],
+      [
+        "decision trees require",
+        0.6397
+      ],
+      [
+        "decision trees versatile",
+        0.6384
+      ],
+      [
+        "decision trees fit",
+        0.6359
+      ],
+      [
+        "decision trees capable",
+        0.6358
+      ],
+      [
+        "training decision tree",
+        0.6286
+      ],
+      [
+        "train decision trees",
+        0.6225
+      ],
+      [
+        "decision trees nodes",
+        0.6212
+      ],
+      [
+        "trained decision tree",
+        0.62
+      ],
+      [
+        "scikit learn decisiontreeregressor",
+        0.62
+      ],
+      [
+        "decision tree",
+        0.617
+      ],
+      [
+        "predictions decision tree",
+        0.6161
+      ],
+      [
+        "decision trees love",
+        0.6155
+      ],
+      [
+        "decision trees likely",
+        0.6155
+      ],
+      [
+        "decision trees prone",
+        0.6072
+      ],
+      [
+        "decision trees called",
+        0.6072
+      ],
+      [
+        "convinced decision trees",
+        0.6066
+      ],
+      [
+        "produce decision trees",
+        0.6031
+      ],
+      [
+        "forest classifier solutions",
+        0.6002
+      ],
+      [
+        "new decision tree",
+        0.6
+      ],
+      [
+        "decision tree understand",
+        0.5994
+      ],
+      [
+        "noticed decision trees",
+        0.5988
+      ],
+      [
+        "classification tree built",
+        0.5933
+      ],
+      [
+        "limitations decision trees",
+        0.5912
+      ],
+      [
+        "predictions trees",
+        0.5905
+      ],
+      [
+        "details random forests",
+        0.5884
+      ],
+      [
+        "trees like svms",
+        0.5878
+      ],
+      [
+        "tions decision trees",
+        0.5875
+      ],
+      [
+        "decision tree overfitting",
+        0.587
+      ],
+      [
+        "decision tree achieving",
+        0.5865
+      ],
+      [
+        "decision tree making",
+        0.5865
+      ],
+      [
+        "leaf decision trees",
+        0.5864
+      ],
+      [
+        "classification tree",
+        0.5857
+      ]
+    ],
+    "ground_truth": [
+      "cart training algorithm",
+      "greedy algorithms",
+      "binary trees",
+      "black box models",
+      "chi-squared test",
+      "classification and regression tree",
+      "cart",
+      "voting classifiers",
+      "mean squared error",
+      "decision trees",
+      "computational complexity",
+      "estimating class probabilities",
+      "gini impurity versus entropy",
+      "instability drawbacks",
+      "making predictions",
+      "regression tasks",
+      "regularization hyperparameters",
+      "ensemble learning",
+      "random forests",
+      "ensemble methods",
+      "ensembles",
+      "entropy impurity measure",
+      "gini impurity measure",
+      "impurity",
+      "information theory",
+      "instability",
+      "leaf nodes",
+      "majority-vote predictions",
+      "parametric versus nonparametric",
+      "white versus black box",
+      "nonparametric models",
+      "np-complete problem",
+      "null hypothesis",
+      "p-value",
+      "parametric models",
+      "prediction problems",
+      "pruning",
+      "hyperparameters for decision trees",
+      "root nodes",
+      "decisiontreeregressor class",
+      "max_depth hyperparameter",
+      "presorting data with",
+      "random_state hyperparameter",
+      "shannons information theory",
+      "statistical significance",
+      "training set rotation",
+      "white box models",
+      "wisdom of the crowd"
+    ],
+    "metrics": {
+      "precision": 0.06,
+      "recall": 0.0625,
+      "f1": 0.061224489795918366,
+      "true_positives": 3,
+      "false_positives": 47,
+      "false_negatives": 45
+    }
+  },
+  "chapter_7": {
+    "extracted_keywords": [
+      [
+        "ensembles random forests",
+        0.7144
+      ],
+      [
+        "ensemble methods work",
+        0.6964
+      ],
+      [
+        "called ensemble learning",
+        0.6914
+      ],
+      [
+        "ensemble decision trees",
+        0.6908
+      ],
+      [
+        "ensemble methods famously",
+        0.6904
+      ],
+      [
+        "ensemble methods including",
+        0.6837
+      ],
+      [
+        "ensemble methods",
+        0.6782
+      ],
+      [
+        "ensemble learning ensemble",
+        0.6777
+      ],
+      [
+        "use ensemble methods",
+        0.6766
+      ],
+      [
+        "ensemble method discuss",
+        0.6758
+      ],
+      [
+        "involve ensemble methods",
+        0.6748
+      ],
+      [
+        "learning ensemble",
+        0.6728
+      ],
+      [
+        "popular ensemble methods",
+        0.6724
+      ],
+      [
+        "use ensemble",
+        0.6703
+      ],
+      [
+        "ensemble learning algorithm",
+        0.6694
+      ],
+      [
+        "ensemble learning random",
+        0.6653
+      ],
+      [
+        "ensembles use",
+        0.6633
+      ],
+      [
+        "classifier ensemble",
+        0.663
+      ],
+      [
+        "called ensemble method",
+        0.662
+      ],
+      [
+        "ensemble makes predictions",
+        0.6596
+      ],
+      [
+        "ensemble technique",
+        0.6588
+      ],
+      [
+        "ensemble method",
+        0.6564
+      ],
+      [
+        "example ensemble method",
+        0.6547
+      ],
+      [
+        "ensemble prediction instance",
+        0.6543
+      ],
+      [
+        "algorithm called ensemble",
+        0.6541
+      ],
+      [
+        "ensemble learning",
+        0.6486
+      ],
+      [
+        "ensemble method example",
+        0.6478
+      ],
+      [
+        "ensemble predictions",
+        0.6458
+      ],
+      [
+        "ensemble using",
+        0.6453
+      ],
+      [
+        "best classifier ensemble",
+        0.6434
+      ],
+      [
+        "ensemble prediction",
+        0.6427
+      ],
+      [
+        "method example ensemble",
+        0.6421
+      ],
+      [
+        "ensemble decision",
+        0.6414
+      ],
+      [
+        "ensemble method train",
+        0.6408
+      ],
+      [
+        "technique called ensemble",
+        0.6395
+      ],
+      [
+        "ensemble training",
+        0.6387
+      ],
+      [
+        "example ensemble",
+        0.6381
+      ],
+      [
+        "ensembles benefit",
+        0.6367
+      ],
+      [
+        "ensemble technique called",
+        0.6367
+      ],
+      [
+        "ensemble simpler way",
+        0.6361
+      ],
+      [
+        "ensemble strong learner",
+        0.6359
+      ],
+      [
+        "ensemble simpler",
+        0.6358
+      ],
+      [
+        "learning ensemble learning",
+        0.6351
+      ],
+      [
+        "ensemble make prediction",
+        0.6346
+      ],
+      [
+        "called ensemble technique",
+        0.6343
+      ],
+      [
+        "predictors trained ensemble",
+        0.6335
+      ],
+      [
+        "ensembles boosting ensembles",
+        0.6331
+      ],
+      [
+        "ensemble prediction accuracy",
+        0.6326
+      ],
+      [
+        "predictions ensemble",
+        0.6322
+      ],
+      [
+        "ensemble predictions likely",
+        0.6319
+      ]
+    ],
+    "ground_truth": [
+      "adaboost",
+      "adaptive boosting",
+      "bagging and pasting",
+      "out-of-bag evaluation",
+      "in scikit-learn",
+      "blenders",
+      "gradient boosting",
+      "boosting",
+      "adaboost classifiers",
+      "extra-trees classifier",
+      "voting classifiers",
+      "dimensionality reduction",
+      "decision stumps",
+      "random forests",
+      "random patches and random subspaces",
+      "stacking",
+      "extremely randomized trees ensemble",
+      "gradient boosted regression trees",
+      "gbrt",
+      "gradient tree boosting",
+      "hard voting classifiers",
+      "high-dimensional training sets",
+      "hypothesis boosting",
+      "law of large numbers",
+      "majority-vote classifiers",
+      "meta learners",
+      "extra-trees",
+      "feature importance",
+      "shrinkage technique",
+      "residual errors",
+      "samme",
+      "stagewise additive modeling using a multiclass exponential loss function",
+      "adaboost version",
+      "extratreesclassifier class",
+      "feature importance scoring",
+      "gbrt ensemble training",
+      "incremental training",
+      "shrinkage",
+      "soft voting",
+      "stacked generalization",
+      "statistical mode",
+      "stochastic gradient boosting",
+      "strong learners",
+      "training sets",
+      "weak learners",
+      "xgboost"
+    ],
+    "metrics": {
+      "precision": 0.06,
+      "recall": 0.06521739130434782,
+      "f1": 0.062499999999999986,
+      "true_positives": 3,
+      "false_positives": 47,
+      "false_negatives": 43
+    }
+  },
+  "chapter_8": {
+    "extracted_keywords": [
+      [
+        "reducing dimensionality training",
+        0.6975
+      ],
+      [
+        "reduce dimensionality highly",
+        0.6502
+      ],
+      [
+        "reduces dimensionality",
+        0.6312
+      ],
+      [
+        "dimensionality reduction training",
+        0.631
+      ],
+      [
+        "approaches reducing dimensionality",
+        0.628
+      ],
+      [
+        "training dimensionality reduction",
+        0.6204
+      ],
+      [
+        "reducing dimensionality does",
+        0.6154
+      ],
+      [
+        "reducing dimensionality",
+        0.614
+      ],
+      [
+        "information reducing dimensionality",
+        0.6138
+      ],
+      [
+        "technique reduce dimensionality",
+        0.6131
+      ],
+      [
+        "reducing dimensionality data",
+        0.6109
+      ],
+      [
+        "reduce dimensionality running",
+        0.6103
+      ],
+      [
+        "drop pixels training",
+        0.6051
+      ],
+      [
+        "reduces dimensionality trying",
+        0.6014
+      ],
+      [
+        "speeding training dimensionality",
+        0.5965
+      ],
+      [
+        "reducing dimensionality computes",
+        0.5941
+      ],
+      [
+        "reducing dataset dimensionality",
+        0.593
+      ],
+      [
+        "dimensionality reduction extremely",
+        0.5885
+      ],
+      [
+        "reducing dimensionality preserving",
+        0.5876
+      ],
+      [
+        "reduce dimensionality",
+        0.58
+      ],
+      [
+        "performance dimensionality reduction",
+        0.5773
+      ],
+      [
+        "reducing dimensionality dimensions",
+        0.5733
+      ],
+      [
+        "reduce dimensionality dataset",
+        0.5667
+      ],
+      [
+        "used reduce dimensionality",
+        0.5628
+      ],
+      [
+        "reduce dataset dimensionality",
+        0.5606
+      ],
+      [
+        "reduced dataset dimensionality",
+        0.5587
+      ],
+      [
+        "reduction techniques dimensionality",
+        0.5555
+      ],
+      [
+        "know reduce dimensionality",
+        0.5538
+      ],
+      [
+        "dimensionality reduction depends",
+        0.5469
+      ],
+      [
+        "short reducing dimensionality",
+        0.5467
+      ],
+      [
+        "reducing dimensionality projection",
+        0.5467
+      ],
+      [
+        "want reduce dimensionality",
+        0.5452
+      ],
+      [
+        "course reducing dimensionality",
+        0.5446
+      ],
+      [
+        "approaches dimensionality reduction",
+        0.5434
+      ],
+      [
+        "popular dimensionality reduction",
+        0.5422
+      ],
+      [
+        "said dimensionality reduction",
+        0.5393
+      ],
+      [
+        "dimensionality reduction algorithms",
+        0.5389
+      ],
+      [
+        "high dimensional training",
+        0.5381
+      ],
+      [
+        "pca reducing dimensionality",
+        0.5362
+      ],
+      [
+        "dataset dimensionality reduced",
+        0.5345
+      ],
+      [
+        "images low dimensional",
+        0.5339
+      ],
+      [
+        "reduce dimensionality mnist",
+        0.5323
+      ],
+      [
+        "dimensionality reduction techniques",
+        0.5294
+      ],
+      [
+        "dimensionality reduced possible",
+        0.5292
+      ],
+      [
+        "training dimensionality",
+        0.5286
+      ],
+      [
+        "dimensionality reduction",
+        0.5263
+      ],
+      [
+        "dimensionality training",
+        0.5242
+      ],
+      [
+        "techniques dimensionality reduction",
+        0.5235
+      ],
+      [
+        "pixels training",
+        0.5231
+      ],
+      [
+        "dimensionality main drawbacks",
+        0.5228
+      ]
+    ],
+    "ground_truth": [
+      "isomap algorithm",
+      "randomized pca algorithm",
+      "unsupervised learning",
+      "compression",
+      "curse of dimensionality",
+      "compressing",
+      "decompressing",
+      "reconstruction error",
+      "reducing dimensionality",
+      "dimensionality reduction",
+      "decompression",
+      "lle",
+      "locally linear embedding",
+      "pca",
+      "principal component analysis",
+      "explained variance ratio",
+      "feature maps",
+      "feature space",
+      "incremental pca",
+      "ipca",
+      "inverse transformation",
+      "kernel pca",
+      "kpca",
+      "kernel trick",
+      "kernels",
+      "linear discriminant analysis",
+      "lda",
+      "manifold assumption",
+      "manifold hypothesis",
+      "manifold learning",
+      "multidimensional scaling",
+      "mds",
+      "nonlinear dimensionality reduction",
+      "nldr",
+      "array_split function",
+      "memmap class",
+      "svd function",
+      "original space",
+      "choosing dimension number",
+      "for compression",
+      "incremental",
+      "preserving variance",
+      "principal component axis",
+      "projecting down to d dimensions",
+      "randomized",
+      "using scikit-learn",
+      "pre-images",
+      "projection",
+      "random projections",
+      "randomized pca",
+      "reconstruction pre-images",
+      "automatic reconstruction with",
+      "full svd approach",
+      "incrementalpca class",
+      "kernelpca class",
+      "pcang",
+      "singular value decomposition",
+      "svd",
+      "subspace",
+      "t-distributed stochastic neighbor embedding",
+      "t-sne",
+      "training instances",
+      "preserving"
+    ],
+    "metrics": {
+      "precision": 0.04,
+      "recall": 0.031746031746031744,
+      "f1": 0.035398230088495575,
+      "true_positives": 2,
+      "false_positives": 48,
+      "false_negatives": 61
+    }
+  },
+  "chapter_9": {
+    "extracted_keywords": [
+      [
+        "unsupervised learning tasks",
+        0.6671
+      ],
+      [
+        "unsupervised learning",
+        0.6306
+      ],
+      [
+        "unsupervised learning barely",
+        0.6273
+      ],
+      [
+        "enter unsupervised learning",
+        0.6206
+      ],
+      [
+        "unsupervised learning cake",
+        0.6205
+      ],
+      [
+        "cake unsupervised learning",
+        0.6185
+      ],
+      [
+        "unsupervised_learning",
+        0.615
+      ],
+      [
+        "unsupervised learning task",
+        0.6085
+      ],
+      [
+        "common unsupervised learning",
+        0.6033
+      ],
+      [
+        "unsupervised learning techniques",
+        0.5869
+      ],
+      [
+        "potential unsupervised learning",
+        0.5676
+      ],
+      [
+        "images unsupervised_learning",
+        0.5651
+      ],
+      [
+        "look unsupervised learning",
+        0.5651
+      ],
+      [
+        "clustering unsupervised learning",
+        0.5225
+      ],
+      [
+        "chapter unsupervised learning",
+        0.5215
+      ],
+      [
+        "learning plenty unlabeled",
+        0.5212
+      ],
+      [
+        "unsupervised learning chapter",
+        0.5119
+      ],
+      [
+        "supervised learning plenty",
+        0.5097
+      ],
+      [
+        "learning useful",
+        0.4809
+      ],
+      [
+        "learning tasks",
+        0.4721
+      ],
+      [
+        "unsupervised task",
+        0.4714
+      ],
+      [
+        "join images unsupervised_learning",
+        0.4608
+      ],
+      [
+        "consider unlabeled dataset",
+        0.4589
+      ],
+      [
+        "supervised learning use",
+        0.4587
+      ],
+      [
+        "cake supervised learning",
+        0.4478
+      ],
+      [
+        "semi supervised learning",
+        0.4466
+      ],
+      [
+        "supervised learning icing",
+        0.4459
+      ],
+      [
+        "super vised learning",
+        0.4433
+      ],
+      [
+        "potential unsupervised",
+        0.4423
+      ],
+      [
+        "learning cake supervised",
+        0.4419
+      ],
+      [
+        "supervised",
+        0.4399
+      ],
+      [
+        "active learning useful",
+        0.4394
+      ],
+      [
+        "learning",
+        0.4377
+      ],
+      [
+        "unsupervised task consider",
+        0.4361
+      ],
+      [
+        "unlabeled data needing",
+        0.4344
+      ],
+      [
+        "unlabeled dataset",
+        0.4312
+      ],
+      [
+        "exploit unlabeled data",
+        0.4256
+      ],
+      [
+        "unsupervised",
+        0.425
+      ],
+      [
+        "vised learning",
+        0.425
+      ],
+      [
+        "learning plenty",
+        0.4245
+      ],
+      [
+        "learning techniques applications",
+        0.4225
+      ],
+      [
+        "unlabeled dataset composed",
+        0.4212
+      ],
+      [
+        "clusters allows classifier",
+        0.4204
+      ],
+      [
+        "learning barely started",
+        0.42
+      ],
+      [
+        "unlabeled input features",
+        0.4191
+      ],
+      [
+        "unlabeled data",
+        0.418
+      ],
+      [
+        "unlabeled dataset represented",
+        0.4172
+      ],
+      [
+        "supervised learning",
+        0.4154
+      ],
+      [
+        "remember clustering unsupervised",
+        0.4151
+      ],
+      [
+        "learning tasks algorithms",
+        0.4131
+      ]
+    ],
+    "ground_truth": [
+      "accelerated k-means",
+      "active learning",
+      "affinity",
+      "affinity propagation",
+      "agglomerative clustering",
+      "akaike information criterion",
+      "aic",
+      "birch algorithm",
+      "clustering algorithms",
+      "expectation-maximization",
+      "em",
+      "for anomaly detection",
+      "isolation forest algorithm",
+      "k-means algorithm",
+      "lloydforgy algorithm",
+      "mean-shift algorithm",
+      "one-class svm algorithm",
+      "alpha channels",
+      "anomaly detection",
+      "using clustering",
+      "using gaussian mixtures",
+      "bayesian gaussian mixture models",
+      "bayesian information criterion",
+      "bic",
+      "black box stochastic variational inference",
+      "bbsvi",
+      "categorical distribution",
+      "centroids",
+      "classification mlps",
+      "additional algorithms",
+      "dbscan",
+      "for image segmentation",
+      "k-means",
+      "for preprocessing",
+      "for semi-supervised learning",
+      "color segmentation",
+      "semantic segmentation",
+      "core instances",
+      "customer segmentation",
+      "analyzing through clustering",
+      "preprocessing",
+      "density estimation",
+      "evidence lower bound",
+      "elbo",
+      "expectation step",
+      "fast-mcd",
+      "minimum covariance determinant",
+      "fraud detection",
+      "gaussian mixture model",
+      "gmm",
+      "additional algorithms for anomaly and novelty detection",
+      "selecting cluster number",
+      "variants",
+      "hard clustering",
+      "hierarchical dbscan",
+      "hdbscan",
+      "image segmentation",
+      "inertia",
+      "centroid initialization methods",
+      "inliers",
+      "instance segmentation",
+      "accelerated and mini-batch",
+      "hard and soft clustering",
+      "optimal cluster number",
+      "preprocessing with",
+      "proposed improvement to",
+      "scaling input features",
+      "label propagation",
+      "labels",
+      "latent variables",
+      "likelihood function",
+      "lloyd-forgy algorithm",
+      "local outlier factor",
+      "lof",
+      "maximization step",
+      "maximum a-posteriori",
+      "map",
+      "maximum likelihood estimate",
+      "mle",
+      "mean field variational inference",
+      "mini-batch k-means",
+      "novelty detection",
+      "observed variables",
+      "outlier detection",
+      "p",
+      "posterior",
+      "prior",
+      "anomaly and novelty detection",
+      "probability density function",
+      "pdf",
+      "recommender systems",
+      "responsibilities",
+      "clustering",
+      "search engines",
+      "silhouette coefficient",
+      "silhouette diagram",
+      "silhouette score",
+      "soft clustering",
+      "spectral clustering",
+      "theoretical information criterion",
+      "uncertainty sampling",
+      "gaussian mixtures model",
+      "variational inference",
+      "variational parameters"
+    ],
+    "metrics": {
+      "precision": 0.08,
+      "recall": 0.038461538461538464,
+      "f1": 0.05194805194805195,
+      "true_positives": 4,
+      "false_positives": 46,
+      "false_negatives": 100
+    }
+  },
+  "chapter_10": {
+    "extracted_keywords": [
+      [
+        "introduces artificial neural",
+        0.6151
+      ],
+      [
+        "neural networks altogether",
+        0.5941
+      ],
+      [
+        "keras birds inspired",
+        0.5886
+      ],
+      [
+        "birds inspired",
+        0.5862
+      ],
+      [
+        "birds inspired fly",
+        0.5847
+      ],
+      [
+        "neural networks anns",
+        0.5843
+      ],
+      [
+        "inspired birds",
+        0.5731
+      ],
+      [
+        "neural networks came",
+        0.5712
+      ],
+      [
+        "architecture biological neural",
+        0.566
+      ],
+      [
+        "anns study neural",
+        0.5631
+      ],
+      [
+        "inspired networks biological",
+        0.5615
+      ],
+      [
+        "artificial neurons finally",
+        0.5605
+      ],
+      [
+        "neural networks don",
+        0.5565
+      ],
+      [
+        "neurons discuss artificial",
+        0.5464
+      ],
+      [
+        "artificial neurons surprisingly",
+        0.5444
+      ],
+      [
+        "neurons surprisingly anns",
+        0.5438
+      ],
+      [
+        "artificial neurons like",
+        0.5436
+      ],
+      [
+        "ann architectures invented",
+        0.5425
+      ],
+      [
+        "biological neural networks",
+        0.5403
+      ],
+      [
+        "neural nets came",
+        0.5387
+      ],
+      [
+        "artificial neurons use",
+        0.5385
+      ],
+      [
+        "brains planes inspired",
+        0.5335
+      ],
+      [
+        "artificial neurons",
+        0.5332
+      ],
+      [
+        "discuss artificial neurons",
+        0.5321
+      ],
+      [
+        "biological inspirations",
+        0.5315
+      ],
+      [
+        "original artificial neurons",
+        0.531
+      ],
+      [
+        "inspired networks",
+        0.5294
+      ],
+      [
+        "neural networks just",
+        0.5289
+      ],
+      [
+        "neurons artificial",
+        0.5279
+      ],
+      [
+        "sparked artificial neural",
+        0.5254
+      ],
+      [
+        "artificial neuron",
+        0.5243
+      ],
+      [
+        "networks keras birds",
+        0.5228
+      ],
+      [
+        "neural networks reasonable",
+        0.5228
+      ],
+      [
+        "biological neural network",
+        0.5211
+      ],
+      [
+        "intuition neural",
+        0.5207
+      ],
+      [
+        "build neural networks",
+        0.5185
+      ],
+      [
+        "makes possible neural",
+        0.5174
+      ],
+      [
+        "neural networks work",
+        0.5171
+      ],
+      [
+        "model inspired networks",
+        0.5162
+      ],
+      [
+        "neuron artificial",
+        0.5157
+      ],
+      [
+        "use neural",
+        0.5152
+      ],
+      [
+        "biological neurons implement",
+        0.5152
+      ],
+      [
+        "build neural",
+        0.5144
+      ],
+      [
+        "neural network simplicity",
+        0.5141
+      ],
+      [
+        "network billions neuron",
+        0.5134
+      ],
+      [
+        "networks biological neurons",
+        0.5124
+      ],
+      [
+        "intuition neural networks",
+        0.5107
+      ],
+      [
+        "biological artificial neurons",
+        0.5101
+      ],
+      [
+        "neural networks complex",
+        0.5096
+      ],
+      [
+        "planes inspired birds",
+        0.509
+      ]
+    ],
+    "ground_truth": [
+      "hyperbolic tangent",
+      "tanh",
+      "logistic",
+      "sigmoid",
+      "rectified linear unit function",
+      "relu",
+      "softmax",
+      "softplus",
+      "fine-tuning hyperparameters",
+      "from biological to artificial neurons",
+      "implementing mlps with keras",
+      "artificial neurons",
+      "automatic differentiation",
+      "autodiff",
+      "automl",
+      "backpropagation",
+      "batch size",
+      "bias neurons",
+      "biological neural networks",
+      "bnn",
+      "biological neurons",
+      "break the symmetry",
+      "callbacks",
+      "chain rule",
+      "classification mlps",
+      "image classifiers using sequential apis",
+      "multitask classification",
+      "connectionism",
+      "cross-entropy loss",
+      "log loss",
+      "mean absolute error",
+      "mae",
+      "mean squared error",
+      "fashion mnist dataset",
+      "deep neural networks",
+      "dnns",
+      "deep neuroevolution",
+      "dense layer",
+      "dynamic models",
+      "epochs",
+      "event files",
+      "exclusive or",
+      "xor",
+      "feedforward neural networks",
+      "fnns",
+      "forward pass",
+      "fully connected layer",
+      "functional api",
+      "hdf5 format",
+      "heaviside step function",
+      "hebbs rule",
+      "hebbian learning",
+      "hidden layers in mlps",
+      "neurons per hidden layer",
+      "huber loss",
+      "hyperas",
+      "hyperband",
+      "hyperbolic tangent function",
+      "hyperopt",
+      "fine-tuning for neural networks",
+      "learning rate",
+      "python libraries for optimization",
+      "image classification",
+      "using sequential api",
+      "input layers",
+      "input neurons",
+      "complex architectures",
+      "implementing mlps with",
+      "kerascallbacks package",
+      "loading datasets with",
+      "multibackend keras",
+      "saving and restoring models",
+      "using code examples from kerasio",
+      "keras tuner",
+      "kopt library",
+      "dense",
+      "fully connected",
+      "hidden layer",
+      "input layer",
+      "output layer",
+      "logical computations",
+      "microsoft cognitive toolkit",
+      "cntk",
+      "complex using functional api",
+      "dynamic using subclassing api",
+      "saving and restoring",
+      "using callbacks",
+      "using tensorboard for visualization",
+      "regression mlps",
+      "multiple outputs",
+      "from biological to artificial",
+      "logical computations with",
+      "per hidden layer",
+      "nonsequential neural networks",
+      "installing",
+      "output layers",
+      "parameter efficiency",
+      "perceptron",
+      "perceptron convergence theorem",
+      "propositional logic",
+      "pytorch library",
+      "regression mlps using sequential api",
+      "restoring models",
+      "reverse-mode autodiff",
+      "perceptron class",
+      "scikit-optimize",
+      "tensorflow",
+      "image classifiers",
+      "regression mlp",
+      "sklearn-deap",
+      "softmax function",
+      "softplus activation function",
+      "spearmint library",
+      "step function",
+      "subclassing api",
+      "summaries",
+      "symmetry breaking in backpropagation",
+      "talos library",
+      "tensorboard",
+      "tensorflow playground",
+      "pytorch library and",
+      "tfkeras",
+      "tfsummary package",
+      "theano",
+      "threshold logic unit",
+      "tlu",
+      "transfer learning",
+      "wide deep neural networks"
+    ],
+    "metrics": {
+      "precision": 0.1,
+      "recall": 0.0390625,
+      "f1": 0.056179775280898875,
+      "true_positives": 5,
+      "false_positives": 45,
+      "false_negatives": 123
+    }
+  },
+  "chapter_11": {
+    "extracted_keywords": [
+      [
+        "training deep dnn",
+        0.668
+      ],
+      [
+        "difficulty training deep",
+        0.661
+      ],
+      [
+        "train deep nets",
+        0.6414
+      ],
+      [
+        "training deep",
+        0.6366
+      ],
+      [
+        "training large deep",
+        0.6319
+      ],
+      [
+        "train deeper dnn",
+        0.6289
+      ],
+      [
+        "practice training deep",
+        0.6137
+      ],
+      [
+        "deep network training",
+        0.6128
+      ],
+      [
+        "deep learning difficult",
+        0.6093
+      ],
+      [
+        "dnn training problems",
+        0.6032
+      ],
+      [
+        "deeper networks",
+        0.5982
+      ],
+      [
+        "train deep neural",
+        0.5956
+      ],
+      [
+        "training deep neural",
+        0.5925
+      ],
+      [
+        "deep networks looking",
+        0.5897
+      ],
+      [
+        "improving neural networks",
+        0.5889
+      ],
+      [
+        "deep neural net",
+        0.5862
+      ],
+      [
+        "networks trained deep",
+        0.5834
+      ],
+      [
+        "trained deep neural",
+        0.5813
+      ],
+      [
+        "neural networks suffer",
+        0.581
+      ],
+      [
+        "trained deep",
+        0.58
+      ],
+      [
+        "train deep models",
+        0.579
+      ],
+      [
+        "techniques deep neural",
+        0.578
+      ],
+      [
+        "neural networks shallow",
+        0.5738
+      ],
+      [
+        "deeper networks make",
+        0.5734
+      ],
+      [
+        "unstable training dnn",
+        0.5734
+      ],
+      [
+        "train large dnn",
+        0.571
+      ],
+      [
+        "layers deep neural",
+        0.5693
+      ],
+      [
+        "deep nets",
+        0.5679
+      ],
+      [
+        "large network trained",
+        0.5671
+      ],
+      [
+        "large deep neural",
+        0.5627
+      ],
+      [
+        "optimization train deep",
+        0.561
+      ],
+      [
+        "impact deeper networks",
+        0.5573
+      ],
+      [
+        "deep network",
+        0.5553
+      ],
+      [
+        "training dnn",
+        0.5551
+      ],
+      [
+        "large neural networks",
+        0.5545
+      ],
+      [
+        "11 training deep",
+        0.5534
+      ],
+      [
+        "deep nets vanishing",
+        0.5531
+      ],
+      [
+        "connections training deep",
+        0.552
+      ],
+      [
+        "dnn 10 layers",
+        0.5518
+      ],
+      [
+        "optimum deep",
+        0.55
+      ],
+      [
+        "wide deep nets",
+        0.5485
+      ],
+      [
+        "neural networks overfitting",
+        0.5484
+      ],
+      [
+        "deep models",
+        0.5468
+      ],
+      [
+        "backward dnn training",
+        0.5449
+      ],
+      [
+        "deeper dnn 10",
+        0.5425
+      ],
+      [
+        "prevent neural networks",
+        0.5419
+      ],
+      [
+        "deep networks",
+        0.5405
+      ],
+      [
+        "train dnns purely",
+        0.5395
+      ],
+      [
+        "networks trained",
+        0.5371
+      ],
+      [
+        "deep neural networks",
+        0.5354
+      ]
+    ],
+    "ground_truth": [
+      "1cycle scheduling",
+      "exponential linear unit",
+      "elu",
+      "logistic",
+      "sigmoid",
+      "nonsaturating",
+      "scaled exponential linear unit",
+      "selu",
+      "adagrad",
+      "adam and nadam optimization",
+      "adaptive learning rate",
+      "adaptive moment estimation",
+      "restricted boltzmann machines",
+      "rbms",
+      "batch normalization",
+      "bn",
+      "training sparse models",
+      "overfitting",
+      "default configuration",
+      "faster optimizers",
+      "reusing pretrained layers",
+      "vanishingexploding gradients problems",
+      "dropout",
+      "dying relus problem",
+      "exploding gradients problem",
+      "exponential scheduling",
+      "fan-infan-out numbers",
+      "first-order partial derivatives",
+      "jacobians",
+      "glorot and he initialization",
+      "gradient clipping",
+      "greedy layer-wise pretraining",
+      "he initialization",
+      "lecun initialization",
+      "xavier initialization",
+      "keep probability",
+      "implementing batch normalization with",
+      "implementing dropout",
+      "transfer learning with",
+      "reusing pretrained",
+      "leaky relu function",
+      "learning rate scheduling",
+      "learning schedules",
+      "max-norm regularization",
+      "momentum optimization",
+      "momentum vector",
+      "monte carlo",
+      "mc",
+      "nesterov accelerated gradient",
+      "nag",
+      "nesterov momentum optimization",
+      "nonsaturating activation functions",
+      "normalization",
+      "creating faster",
+      "first- and second-order partial derivatives",
+      "rmsprop",
+      "avoiding through regularization",
+      "parametric leaky relu",
+      "prelu",
+      "performance scheduling",
+      "piecewise constant scheduling",
+      "power scheduling",
+      "on auxiliary tasks",
+      "unsupervised pretraining",
+      "randomized leaky relu",
+      "rrelu",
+      "avoiding overfitting through",
+      "second-order partial derivatives",
+      "hessians",
+      "self-normalization",
+      "self-supervised learning",
+      "skip connections",
+      "smoothing term",
+      "sparse models",
+      "tensorflow model optimization toolkit",
+      "tf-mot",
+      "versions covered",
+      "tensorflow custom models and training",
+      "implementing learning rate scheduling",
+      "tfkeras",
+      "transfer learning",
+      "wall time"
+    ],
+    "metrics": {
+      "precision": 0.02,
+      "recall": 0.012195121951219513,
+      "f1": 0.015151515151515152,
+      "true_positives": 1,
+      "false_positives": 49,
+      "false_negatives": 81
+    }
+  },
+  "chapter_12": {
+    "extracted_keywords": [
+      [
+        "tensorflow architecture",
+        0.6376
+      ],
+      [
+        "architecture tensorflow",
+        0.6268
+      ],
+      [
+        "easily tensorflow dedicated",
+        0.6226
+      ],
+      [
+        "limited functionality tensorflow",
+        0.6188
+      ],
+      [
+        "tensorflow use",
+        0.618
+      ],
+      [
+        "training tensorflow",
+        0.615
+      ],
+      [
+        "tensorflow based",
+        0.6067
+      ],
+      [
+        "use tensorflow",
+        0.6061
+      ],
+      [
+        "trained tensorflow",
+        0.6047
+      ],
+      [
+        "appropriate tensorflow",
+        0.6043
+      ],
+      [
+        "performs tensorflow",
+        0.6042
+      ],
+      [
+        "tensorflow projects",
+        0.6038
+      ],
+      [
+        "available tensorflow",
+        0.6022
+      ],
+      [
+        "tensorflow computing",
+        0.5992
+      ],
+      [
+        "trained tensorflow model",
+        0.5972
+      ],
+      [
+        "models training tensorflow",
+        0.5961
+      ],
+      [
+        "tensorflow high level",
+        0.5956
+      ],
+      [
+        "tensorflow architecture tensorflow",
+        0.5928
+      ],
+      [
+        "performance tensorflow",
+        0.5927
+      ],
+      [
+        "tensorflow dedicated",
+        0.5924
+      ],
+      [
+        "api tensorflow",
+        0.5914
+      ],
+      [
+        "12 tensorflow architecture",
+        0.5904
+      ],
+      [
+        "using tensorflow",
+        0.5888
+      ],
+      [
+        "structures available tensorflow",
+        0.5855
+      ],
+      [
+        "easily tensorflow",
+        0.5843
+      ],
+      [
+        "tensorflow resources",
+        0.5841
+      ],
+      [
+        "tensorflow api",
+        0.5835
+      ],
+      [
+        "tensorflow offers various",
+        0.5824
+      ],
+      [
+        "appropriate tensorflow operations",
+        0.582
+      ],
+      [
+        "tensorflow tensorflow based",
+        0.5815
+      ],
+      [
+        "tensorflow model garden",
+        0.5776
+      ],
+      [
+        "19 tensorflow architecture",
+        0.5746
+      ],
+      [
+        "automatically tensorflow computing",
+        0.5731
+      ],
+      [
+        "performs tensorflow operations",
+        0.5724
+      ],
+      [
+        "deeper tensorflow",
+        0.5714
+      ],
+      [
+        "tensorflow like",
+        0.5704
+      ],
+      [
+        "tensorflow based projects",
+        0.5697
+      ],
+      [
+        "performance tensorflow able",
+        0.5693
+      ],
+      [
+        "allows tensorflow",
+        0.5679
+      ],
+      [
+        "functionality tensorflow",
+        0.5677
+      ],
+      [
+        "train tensorflow",
+        0.5674
+      ],
+      [
+        "let use tensorflow",
+        0.567
+      ],
+      [
+        "pre trained tensorflow",
+        0.5666
+      ],
+      [
+        "used tensorflow",
+        0.5666
+      ],
+      [
+        "ter 10 tensorflow",
+        0.5661
+      ],
+      [
+        "python api tensorflow",
+        0.5661
+      ],
+      [
+        "tensorflow model environment",
+        0.566
+      ],
+      [
+        "tensorflow model",
+        0.5659
+      ],
+      [
+        "tensorflow",
+        0.5653
+      ],
+      [
+        "using tensorflow like",
+        0.5647
+      ]
+    ],
+    "ground_truth": [
+      "accuracy",
+      "autographs",
+      "automatic differentiation",
+      "autodiff",
+      "computation graphs",
+      "mean squared error",
+      "activation functions initializers regularizers and constraints",
+      "computing gradients using autodiff",
+      "layers",
+      "loss functions",
+      "losses and metrics",
+      "metrics",
+      "models",
+      "saving and loading",
+      "training loops",
+      "loading and preprocessing with tensorflow",
+      "eager executioneager mode",
+      "embedding",
+      "features",
+      "first in first out",
+      "fifo",
+      "graph mode",
+      "huber loss",
+      "just-in-time",
+      "jit",
+      "low-level api",
+      "kernels",
+      "see cost functions",
+      "locating papers on",
+      "custom with tensorflow",
+      "using tensorflow like",
+      "queues",
+      "ragged tensors",
+      "reconstruction loss",
+      "residual blocks",
+      "sets",
+      "sparse tensors",
+      "stateful metrics",
+      "streaming metrics",
+      "string tensors",
+      "symbolic tensors",
+      "tensor arrays",
+      "tensorflow hub",
+      "tensorflow lite",
+      "tensorflow basics of architecture",
+      "benefits xvi",
+      "community support",
+      "getting help",
+      "library ecosystem",
+      "operating system compatibility",
+      "tensorflow data loading and preprocessing",
+      "tensorflow functions and graphs",
+      "autograph and tracing",
+      "tf function rules",
+      "tensors",
+      "rules",
+      "tpus",
+      "tensor processing units",
+      "type conversions",
+      "variables"
+    ],
+    "metrics": {
+      "precision": 0.12,
+      "recall": 0.1,
+      "f1": 0.1090909090909091,
+      "true_positives": 6,
+      "false_positives": 44,
+      "false_negatives": 54
+    }
+  },
+  "chapter_13": {
+    "extracted_keywords": [
+      [
+        "preprocessing data tensorflow",
+        0.6763
+      ],
+      [
+        "tensorflow datasets",
+        0.6515
+      ],
+      [
+        "data tensorflow",
+        0.6406
+      ],
+      [
+        "data tensorflow far",
+        0.6406
+      ],
+      [
+        "tensorflow datasets library",
+        0.6398
+      ],
+      [
+        "tensorflow_datasets",
+        0.6213
+      ],
+      [
+        "project tensorflow datasets",
+        0.613
+      ],
+      [
+        "file tensorflow",
+        0.6035
+      ],
+      [
+        "tfds tensorflow datasets",
+        0.6015
+      ],
+      [
+        "tensorflow datasets project",
+        0.5855
+      ],
+      [
+        "tensorflow datasets tfds",
+        0.5854
+      ],
+      [
+        "use tensorflow",
+        0.585
+      ],
+      [
+        "file tensorflow train",
+        0.575
+      ],
+      [
+        "tensorflow far used",
+        0.5717
+      ],
+      [
+        "using tensorflow just",
+        0.5706
+      ],
+      [
+        "tensorflow preferred",
+        0.5694
+      ],
+      [
+        "libraries tensorflow",
+        0.5682
+      ],
+      [
+        "tensorflow takes care",
+        0.5666
+      ],
+      [
+        "tensorflow just",
+        0.5654
+      ],
+      [
+        "files use tensorflow",
+        0.5653
+      ],
+      [
+        "import tensorflow_datasets",
+        0.5596
+      ],
+      [
+        "preprocessing layers tensorflow",
+        0.5595
+      ],
+      [
+        "tensorflow just like",
+        0.5594
+      ],
+      [
+        "tensorflow ecosystem",
+        0.5577
+      ],
+      [
+        "tensorflow need use",
+        0.5556
+      ],
+      [
+        "tensorflow_datasets tfds",
+        0.555
+      ],
+      [
+        "tensorflow_datasets tfds dataset",
+        0.553
+      ],
+      [
+        "data transform tensorflow",
+        0.5521
+      ],
+      [
+        "designed tensorflow",
+        0.5519
+      ],
+      [
+        "make tensorflow",
+        0.5511
+      ],
+      [
+        "install tensorflow datasets",
+        0.5498
+      ],
+      [
+        "tensorflow need",
+        0.5472
+      ],
+      [
+        "platform productionizing tensorflow",
+        0.5461
+      ],
+      [
+        "using tensorflow",
+        0.5461
+      ],
+      [
+        "productionizing tensorflow",
+        0.544
+      ],
+      [
+        "learning libraries tensorflow",
+        0.5434
+      ],
+      [
+        "tensorflow makes easy",
+        0.5424
+      ],
+      [
+        "tensorflow define preprocessing",
+        0.542
+      ],
+      [
+        "data tensor dataset",
+        0.5387
+      ],
+      [
+        "tensorflow models use",
+        0.535
+      ],
+      [
+        "dataset tf keras",
+        0.5333
+      ],
+      [
+        "import tensorflow_datasets tfds",
+        0.533
+      ],
+      [
+        "tfrecord file tensorflow",
+        0.5291
+      ],
+      [
+        "tensorflow train",
+        0.5282
+      ],
+      [
+        "tensor dataset",
+        0.5265
+      ],
+      [
+        "tensorflow",
+        0.525
+      ],
+      [
+        "tensor dataset tf",
+        0.5241
+      ],
+      [
+        "data dataset from_tensor_slices",
+        0.5217
+      ],
+      [
+        "tensorflow define",
+        0.5213
+      ],
+      [
+        "dataset entirely ram",
+        0.5186
+      ]
+    ],
+    "ground_truth": [
+      "bag of words",
+      "encoding using embeddings",
+      "encoding using one-hot vectors",
+      "chaining transformations",
+      "helper function creation",
+      "prefetching",
+      "preprocessing",
+      "shuffling",
+      "using datasets with tfkeras",
+      "tensorflow data api",
+      "prefetching data",
+      "preprocessing data",
+      "shuffling data",
+      "using datasets with tfkeras",
+      "datasets",
+      "embedding",
+      "embedding matrix",
+      "helper functions",
+      "preprocessing layers",
+      "lists of lists using sequenceexample protobuf",
+      "memory bandwidth",
+      "cnns",
+      "one-hot vectors",
+      "out-of-vocabulary",
+      "oov",
+      "pipelines",
+      "protocol buffers",
+      "protobufs",
+      "representation learning",
+      "sequenceexample protobuf",
+      "shuffling-buffer approach",
+      "tensorflow extended",
+      "tfx",
+      "data api",
+      "preprocessing input features",
+      "tensorflow datasets",
+      "tfds",
+      "tf transform",
+      "tfrecord format",
+      "term-frequency inverse-document-frequency",
+      "tf-idf",
+      "tf datasets",
+      "tftransform",
+      "tfkeras",
+      "compressed tfrecord files",
+      "lists of lists using sequenceexample protobuf",
+      "loading and parsing examples",
+      "tensorflow protobufs",
+      "trainingserving skew",
+      "chaining",
+      "vocabulary",
+      "voice recognition",
+      "word embeddings"
+    ],
+    "metrics": {
+      "precision": 0.1,
+      "recall": 0.09433962264150944,
+      "f1": 0.09708737864077671,
+      "true_positives": 5,
+      "false_positives": 45,
+      "false_negatives": 48
+    }
+  },
+  "chapter_14": {
+    "extracted_keywords": [
+      [
+        "recognition tasks unfortunately",
+        0.5774
+      ],
+      [
+        "image neurons",
+        0.5647
+      ],
+      [
+        "convolutional neural",
+        0.5635
+      ],
+      [
+        "cnn learned recognize",
+        0.5614
+      ],
+      [
+        "advantages cnn fully",
+        0.5597
+      ],
+      [
+        "understand cnns",
+        0.5589
+      ],
+      [
+        "recognition tasks",
+        0.5564
+      ],
+      [
+        "advantages cnn",
+        0.5542
+      ],
+      [
+        "understand cnns work",
+        0.5488
+      ],
+      [
+        "layers understand convolutional",
+        0.5478
+      ],
+      [
+        "way understand cnns",
+        0.5462
+      ],
+      [
+        "image neurons use",
+        0.5444
+      ],
+      [
+        "convolutional layer neurons",
+        0.5442
+      ],
+      [
+        "convolutional layers understand",
+        0.5411
+      ],
+      [
+        "neurons convolutional",
+        0.541
+      ],
+      [
+        "neural networks convolutional",
+        0.536
+      ],
+      [
+        "reasons cnns work",
+        0.5313
+      ],
+      [
+        "cnn architectures harder",
+        0.5273
+      ],
+      [
+        "convolutional layers neuron",
+        0.5266
+      ],
+      [
+        "activations convolutional",
+        0.5265
+      ],
+      [
+        "layer neurons convolutional",
+        0.5256
+      ],
+      [
+        "visual cortex",
+        0.525
+      ],
+      [
+        "evolved convolutional neural",
+        0.5236
+      ],
+      [
+        "convolutional neural net",
+        0.523
+      ],
+      [
+        "convolutional layers important",
+        0.5228
+      ],
+      [
+        "cortex inspired neocognitron",
+        0.5188
+      ],
+      [
+        "typical cnn architectures",
+        0.5181
+      ],
+      [
+        "receptive fields neurons",
+        0.5176
+      ],
+      [
+        "architecture visual cortex",
+        0.5157
+      ],
+      [
+        "visual cortex inspired",
+        0.5151
+      ],
+      [
+        "convolutional layers quite",
+        0.5147
+      ],
+      [
+        "using convolutional neural",
+        0.5144
+      ],
+      [
+        "cnns work",
+        0.5133
+      ],
+      [
+        "neuron convolutional",
+        0.5132
+      ],
+      [
+        "neurons receptive",
+        0.5094
+      ],
+      [
+        "convolutional neural networks",
+        0.5091
+      ],
+      [
+        "deep convolutional neural",
+        0.5085
+      ],
+      [
+        "images cnn",
+        0.5078
+      ],
+      [
+        "convolutional layers actually",
+        0.5066
+      ],
+      [
+        "visual cortex used",
+        0.506
+      ],
+      [
+        "neurons visual cortex",
+        0.5059
+      ],
+      [
+        "cnns convolutional layers",
+        0.5056
+      ],
+      [
+        "cnns convolutional",
+        0.5035
+      ],
+      [
+        "explore cnns",
+        0.5029
+      ],
+      [
+        "smarter convolutional",
+        0.5017
+      ],
+      [
+        "architectures typical cnn",
+        0.5012
+      ],
+      [
+        "neurons convolutional layer",
+        0.4998
+      ],
+      [
+        "images reasons cnns",
+        0.499
+      ],
+      [
+        "deep neural",
+        0.499
+      ],
+      [
+        "neuron receptive",
+        0.4987
+      ]
+    ],
+    "ground_truth": [
+      "softmax",
+      "adversarial learning",
+      "alexnet",
+      "anchor boxes",
+      "autonomous driving systems",
+      "average pooling layer",
+      "average precision",
+      "ap",
+      "bottleneck layers",
+      "bounding box priors",
+      "classification and localization",
+      "color channels",
+      "convolution kernels",
+      "convolutional layer",
+      "filters",
+      "memory requirements",
+      "stacking multiple feature maps",
+      "tensorflow implementation",
+      "architecture of visual cortex",
+      "cnn architectures",
+      "object detection",
+      "pooling layer",
+      "pretrained models for transfer learning",
+      "pretrained models from keras",
+      "resnet-34 using keras",
+      "semantic segmentation",
+      "data augmentation",
+      "depth concat layer",
+      "depth radius",
+      "depthwise separable convolution",
+      "equivariance",
+      "feature maps",
+      "fully convolutional networks",
+      "fcns",
+      "global average pooling layer",
+      "googlenet",
+      "image generation",
+      "instance segmentation",
+      "invariance",
+      "implementing resnet-34 with",
+      "using pretrained models from",
+      "lenet-5",
+      "local response normalization",
+      "localization",
+      "mask r-cnn",
+      "max pooling layer",
+      "mean average precision",
+      "map",
+      "mean average precision",
+      "rnns",
+      "non-max suppression",
+      "you only look once",
+      "yolo",
+      "objectness output",
+      "pooling kernel",
+      "pretraining",
+      "models from keras",
+      "recurrent neural networks",
+      "rnns",
+      "region proposal network",
+      "rpn",
+      "residual learning",
+      "residual units",
+      "resnet",
+      "residual network",
+      "resnet-34 cnn",
+      "se block",
+      "se-inception",
+      "se-resnet",
+      "senet",
+      "squeeze-and-excitation network",
+      "separable convolution",
+      "sequences",
+      "shortcut connections",
+      "single-shot learning",
+      "skip connections",
+      "softmax function",
+      "stride",
+      "subsampling",
+      "convolution operations",
+      "convolutional layers",
+      "transfer learning",
+      "transposed convolutional layer",
+      "upsampling layer",
+      "vggnet",
+      "wordtrees",
+      "xception",
+      "extreme inception",
+      "zero padding",
+      "zf net"
+    ],
+    "metrics": {
+      "precision": 0.06,
+      "recall": 0.03333333333333333,
+      "f1": 0.042857142857142864,
+      "true_positives": 3,
+      "false_positives": 47,
+      "false_negatives": 87
+    }
+  },
+  "chapter_15": {
+    "extracted_keywords": [
+      [
+        "recurrent nets",
+        0.6441
+      ],
+      [
+        "networks rnns",
+        0.6326
+      ],
+      [
+        "rnn neural",
+        0.6245
+      ],
+      [
+        "neural networks rnns",
+        0.6237
+      ],
+      [
+        "train recurrent neural",
+        0.623
+      ],
+      [
+        "using rnns",
+        0.6178
+      ],
+      [
+        "rnns deep feedforward",
+        0.6164
+      ],
+      [
+        "concepts underlying rnns",
+        0.6162
+      ],
+      [
+        "sequences train rnn",
+        0.6091
+      ],
+      [
+        "recurrent neural networks",
+        0.6017
+      ],
+      [
+        "simple rnns",
+        0.6008
+      ],
+      [
+        "rnn predict",
+        0.5942
+      ],
+      [
+        "recurrent networks",
+        0.5935
+      ],
+      [
+        "networks compute recurrent",
+        0.5928
+      ],
+      [
+        "using rnns good",
+        0.5905
+      ],
+      [
+        "deep rnns",
+        0.5877
+      ],
+      [
+        "sequences using rnns",
+        0.5862
+      ],
+      [
+        "efficiently rnns",
+        0.5857
+      ],
+      [
+        "train rnn predict",
+        0.5837
+      ],
+      [
+        "recurrent neural",
+        0.5834
+      ],
+      [
+        "rnns deep",
+        0.5826
+      ],
+      [
+        "rnns train using",
+        0.582
+      ],
+      [
+        "sequences rnn",
+        0.5799
+      ],
+      [
+        "inputs rnn",
+        0.5791
+      ],
+      [
+        "recurrent neural network",
+        0.5775
+      ],
+      [
+        "recurrent nets time",
+        0.5773
+      ],
+      [
+        "based rnns",
+        0.5763
+      ],
+      [
+        "underlying rnns",
+        0.5731
+      ],
+      [
+        "rnns",
+        0.573
+      ],
+      [
+        "used efficiently rnns",
+        0.5718
+      ],
+      [
+        "rnn deep network",
+        0.5716
+      ],
+      [
+        "rnn neural network",
+        0.5695
+      ],
+      [
+        "rnns train",
+        0.5693
+      ],
+      [
+        "based recurrent neural",
+        0.569
+      ],
+      [
+        "model recurrent neural",
+        0.5688
+      ],
+      [
+        "recurrent convolutional predict",
+        0.5677
+      ],
+      [
+        "deep rnn",
+        0.5666
+      ],
+      [
+        "implementing deep rnn",
+        0.5653
+      ],
+      [
+        "rnn deep",
+        0.5647
+      ],
+      [
+        "improves recurrent neural",
+        0.5643
+      ],
+      [
+        "sequence rnn",
+        0.5638
+      ],
+      [
+        "rnns cnns",
+        0.5637
+      ],
+      [
+        "sequence rnn like",
+        0.5625
+      ],
+      [
+        "using rnn",
+        0.5624
+      ],
+      [
+        "sequences simple rnns",
+        0.562
+      ],
+      [
+        "underlying rnns train",
+        0.5617
+      ],
+      [
+        "network training rnns",
+        0.56
+      ],
+      [
+        "train recurrent",
+        0.5597
+      ],
+      [
+        "rnns use",
+        0.5596
+      ],
+      [
+        "rnns cnns batter",
+        0.5583
+      ]
+    ],
+    "ground_truth": [
+      "1d convolutional layers",
+      "recurrent",
+      "autoregressive integrated moving average",
+      "arima",
+      "backpropagation through time",
+      "bptt",
+      "basic cells",
+      "causal models",
+      "chatbots",
+      "mean squared error",
+      "decoders",
+      "differencing",
+      "encoders",
+      "encoderdecoder model",
+      "forecasting",
+      "forget gate",
+      "gate controllers",
+      "gated recurrent unit",
+      "gru",
+      "imputation",
+      "input and output sequences",
+      "input gate",
+      "layer normalization",
+      "1d convolutional layer",
+      "logit regression",
+      "see logistic regression",
+      "long sequences short-term memory problems",
+      "unstable gradients problem",
+      "long short-term memory",
+      "lstm",
+      "memory cells",
+      "sequence-to-sequence models",
+      "training",
+      "multivariate time series",
+      "naive forecasting",
+      "natural language processing",
+      "nlp",
+      "recurrent neurons",
+      "output gate",
+      "peephole connections",
+      "forecasting time series",
+      "handling long sequences",
+      "recurrent neurons and layers",
+      "stateless and stateful",
+      "sequence-to-vector networks",
+      "handling long",
+      "input and output",
+      "short-term memory problems",
+      "time series data",
+      "baseline metrics",
+      "deep rnns",
+      "forecasting several steps ahead",
+      "simple rnns",
+      "time step",
+      "turing test",
+      "univariate time series",
+      "unrolling the network through time",
+      "vector-to-sequence networks",
+      "wavenet",
+      "weighted moving average model"
+    ],
+    "metrics": {
+      "precision": 0.08,
+      "recall": 0.06666666666666667,
+      "f1": 0.07272727272727272,
+      "true_positives": 4,
+      "false_positives": 46,
+      "false_negatives": 56
+    }
+  },
+  "chapter_16": {
+    "extracted_keywords": [
+      [
+        "human intelligence tested",
+        0.5938
+      ],
+      [
+        "turing imagined",
+        0.5655
+      ],
+      [
+        "devised chatbot capable",
+        0.5628
+      ],
+      [
+        "chatbot capable fooling",
+        0.5542
+      ],
+      [
+        "machinery intelligence mind",
+        0.5494
+      ],
+      [
+        "intelligence tested",
+        0.5414
+      ],
+      [
+        "guistics human language",
+        0.5407
+      ],
+      [
+        "humans machine vague",
+        0.539
+      ],
+      [
+        "learns alan turing",
+        0.5376
+      ],
+      [
+        "machine human chat",
+        0.5269
+      ],
+      [
+        "capable performing neural",
+        0.5246
+      ],
+      [
+        "human language",
+        0.5218
+      ],
+      [
+        "attention alan turing",
+        0.5172
+      ],
+      [
+        "human language technologies",
+        0.5172
+      ],
+      [
+        "human intelligence",
+        0.5143
+      ],
+      [
+        "devised chatbot",
+        0.5098
+      ],
+      [
+        "alan turing imagined",
+        0.5097
+      ],
+      [
+        "turing computing machinery",
+        0.5009
+      ],
+      [
+        "linguistic task specifi",
+        0.5003
+      ],
+      [
+        "chatbot capable",
+        0.4998
+      ],
+      [
+        "cognitive ability",
+        0.4982
+      ],
+      [
+        "intelligence tested things",
+        0.4962
+      ],
+      [
+        "machinery intelligence",
+        0.4927
+      ],
+      [
+        "match human intelligence",
+        0.4912
+      ],
+      [
+        "turing called test",
+        0.4908
+      ],
+      [
+        "imagined famous turing",
+        0.4883
+      ],
+      [
+        "human intelligence utterly",
+        0.4878
+      ],
+      [
+        "alan turing computing",
+        0.4876
+      ],
+      [
+        "turing",
+        0.4865
+      ],
+      [
+        "machine ability",
+        0.4849
+      ],
+      [
+        "computational linguistics human",
+        0.4825
+      ],
+      [
+        "thinking human test",
+        0.4823
+      ],
+      [
+        "turing test1",
+        0.4813
+      ],
+      [
+        "machine human",
+        0.4806
+      ],
+      [
+        "naive humans machine",
+        0.4805
+      ],
+      [
+        "learned word smart",
+        0.4768
+      ],
+      [
+        "intelligence mind",
+        0.473
+      ],
+      [
+        "turing imagined famous",
+        0.4724
+      ],
+      [
+        "human machine",
+        0.4711
+      ],
+      [
+        "linguistics human",
+        0.47
+      ],
+      [
+        "using attention mechanisms",
+        0.4658
+      ],
+      [
+        "famous turing test1",
+        0.4652
+      ],
+      [
+        "evaluate machine ability",
+        0.4649
+      ],
+      [
+        "computing machinery intelligence",
+        0.4644
+      ],
+      [
+        "game machine human",
+        0.464
+      ],
+      [
+        "thinking human",
+        0.463
+      ],
+      [
+        "natural language tasks",
+        0.462
+      ],
+      [
+        "able learn words",
+        0.4612
+      ],
+      [
+        "linguistics human language",
+        0.4599
+      ],
+      [
+        "task neural machine",
+        0.4581
+      ]
+    ],
+    "ground_truth": [
+      "softmax",
+      "additive attention",
+      "attention mechanism",
+      "explainability and",
+      "transformer architecture",
+      "visual attention",
+      "autoencoders",
+      "bahdanau attention",
+      "beam search",
+      "beam width",
+      "bidirectional recurrent layers",
+      "bidirectional rnns",
+      "byte-pair encoding",
+      "character rnns",
+      "char-rnns",
+      "building and training",
+      "chopping sequential datasets",
+      "generating shakespearean text",
+      "splitting sequential datasets",
+      "stateful rnns and",
+      "training dataset creation",
+      "concatenative attention",
+      "conditional probability",
+      "loss functions",
+      "flat datasets",
+      "google news 7b corpus",
+      "internet movie database",
+      "nested datasets",
+      "dense vectors",
+      "dot product",
+      "embedded reber grammars",
+      "encoderdecoder model",
+      "end-of-sequence",
+      "eos",
+      "entailment",
+      "explainability",
+      "stylegans",
+      "language models",
+      "latent representations",
+      "bidirectional recurrent layer",
+      "masked multi-head attention layer",
+      "multi-head attention layer",
+      "scaled dot-product attention layer",
+      "see cost functions",
+      "mask tensors",
+      "masked language model",
+      "mlm",
+      "masking",
+      "modules",
+      "multiplicative attention",
+      "natural language processing",
+      "nlp",
+      "attention mechanisms",
+      "encoderdecoder network",
+      "generating text using character rnns",
+      "sentiment analysis",
+      "neural machine translation",
+      "nmt",
+      "next sentence prediction",
+      "nsp",
+      "positional encodings",
+      "reusing pretrained embeddings",
+      "generating text using character rnns",
+      "stateless and stateful",
+      "regular expressions",
+      "sampled softmax technique",
+      "self-attention mechanism",
+      "sentence encoders",
+      "softmax function",
+      "start of sequence",
+      "sos",
+      "temperature",
+      "tensorflow addons",
+      "tensorflow hub",
+      "testing and validation",
+      "text generation",
+      "tftext library",
+      "tokenization",
+      "truncated backpropagation through time",
+      "word tokenization",
+      "zero-shot learning",
+      "zsl"
+    ],
+    "metrics": {
+      "precision": 0.02,
+      "recall": 0.012195121951219513,
+      "f1": 0.015151515151515152,
+      "true_positives": 1,
+      "false_positives": 49,
+      "false_negatives": 81
+    }
+  },
+  "chapter_17": {
+    "extracted_keywords": [
+      [
+        "using autoencoders gans",
+        0.7099
+      ],
+      [
+        "autoencoders useful dimensionality",
+        0.709
+      ],
+      [
+        "autoencoders gans unsupervised",
+        0.7041
+      ],
+      [
+        "autoencoders gans",
+        0.6969
+      ],
+      [
+        "autoencoders used dimensionality",
+        0.695
+      ],
+      [
+        "autoencoders gans autoencoders",
+        0.6938
+      ],
+      [
+        "making autoencoders useful",
+        0.6895
+      ],
+      [
+        "gans autoencoders",
+        0.6867
+      ],
+      [
+        "autoencoders learning useful",
+        0.6857
+      ],
+      [
+        "autoencoders useful",
+        0.6783
+      ],
+      [
+        "autoencoders simply learn",
+        0.6736
+      ],
+      [
+        "autoencoders generative models",
+        0.6706
+      ],
+      [
+        "autoencoders generative",
+        0.6674
+      ],
+      [
+        "autoencoder gan",
+        0.6658
+      ],
+      [
+        "generative autoencoders meaning",
+        0.6648
+      ],
+      [
+        "autoencoders actually general",
+        0.6631
+      ],
+      [
+        "autoencoders important",
+        0.6626
+      ],
+      [
+        "autoencoders actually",
+        0.6622
+      ],
+      [
+        "generative autoencoders",
+        0.6588
+      ],
+      [
+        "autoencoders use",
+        0.6534
+      ],
+      [
+        "gans autoencoders artificial",
+        0.6525
+      ],
+      [
+        "autoencoders quite",
+        0.6525
+      ],
+      [
+        "autoencoders just like",
+        0.6447
+      ],
+      [
+        "autoencoders used",
+        0.6444
+      ],
+      [
+        "autoencoders meaning",
+        0.6439
+      ],
+      [
+        "autoencoders learning",
+        0.6423
+      ],
+      [
+        "autoencoders simply",
+        0.6418
+      ],
+      [
+        "autoencoder gan tasks",
+        0.6412
+      ],
+      [
+        "autoencoder learn useful",
+        0.641
+      ],
+      [
+        "strengthening autoencoders gans",
+        0.6401
+      ],
+      [
+        "autoencoders discussed",
+        0.6393
+      ],
+      [
+        "autoencoders just",
+        0.6371
+      ],
+      [
+        "autoencoders",
+        0.634
+      ],
+      [
+        "autoencoders quite different",
+        0.6304
+      ],
+      [
+        "autoencoders ve discussed",
+        0.63
+      ],
+      [
+        "using autoencoders",
+        0.628
+      ],
+      [
+        "autoencoder learning",
+        0.6279
+      ],
+      [
+        "purposes autoencoders",
+        0.6269
+      ],
+      [
+        "autoencoders perform",
+        0.6252
+      ],
+      [
+        "autoencoders introduced",
+        0.6249
+      ],
+      [
+        "autoencoders seen",
+        0.6247
+      ],
+      [
+        "autoencoder images unsupervised",
+        0.6235
+      ],
+      [
+        "discussed autoencoders",
+        0.6235
+      ],
+      [
+        "autoencoders kind",
+        0.6219
+      ],
+      [
+        "easily train autoencoders",
+        0.6202
+      ],
+      [
+        "autoencoders used feature",
+        0.6199
+      ],
+      [
+        "autoencoder autoencoder uses",
+        0.6197
+      ],
+      [
+        "kinds autoencoders",
+        0.6191
+      ],
+      [
+        "lastly autoencoders generative",
+        0.6183
+      ],
+      [
+        "generative autoencoder",
+        0.6183
+      ]
+    ],
+    "ground_truth": [
+      "adaptive instance normalization",
+      "adain",
+      "adversarial learning",
+      "affine transformations",
+      "autoencoders",
+      "convolutional",
+      "denoising",
+      "efficient data representations",
+      "generative",
+      "versus generative adversarial networks",
+      "gans",
+      "pca with undercomplete linear autoencoders",
+      "probabilistic",
+      "recurrent",
+      "sparse",
+      "stacked",
+      "undercomplete",
+      "unsupervised pretraining using stacked",
+      "variational",
+      "bayesian inference",
+      "convolutional autoencoders",
+      "mean squared error",
+      "fashion mnist dataset",
+      "visualizing fashion mnist dataset",
+      "visualizing reconstructions",
+      "decoders",
+      "deep autoencoders",
+      "deep convolutional gans",
+      "denoising autoencoders",
+      "discriminators",
+      "encoders",
+      "equalized learning rates",
+      "experience replay",
+      "generative adversarial networks",
+      "dcgans",
+      "difficulties of training",
+      "stylegans",
+      "generative autoencoders",
+      "generative network",
+      "generators",
+      "greedy layer-wise training",
+      "learning rate",
+      "stacked autoencoders",
+      "latent loss",
+      "minibatch standard deviation layer",
+      "linear autoencoders",
+      "mean coding",
+      "minibatch discrimination",
+      "mixing regularization",
+      "mode collapse",
+      "nash equilibrium",
+      "normalization",
+      "overcomplete autoencoders",
+      "pattern matching",
+      "undercomplete linear autoencoders",
+      "pixelwise normalization layers",
+      "unsupervised pretraining",
+      "using stacked autoencoders",
+      "probabilistic autoencoders",
+      "recognition network",
+      "reconstruction loss",
+      "reconstructions",
+      "recurrent autoencoders",
+      "reinforcement learning",
+      "rl",
+      "semantic interpolation",
+      "sparse autoencoders",
+      "sparsity",
+      "sparsity loss",
+      "stacked denoising autoencoders",
+      "using keras",
+      "style mixing",
+      "style transfer",
+      "tying weights",
+      "undercomplete autoencoders",
+      "pretraining using stacked autoencoders",
+      "variational autoencoders"
+    ],
+    "metrics": {
+      "precision": 0.06,
+      "recall": 0.03896103896103896,
+      "f1": 0.047244094488188976,
+      "true_positives": 3,
+      "false_positives": 47,
+      "false_negatives": 74
+    }
+  },
+  "chapter_18": {
+    "extracted_keywords": [
+      [
+        "deepmind demonstrated learn",
+        0.6435
+      ],
+      [
+        "rl reinforcement learn",
+        0.6408
+      ],
+      [
+        "atari deep reinforcement",
+        0.6275
+      ],
+      [
+        "games did deepmind",
+        0.6107
+      ],
+      [
+        "reinforcement learning rl",
+        0.5992
+      ],
+      [
+        "deepmind demonstrated",
+        0.5959
+      ],
+      [
+        "did deepmind achieve",
+        0.5906
+      ],
+      [
+        "deepmind demonstrated 2017",
+        0.5889
+      ],
+      [
+        "agent atari games",
+        0.5843
+      ],
+      [
+        "called deepmind demonstrated",
+        0.5807
+      ],
+      [
+        "introduced deepmind researchers",
+        0.5675
+      ],
+      [
+        "reinforcement learning notoriously",
+        0.5633
+      ],
+      [
+        "introduced deepmind",
+        0.5633
+      ],
+      [
+        "instead reinforcement learning",
+        0.5623
+      ],
+      [
+        "2014 did deepmind",
+        0.5621
+      ],
+      [
+        "reinforcement learn",
+        0.5613
+      ],
+      [
+        "combined deepmind demonstrated",
+        0.5578
+      ],
+      [
+        "rl reinforcement",
+        0.5559
+      ],
+      [
+        "atari games achieve",
+        0.5529
+      ],
+      [
+        "deepmind learning play",
+        0.5512
+      ],
+      [
+        "reinforcement learning agent",
+        0.5505
+      ],
+      [
+        "atari game",
+        0.5499
+      ],
+      [
+        "deep reinforcement learning",
+        0.5496
+      ],
+      [
+        "playing atari deep",
+        0.5485
+      ],
+      [
+        "famous atari game",
+        0.546
+      ],
+      [
+        "agent atari",
+        0.545
+      ],
+      [
+        "deepmind research",
+        0.545
+      ],
+      [
+        "ataripreprocessing",
+        0.5437
+      ],
+      [
+        "deepmind achieve hindsight",
+        0.5422
+      ],
+      [
+        "atari games",
+        0.5398
+      ],
+      [
+        "alphago atari games",
+        0.5387
+      ],
+      [
+        "techniques deep reinforcement",
+        0.5386
+      ],
+      [
+        "atari deep",
+        0.5384
+      ],
+      [
+        "architectures deep reinforcement",
+        0.5382
+      ],
+      [
+        "just atari game",
+        0.5376
+      ],
+      [
+        "challenges reinforcement learning",
+        0.5371
+      ],
+      [
+        "deepmind researchers understand",
+        0.5358
+      ],
+      [
+        "algorithms reinforcement learn",
+        0.5353
+      ],
+      [
+        "reinforcement learn ing",
+        0.5345
+      ],
+      [
+        "reinforcement learning good",
+        0.5337
+      ],
+      [
+        "deep reinforcement",
+        0.5316
+      ],
+      [
+        "control deep reinforcement",
+        0.5293
+      ],
+      [
+        "games figure deepmind",
+        0.528
+      ],
+      [
+        "used reinforcement learning",
+        0.5276
+      ],
+      [
+        "atari games example",
+        0.5274
+      ],
+      [
+        "deepmind research ers",
+        0.5272
+      ],
+      [
+        "learning reinforcement",
+        0.5264
+      ],
+      [
+        "popular algorithms reinforcement",
+        0.5258
+      ],
+      [
+        "reinforcement learning software",
+        0.5244
+      ],
+      [
+        "18 reinforcement learning",
+        0.5239
+      ]
+    ],
+    "ground_truth": [
+      "ab experiments",
+      "action advantage",
+      "action step",
+      "evaluating",
+      "exploiting versus exploring",
+      "actor-critic algorithms",
+      "advantage actor-critic",
+      "a2c",
+      "asynchronous advantage actor-critic",
+      "a3c",
+      "dueling dqn algorithm",
+      "genetic algorithms",
+      "off-policy algorithms",
+      "on-policy algorithms",
+      "proximal policy optimization",
+      "ppo",
+      "reinforce algorithms",
+      "soft actor-critic algorithm",
+      "value iteration algorithm",
+      "approximate q-learning",
+      "atari preprocessing",
+      "batched action step",
+      "batched time step",
+      "batched trajectory",
+      "bellman optimality equation",
+      "boundary transitions",
+      "catastrophic forgetting",
+      "collect policy",
+      "mean squared error",
+      "credit assignment problem",
+      "curiosity-based exploration",
+      "training loops",
+      "datasets",
+      "deep q-learning",
+      "double dqn",
+      "dueling dqn",
+      "fixed q-value targets",
+      "prioritized experience replay",
+      "deep q-networks",
+      "dqns",
+      "deques",
+      "discount factors",
+      "double dueling dqn",
+      "dqn agents",
+      "dynamic programming",
+      "exploration policy",
+      "importance sampling",
+      "is",
+      "markov chains",
+      "markov decision processes",
+      "mdp",
+      "installing",
+      "observers",
+      "online model",
+      "openai gym",
+      "optimal state value",
+      "policies",
+      "policy gradients",
+      "pg",
+      "policy parameters",
+      "policy search",
+      "policy space",
+      "per",
+      "q-learning",
+      "approximate q-learning and deep q- learning",
+      "implementing",
+      "q-value iteration",
+      "q-values",
+      "queries per second",
+      "qps",
+      "rainbow agent",
+      "evaluating actions",
+      "neural network policies",
+      "optimizing rewards",
+      "temporal difference learning",
+      "tf-agents library",
+      "replay buffers",
+      "replay memory",
+      "sample inefficiency",
+      "simulated environments",
+      "state-action values",
+      "stochastic policy",
+      "target model",
+      "td error",
+      "td target",
+      "td learning",
+      "tensorflow model deployment at scale",
+      "terminal state",
+      "collect driver",
+      "environment specifications",
+      "environment wrappers",
+      "environments",
+      "replay buffer and observer",
+      "training architecture",
+      "training metrics",
+      "trajectories",
+      "trajectory",
+      "undiscounted rewards"
+    ],
+    "metrics": {
+      "precision": 0.02,
+      "recall": 0.01020408163265306,
+      "f1": 0.01351351351351351,
+      "true_positives": 1,
+      "false_positives": 49,
+      "false_negatives": 97
+    }
+  }
+}

@@ -1,0 +1,1684 @@
+{
+  "chapter_1": {
+    "extracted_keywords": [
+      [
+        "does machine learning",
+        0.6254
+      ],
+      [
+        "definition machine learning",
+        0.6102
+      ],
+      [
+        "define machine learning",
+        0.605
+      ],
+      [
+        "machine learning really",
+        0.5818
+      ],
+      [
+        "launching machine learning",
+        0.5769
+      ],
+      [
+        "machine learning actually",
+        0.5609
+      ],
+      [
+        "know machine learning",
+        0.558
+      ],
+      [
+        "machine learning just",
+        0.5403
+      ],
+      [
+        "machine learning landscape",
+        0.5389
+      ],
+      [
+        "machine learning called",
+        0.5355
+      ],
+      [
+        "machine learning start",
+        0.5348
+      ],
+      [
+        "machine learn",
+        0.5346
+      ],
+      [
+        "qualify machine learning",
+        0.5334
+      ],
+      [
+        "machine learning use",
+        0.5316
+      ],
+      [
+        "machine learning went",
+        0.5301
+      ],
+      [
+        "ask machine learning",
+        0.5271
+      ],
+      [
+        "use machine learning",
+        0.524
+      ],
+      [
+        "computers ability learn",
+        0.5178
+      ],
+      [
+        "machine learning tackle",
+        0.5172
+      ],
+      [
+        "computers learn",
+        0.5166
+      ],
+      [
+        "explore machine learning",
+        0.5131
+      ],
+      [
+        "finally machine learning",
+        0.5118
+      ],
+      [
+        "computers learn data",
+        0.5048
+      ],
+      [
+        "hear machine learning",
+        0.5045
+      ],
+      [
+        "challenges machine learning",
+        0.5036
+      ],
+      [
+        "typical machine learning",
+        0.5013
+      ],
+      [
+        "categorize machine learning",
+        0.5013
+      ],
+      [
+        "far know machine",
+        0.4977
+      ],
+      [
+        "machine learning great",
+        0.4926
+      ],
+      [
+        "machine learning field",
+        0.4874
+      ],
+      [
+        "data machine learn",
+        0.4864
+      ],
+      [
+        "machine learning automated",
+        0.4848
+      ],
+      [
+        "machine learning want",
+        0.4819
+      ],
+      [
+        "machine learning tasks",
+        0.4802
+      ],
+      [
+        "machine learning basics",
+        0.48
+      ],
+      [
+        "machine learning machine",
+        0.4791
+      ],
+      [
+        "learning algorithms learn",
+        0.4774
+      ],
+      [
+        "machine learning science",
+        0.477
+      ],
+      [
+        "machine learning shines",
+        0.4741
+      ],
+      [
+        "know machine",
+        0.4709
+      ],
+      [
+        "learning machine",
+        0.4708
+      ],
+      [
+        "careful machine learning",
+        0.4707
+      ],
+      [
+        "building machine learning",
+        0.4688
+      ],
+      [
+        "filter machine learning",
+        0.4678
+      ],
+      [
+        "classify machine learning",
+        0.4651
+      ],
+      [
+        "best machine learning",
+        0.4635
+      ],
+      [
+        "learning machine learning",
+        0.461
+      ],
+      [
+        "machine learning making",
+        0.4603
+      ],
+      [
+        "algorithms learn",
+        0.4583
+      ],
+      [
+        "learning algorithms feed",
+        0.4574
+      ]
+    ],
+    "ground_truth": [
+      "cross-validation",
+      "agents",
+      "clustering algorithms",
+      "hierarchical clustering algorithms",
+      "importance of data over",
+      "supervised learning",
+      "unsupervised learning",
+      "visualization algorithms",
+      "anomaly detection",
+      "restricted boltzmann machines",
+      "rbms",
+      "association rule learning",
+      "attributes",
+      "batch learning",
+      "better life index",
+      "causal models",
+      "classification mlps",
+      "corpus development",
+      "data mismatch",
+      "importance of over algorithms",
+      "noisy data",
+      "deep belief networks",
+      "dbns",
+      "overfitting",
+      "development sets",
+      "dev sets",
+      "feature engineering",
+      "feature extraction",
+      "feature selection",
+      "features",
+      "final trained models",
+      "fitness functions",
+      "fully-specified model architecture",
+      "generalization error",
+      "hold outs",
+      "holdout validation",
+      "hyperparameters",
+      "hyperparameter tuning",
+      "learning rate",
+      "incremental learning",
+      "inference",
+      "instance-based learning",
+      "k-nearest neighbors regression",
+      "labels",
+      "linear models",
+      "classification with",
+      "machine learning",
+      "ml",
+      "testing and validating",
+      "measure of similarity",
+      "mini-batches",
+      "model parameters",
+      "model selection",
+      "model-based learning",
+      "training",
+      "no free lunch",
+      "nfl",
+      "novelty detection",
+      "offline learning",
+      "online learning",
+      "optical character recognition",
+      "ocr",
+      "out-of-core learning",
+      "out-of-sample error",
+      "penalties",
+      "policies",
+      "prediction problems",
+      "regression problems",
+      "regularization",
+      "reinforcement learning",
+      "rl",
+      "responsibilities",
+      "clustering",
+      "rewards",
+      "sampling bias",
+      "sampling noise",
+      "linear model",
+      "semi-supervised learning",
+      "spam filters",
+      "test sets",
+      "train-dev sets",
+      "training data",
+      "irrelevant features",
+      "nonrepresentative",
+      "poor quality",
+      "underfitting",
+      "training instances",
+      "training samples",
+      "training sets",
+      "algorithms covered",
+      "common tasks",
+      "utility functions",
+      "validation sets"
+    ],
+    "metrics": {
+      "precision": 0.02,
+      "recall": 0.010752688172043012,
+      "f1": 0.013986013986013988,
+      "true_positives": 1,
+      "false_positives": 49,
+      "false_negatives": 92
+    }
+  },
+  "chapter_2": {
+    "extracted_keywords": [
+      [
+        "machine learning datasets",
+        0.5829
+      ],
+      [
+        "machine learning projects",
+        0.5789
+      ],
+      [
+        "machine learning housing",
+        0.5575
+      ],
+      [
+        "data artificial datasets",
+        0.5391
+      ],
+      [
+        "artificial datasets",
+        0.5381
+      ],
+      [
+        "learn data",
+        0.5297
+      ],
+      [
+        "learning datasets quora",
+        0.527
+      ],
+      [
+        "learning algorithms dataset",
+        0.525
+      ],
+      [
+        "datasets housing",
+        0.5239
+      ],
+      [
+        "real data learning",
+        0.5224
+      ],
+      [
+        "learning datasets",
+        0.5096
+      ],
+      [
+        "data learning machine",
+        0.5077
+      ],
+      [
+        "dataset based data",
+        0.5066
+      ],
+      [
+        "housing dataset",
+        0.5041
+      ],
+      [
+        "algorithms dataset want",
+        0.5026
+      ],
+      [
+        "creates datasets housing",
+        0.501
+      ],
+      [
+        "data machine learning",
+        0.5003
+      ],
+      [
+        "machine learning project",
+        0.4968
+      ],
+      [
+        "real world data",
+        0.496
+      ],
+      [
+        "idea machine learning",
+        0.4942
+      ],
+      [
+        "dataset based",
+        0.4936
+      ],
+      [
+        "housing dataset try",
+        0.4915
+      ],
+      [
+        "dataset capable making",
+        0.4912
+      ],
+      [
+        "dataset want",
+        0.4896
+      ],
+      [
+        "machine learning best",
+        0.4867
+      ],
+      [
+        "training data dataset",
+        0.4864
+      ],
+      [
+        "data dataset",
+        0.4847
+      ],
+      [
+        "learn real estate",
+        0.4845
+      ],
+      [
+        "data learning",
+        0.4843
+      ],
+      [
+        "datasets",
+        0.484
+      ],
+      [
+        "datasets housing housing",
+        0.4837
+      ],
+      [
+        "learn data able",
+        0.4837
+      ],
+      [
+        "artificial datasets fortunately",
+        0.4818
+      ],
+      [
+        "real estate business",
+        0.4816
+      ],
+      [
+        "easily dataset",
+        0.4789
+      ],
+      [
+        "dataset interested",
+        0.4768
+      ],
+      [
+        "machine learning pipeline",
+        0.4752
+      ],
+      [
+        "machine learning software",
+        0.4737
+      ],
+      [
+        "learning machine learning",
+        0.4725
+      ],
+      [
+        "unfortunately housing dataset",
+        0.4723
+      ],
+      [
+        "irvine machine learning",
+        0.4694
+      ],
+      [
+        "attribute machine learn",
+        0.4689
+      ],
+      [
+        "dataset",
+        0.4685
+      ],
+      [
+        "data scientist real",
+        0.468
+      ],
+      [
+        "perform unknown datasets",
+        0.4668
+      ],
+      [
+        "dataset interested try",
+        0.4664
+      ],
+      [
+        "exploring data",
+        0.4659
+      ],
+      [
+        "working real data",
+        0.465
+      ],
+      [
+        "machine learning repository",
+        0.4634
+      ],
+      [
+        "algorithms dataset",
+        0.4629
+      ]
+    ],
+    "ground_truth": [
+      "cross-validation",
+      "evaluating",
+      "average absolute deviation",
+      "california housing prices dataset",
+      "mnist dataset",
+      "components",
+      "correlation coefficient",
+      "mean absolute error",
+      "mae",
+      "downloading",
+      "geographical data",
+      "data preparation",
+      "custom transformers",
+      "data cleaning",
+      "feature scaling",
+      "handling text and categorical attributes",
+      "transformation pipelines",
+      "data snooping bias",
+      "attribute combinations",
+      "computing correlations",
+      "test training and exploration sets",
+      "duck typing",
+      "dummy attributes",
+      "embedding",
+      "estimators",
+      "euclidean norm",
+      "data downloading",
+      "data visualization",
+      "framing the problem",
+      "launching monitoring and maintaining",
+      "machine learning project checklist",
+      "model fine-tuning",
+      "model selection and training",
+      "project goals",
+      "selecting performance measure",
+      "verifying assumptions",
+      "exploration sets",
+      "folds",
+      "histograms",
+      "hyperparameter tuning",
+      "isolated environments",
+      "k-fold cross-validation",
+      "labels",
+      "machine learning",
+      "ml",
+      "manhattan norm",
+      "rmse",
+      "min-max scaling",
+      "model selection",
+      "fine-tuning",
+      "training",
+      "multiple regression problems",
+      "multivariate regression problems",
+      "normalization",
+      "dense arrays",
+      "installing",
+      "serializing large arrays",
+      "one-hot encoding",
+      "one-hot vectors",
+      "pearsons r",
+      "pipelines",
+      "predictors",
+      "univariate regression problems",
+      "representation learning",
+      "root mean square error",
+      "converting text to numbers",
+      "dataset dictionary structure",
+      "design principles",
+      "gridsearchcv",
+      "k-fold cross-validation feature",
+      "mean_squared_error function",
+      "missing value handling",
+      "saving models",
+      "splitting datasets into subsets",
+      "stratified sampling",
+      "transformation sequences",
+      "transformers and",
+      "sparse matrix",
+      "standard correlation coefficient",
+      "standardization",
+      "tail-heavy histograms",
+      "deploying on ai platforms",
+      "test sets",
+      "example project",
+      "transformations",
+      "workspace creation"
+    ],
+    "metrics": {
+      "precision": 0.12,
+      "recall": 0.06976744186046512,
+      "f1": 0.08823529411764704,
+      "true_positives": 6,
+      "false_positives": 44,
+      "false_negatives": 80
+    }
+  },
+  "chapter_3": {
+    "extracted_keywords": [
+      [
+        "classification systems mnist",
+        0.6847
+      ],
+      [
+        "classifiers mnist",
+        0.6629
+      ],
+      [
+        "train classifiers mnist",
+        0.642
+      ],
+      [
+        "popular datasets mnist",
+        0.6062
+      ],
+      [
+        "datasets mnist",
+        0.604
+      ],
+      [
+        "digits mnist dataset",
+        0.5998
+      ],
+      [
+        "images mnist dataset",
+        0.595
+      ],
+      [
+        "learn classifiers",
+        0.5897
+      ],
+      [
+        "classification predicting classes",
+        0.5882
+      ],
+      [
+        "classification predicting",
+        0.5838
+      ],
+      [
+        "mnist learns machine",
+        0.5803
+      ],
+      [
+        "learn classifiers generally",
+        0.5795
+      ],
+      [
+        "classification know",
+        0.5734
+      ],
+      [
+        "mnist dataset actually",
+        0.5717
+      ],
+      [
+        "mnist dataset",
+        0.5708
+      ],
+      [
+        "classifiers digit",
+        0.5706
+      ],
+      [
+        "classification tasks outputs",
+        0.566
+      ],
+      [
+        "classifiers mnist problem",
+        0.5653
+      ],
+      [
+        "mnist dataset sklearn",
+        0.5627
+      ],
+      [
+        "classifiers",
+        0.5611
+      ],
+      [
+        "classification tasks",
+        0.56
+      ],
+      [
+        "scikit learn classifiers",
+        0.5591
+      ],
+      [
+        "closely mnist dataset",
+        0.5584
+      ],
+      [
+        "build good classification",
+        0.558
+      ],
+      [
+        "classification outputs",
+        0.5564
+      ],
+      [
+        "classify digit images",
+        0.5557
+      ],
+      [
+        "datasets mnist following",
+        0.5541
+      ],
+      [
+        "digits learning algorithms",
+        0.5516
+      ],
+      [
+        "classifiers especially",
+        0.5491
+      ],
+      [
+        "classification classifiers",
+        0.5468
+      ],
+      [
+        "classification classifiers train",
+        0.5464
+      ],
+      [
+        "classification systems",
+        0.5452
+      ],
+      [
+        "good classification systems",
+        0.5451
+      ],
+      [
+        "classification binary classifiers",
+        0.5449
+      ],
+      [
+        "classifiers digit detector",
+        0.5446
+      ],
+      [
+        "classifiers train",
+        0.5441
+      ],
+      [
+        "classification",
+        0.5436
+      ],
+      [
+        "data mnist",
+        0.543
+      ],
+      [
+        "predictions training",
+        0.5423
+      ],
+      [
+        "machine classifiers",
+        0.5422
+      ],
+      [
+        "classifiers generally",
+        0.5394
+      ],
+      [
+        "classifier learn",
+        0.5389
+      ],
+      [
+        "train classifiers",
+        0.5386
+      ],
+      [
+        "classification regression",
+        0.5385
+      ],
+      [
+        "predicting values classification",
+        0.5385
+      ],
+      [
+        "using mnist dataset",
+        0.5355
+      ],
+      [
+        "regression classifiers",
+        0.5348
+      ],
+      [
+        "classifiers various",
+        0.534
+      ],
+      [
+        "classifiers want classify",
+        0.5326
+      ],
+      [
+        "classifiers want",
+        0.5306
+      ]
+    ],
+    "ground_truth": [
+      "accuracy",
+      "cross-validation",
+      "area under the curve",
+      "auc",
+      "binary classifiers",
+      "error analysis",
+      "multiclass classification",
+      "multilabel classification",
+      "multioutput classification",
+      "performance measures",
+      "confusion matrix",
+      "skewed datasets",
+      "decision function",
+      "f1 score",
+      "false positive rate",
+      "fpr",
+      "folds",
+      "gradient descent",
+      "gd",
+      "stochastic gradient descent",
+      "harmonic mean",
+      "k-fold cross-validation",
+      "approaches to training",
+      "precision",
+      "recall",
+      "roc curve",
+      "multinomial classifiers",
+      "randint function",
+      "one-versus-all",
+      "ova",
+      "one-versus-one",
+      "ovo",
+      "one-versus-the-rest",
+      "ovr",
+      "online learning",
+      "sgd",
+      "receiver operating characteristic",
+      "roc",
+      "computing classifier metrics",
+      "cross_val_score function",
+      "sgdclassifier class",
+      "sensitivity",
+      "training models",
+      "true negative rate",
+      "tnr",
+      "true positive rate",
+      "tpr"
+    ],
+    "metrics": {
+      "precision": 0.04,
+      "recall": 0.0425531914893617,
+      "f1": 0.041237113402061855,
+      "true_positives": 2,
+      "false_positives": 48,
+      "false_negatives": 45
+    }
+  },
+  "chapter_4": {
+    "extracted_keywords": [
+      [
+        "learning models training",
+        0.6183
+      ],
+      [
+        "model training",
+        0.6034
+      ],
+      [
+        "models training",
+        0.5955
+      ],
+      [
+        "learning models",
+        0.5926
+      ],
+      [
+        "training models",
+        0.5827
+      ],
+      [
+        "training models far",
+        0.5796
+      ],
+      [
+        "model training discuss",
+        0.5619
+      ],
+      [
+        "training neural networks",
+        0.5589
+      ],
+      [
+        "model formance training",
+        0.5528
+      ],
+      [
+        "models training algorithms",
+        0.5497
+      ],
+      [
+        "regression training",
+        0.5475
+      ],
+      [
+        "training model",
+        0.5441
+      ],
+      [
+        "training examples learns",
+        0.5433
+      ],
+      [
+        "neural networks discussed",
+        0.5387
+      ],
+      [
+        "model trained",
+        0.5369
+      ],
+      [
+        "models trained",
+        0.5369
+      ],
+      [
+        "study neural networks",
+        0.5335
+      ],
+      [
+        "machine learning models",
+        0.5332
+      ],
+      [
+        "function training model",
+        0.5326
+      ],
+      [
+        "step good learning",
+        0.5312
+      ],
+      [
+        "feature training",
+        0.5289
+      ],
+      [
+        "features training",
+        0.5249
+      ],
+      [
+        "using simple learning",
+        0.5216
+      ],
+      [
+        "training model trained",
+        0.5199
+      ],
+      [
+        "learning",
+        0.5195
+      ],
+      [
+        "training algorithms",
+        0.5181
+      ],
+      [
+        "using learning",
+        0.518
+      ],
+      [
+        "building training neural",
+        0.517
+      ],
+      [
+        "simple learning",
+        0.5163
+      ],
+      [
+        "function training",
+        0.5139
+      ],
+      [
+        "model trained training",
+        0.5135
+      ],
+      [
+        "learning rate steps",
+        0.5134
+      ],
+      [
+        "examples learns",
+        0.5132
+      ],
+      [
+        "regression model trained",
+        0.511
+      ],
+      [
+        "calculations training",
+        0.509
+      ],
+      [
+        "training algorithm use",
+        0.5083
+      ],
+      [
+        "training neural",
+        0.5083
+      ],
+      [
+        "gradient descent training",
+        0.5073
+      ],
+      [
+        "learning step",
+        0.5062
+      ],
+      [
+        "model feed training",
+        0.505
+      ],
+      [
+        "underfitting training",
+        0.5047
+      ],
+      [
+        "model right training",
+        0.5004
+      ],
+      [
+        "training algorithms like",
+        0.5002
+      ],
+      [
+        "model learning",
+        0.4982
+      ],
+      [
+        "performs training data",
+        0.4973
+      ],
+      [
+        "algorithm use training",
+        0.4957
+      ],
+      [
+        "long learning",
+        0.4956
+      ],
+      [
+        "chapter training models",
+        0.4947
+      ],
+      [
+        "used classification tasks",
+        0.4945
+      ],
+      [
+        "learning algorithms",
+        0.4931
+      ]
+    ],
+    "ground_truth": [
+      "logistic",
+      "sigmoid",
+      "argmax operator",
+      "batch gradient descent",
+      "bias terms",
+      "biasvariance trade-off",
+      "calculus",
+      "large margin classification",
+      "linear svm classification",
+      "closed-form solution",
+      "column vectors",
+      "convergence",
+      "convex function",
+      "cross-entropy loss",
+      "log loss",
+      "mean squared error",
+      "iris dataset",
+      "decision boundaries",
+      "computational complexity",
+      "early stopping",
+      "elastic net",
+      "epochs",
+      "feature vector",
+      "full gradient descent",
+      "global minimum",
+      "gradient descent",
+      "gd",
+      "mini-batch gradient descent",
+      "stochastic gradient descent",
+      "learning rate",
+      "identity matrix",
+      "independent and identically distributed",
+      "iid",
+      "random initialization",
+      "intercept terms",
+      "kullbackleibler divergence",
+      "lasso regression",
+      "learning curves",
+      "learning schedules",
+      "linear algebra",
+      "linear regression model",
+      "approaches to training",
+      "normal equation",
+      "local minimum",
+      "log-odds",
+      "logistic regression",
+      "estimating probabilities",
+      "softmax regression",
+      "training and cost function",
+      "logit",
+      "rmse",
+      "mini-batches",
+      "multinomial logistic regression",
+      "normalized exponential",
+      "inv function",
+      "sgd",
+      "parameter matrix",
+      "parameter space",
+      "parameter vector",
+      "partial derivatives",
+      "polynomial regression",
+      "linear regression",
+      "ridge regression",
+      "regularization terms",
+      "regularized linear models",
+      "root mean square error",
+      "linear regression",
+      "simulated annealing",
+      "singular value decomposition",
+      "svd",
+      "softmax function",
+      "subgradient vector",
+      "support vector machines",
+      "svms",
+      "tikhonov regularization",
+      "tolerance",
+      "feature vectors",
+      "parameter vectors",
+      "subgradient vectors"
+    ],
+    "metrics": {
+      "precision": 0.04,
+      "recall": 0.02531645569620253,
+      "f1": 0.031007751937984496,
+      "true_positives": 2,
+      "false_positives": 48,
+      "false_negatives": 77
+    }
+  },
+  "chapter_5": {
+    "extracted_keywords": [
+      [
+        "svms best explained",
+        0.7137
+      ],
+      [
+        "svm classification fundamental",
+        0.7116
+      ],
+      [
+        "understanding svms",
+        0.708
+      ],
+      [
+        "svm classifiers",
+        0.7079
+      ],
+      [
+        "classifiers svm",
+        0.6968
+      ],
+      [
+        "explains svms",
+        0.6944
+      ],
+      [
+        "svm classification",
+        0.6894
+      ],
+      [
+        "svm classifiers just",
+        0.6865
+      ],
+      [
+        "classifiers svm classifiers",
+        0.6844
+      ],
+      [
+        "linear svm classifiers",
+        0.6801
+      ],
+      [
+        "svm classifiers method",
+        0.6796
+      ],
+      [
+        "svm classifier",
+        0.6795
+      ],
+      [
+        "deeper understanding svms",
+        0.6771
+      ],
+      [
+        "svm classifiers using",
+        0.6768
+      ],
+      [
+        "svms svm classifier",
+        0.6748
+      ],
+      [
+        "svm classifier use",
+        0.6747
+      ],
+      [
+        "svm classification classes",
+        0.672
+      ],
+      [
+        "linear svm classification",
+        0.6655
+      ],
+      [
+        "svms described",
+        0.6646
+      ],
+      [
+        "class svms",
+        0.6644
+      ],
+      [
+        "concepts svms",
+        0.6628
+      ],
+      [
+        "section explains svms",
+        0.6625
+      ],
+      [
+        "learn svm classification",
+        0.6622
+      ],
+      [
+        "classes svm classification",
+        0.6607
+      ],
+      [
+        "classification linear svm",
+        0.6604
+      ],
+      [
+        "svms svm",
+        0.6588
+      ],
+      [
+        "svm classification class",
+        0.6579
+      ],
+      [
+        "fundamental idea svms",
+        0.6579
+      ],
+      [
+        "vector machine svm",
+        0.6558
+      ],
+      [
+        "regression classifiers svm",
+        0.6544
+      ],
+      [
+        "think svm classifier",
+        0.6535
+      ],
+      [
+        "linear svm classifier",
+        0.6534
+      ],
+      [
+        "class svms used",
+        0.6527
+      ],
+      [
+        "svm classifier model",
+        0.6526
+      ],
+      [
+        "dataset svm classifiers",
+        0.649
+      ],
+      [
+        "svm classifier using",
+        0.6489
+      ],
+      [
+        "machine svm",
+        0.6462
+      ],
+      [
+        "svms",
+        0.6434
+      ],
+      [
+        "classes svm",
+        0.6432
+      ],
+      [
+        "svm classification linear",
+        0.6427
+      ],
+      [
+        "understanding svms word",
+        0.6382
+      ],
+      [
+        "svm classifiers efficient",
+        0.6378
+      ],
+      [
+        "svms described papers",
+        0.6355
+      ],
+      [
+        "does svm",
+        0.6349
+      ],
+      [
+        "svc class svms",
+        0.6343
+      ],
+      [
+        "learn svm",
+        0.6339
+      ],
+      [
+        "svm classifier prediction",
+        0.6316
+      ],
+      [
+        "svm",
+        0.6273
+      ],
+      [
+        "core concepts svms",
+        0.6272
+      ],
+      [
+        "svm algorithm",
+        0.6268
+      ]
+    ],
+    "ground_truth": [
+      "hard margin classification",
+      "nonlinear svm classification",
+      "soft margin classification",
+      "constrained optimization",
+      "hinge loss",
+      "feature scaling",
+      "decision trees",
+      "training and visualizing",
+      "dual problem",
+      "gaussian radial basis function",
+      "rbf",
+      "hinge loss function",
+      "hyperplanes",
+      "kernel trick",
+      "kernelized svm",
+      "kernels",
+      "landmarks",
+      "levenshtein distance",
+      "liblinear library",
+      "libsvm library",
+      "machine learning",
+      "ml",
+      "margin violations",
+      "mercers conditions",
+      "mercers theorem",
+      "online svms",
+      "polynomial features",
+      "polynomial kernels",
+      "primal problem",
+      "quadratic programming",
+      "qp",
+      "radial basis function",
+      "svm regression",
+      "svm classification classes",
+      "svm models",
+      "tolerance hyperparameter",
+      "sigmoid kernel",
+      "similarity functions",
+      "slack variables",
+      "string kernels",
+      "string subsequence kernel",
+      "subderivatives",
+      "decision function and prediction",
+      "training objective",
+      "support vectors"
+    ],
+    "metrics": {
+      "precision": 0.06,
+      "recall": 0.06666666666666667,
+      "f1": 0.06315789473684212,
+      "true_positives": 3,
+      "false_positives": 47,
+      "false_negatives": 42
+    }
+  },
+  "chapter_6": {
+    "extracted_keywords": [
+      [
+        "decision trees training",
+        0.7027
+      ],
+      [
+        "regression decision trees",
+        0.6966
+      ],
+      [
+        "svms decision trees",
+        0.6904
+      ],
+      [
+        "decision trees trained",
+        0.6782
+      ],
+      [
+        "decision tree training",
+        0.6775
+      ],
+      [
+        "decision trees make",
+        0.6717
+      ],
+      [
+        "understand decision trees",
+        0.6668
+      ],
+      [
+        "decision tree predicts",
+        0.6655
+      ],
+      [
+        "decision tree regression",
+        0.662
+      ],
+      [
+        "decision trees",
+        0.6588
+      ],
+      [
+        "decision trees fundamental",
+        0.654
+      ],
+      [
+        "decision trees generally",
+        0.6516
+      ],
+      [
+        "decision trees like",
+        0.6493
+      ],
+      [
+        "000 decision trees",
+        0.6484
+      ],
+      [
+        "overfitting decision trees",
+        0.6451
+      ],
+      [
+        "decision tree scikit",
+        0.6445
+      ],
+      [
+        "classification regression tree",
+        0.6444
+      ],
+      [
+        "decision tree trained",
+        0.6432
+      ],
+      [
+        "decision trees require",
+        0.6397
+      ],
+      [
+        "decision trees versatile",
+        0.6384
+      ],
+      [
+        "decision trees fit",
+        0.6359
+      ],
+      [
+        "decision trees capable",
+        0.6358
+      ],
+      [
+        "training decision tree",
+        0.6286
+      ],
+      [
+        "train decision trees",
+        0.6225
+      ],
+      [
+        "decision trees nodes",
+        0.6212
+      ],
+      [
+        "trained decision tree",
+        0.62
+      ],
+      [
+        "scikit learn decisiontreeregressor",
+        0.62
+      ],
+      [
+        "decision tree",
+        0.617
+      ],
+      [
+        "predictions decision tree",
+        0.6161
+      ],
+      [
+        "decision trees love",
+        0.6155
+      ],
+      [
+        "decision trees likely",
+        0.6155
+      ],
+      [
+        "decision trees prone",
+        0.6072
+      ],
+      [
+        "decision trees called",
+        0.6072
+      ],
+      [
+        "convinced decision trees",
+        0.6066
+      ],
+      [
+        "produce decision trees",
+        0.6031
+      ],
+      [
+        "forest classifier solutions",
+        0.6002
+      ],
+      [
+        "new decision tree",
+        0.6
+      ],
+      [
+        "decision tree understand",
+        0.5994
+      ],
+      [
+        "noticed decision trees",
+        0.5988
+      ],
+      [
+        "classification tree built",
+        0.5933
+      ],
+      [
+        "limitations decision trees",
+        0.5912
+      ],
+      [
+        "predictions trees",
+        0.5905
+      ],
+      [
+        "details random forests",
+        0.5884
+      ],
+      [
+        "trees like svms",
+        0.5878
+      ],
+      [
+        "tions decision trees",
+        0.5875
+      ],
+      [
+        "decision tree overfitting",
+        0.587
+      ],
+      [
+        "decision tree achieving",
+        0.5865
+      ],
+      [
+        "decision tree making",
+        0.5865
+      ],
+      [
+        "leaf decision trees",
+        0.5864
+      ],
+      [
+        "classification tree",
+        0.5857
+      ]
+    ],
+    "ground_truth": [
+      "cart training algorithm",
+      "greedy algorithms",
+      "binary trees",
+      "black box models",
+      "chi-squared test",
+      "classification and regression tree",
+      "cart",
+      "voting classifiers",
+      "mean squared error",
+      "decision trees",
+      "computational complexity",
+      "estimating class probabilities",
+      "gini impurity versus entropy",
+      "instability drawbacks",
+      "making predictions",
+      "regression tasks",
+      "regularization hyperparameters",
+      "ensemble learning",
+      "random forests",
+      "ensemble methods",
+      "ensembles",
+      "entropy impurity measure",
+      "gini impurity measure",
+      "impurity",
+      "information theory",
+      "instability",
+      "leaf nodes",
+      "majority-vote predictions",
+      "parametric versus nonparametric",
+      "white versus black box",
+      "nonparametric models",
+      "np-complete problem",
+      "null hypothesis",
+      "p-value",
+      "parametric models",
+      "prediction problems",
+      "pruning",
+      "hyperparameters for decision trees",
+      "root nodes",
+      "decisiontreeregressor class",
+      "max_depth hyperparameter",
+      "presorting data with",
+      "random_state hyperparameter",
+      "shannons information theory",
+      "statistical significance",
+      "training set rotation",
+      "white box models",
+      "wisdom of the crowd"
+    ],
+    "metrics": {
+      "precision": 0.06,
+      "recall": 0.0625,
+      "f1": 0.061224489795918366,
+      "true_positives": 3,
+      "false_positives": 47,
+      "false_negatives": 45
+    }
+  }
+}

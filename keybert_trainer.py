@@ -97,7 +97,7 @@ def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 30,
             # Extract keywords with MMR (Maximal Marginal Relevance)
             keywords = keybert.extract_keywords(
                 chunk,
-                keyphrase_ngram_range=(1, 3),  # Allow up to trigrams
+                keyphrase_ngram_range=(1, 2),  # Allow up to trigrams
                 stop_words=stop_words,
                 use_maxsum=False,  # Use MMR instead for better extraction with mpnet
                 use_mmr=True,
