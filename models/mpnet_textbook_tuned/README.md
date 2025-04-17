@@ -8,108 +8,138 @@ tags:
 - loss:TripletLoss
 base_model: sentence-transformers/all-mpnet-base-v2
 widget:
-- source_sentence: "9.\tWhat is an online learning system?\n10.\tWhat is out-of-core\
-    \ learning?\n11.\tWhat type of learning algorithm relies on a similarity measure\
-    \ to make predictions?\n12.\tWhat is the difference between a model parameter\
-    \ and a learning algorithm’s hyperparameter?\n13.\tWhat do model-based learning\
-    \ algorithms search for? What is the most common strategy they use to succeed?\
-    \ How do they make predictions?\n14.\tCan you name four of the main challenges\
-    \ in Machine Learning?\n15.\tIf your model performs great on the training data\
-    \ but generalizes poorly to new instances, what is happening? Can you name three\
-    \ possible solutions?\n16.\tWhat is a test set, and why would you want to use\
-    \ it?\n17.\tWhat is the purpose of a validation set?\n18.\tWhat is the train-dev\
-    \ set, when do you need it, and how do you use it?\n19.\tWhat can go wrong if\
-    \ you tune hyperparameters using the test set? Solutions to these exercises are\
-    \ available in Appendix A."
+- source_sentence: "Now you have all the tools and knowledge you need to create state-of-the-art\
+    \ neural net architectures and train them at scale using various distribution\
+    \ strategies, on your own infrastructure or on the cloud—and you can even perform\
+    \ powerful Bayesian optimization to fine-tune the hyperparameters!\nExercises\n\
+    1.\tWhat does a SavedModel contain? How do you inspect its content?\n2.\tWhen\
+    \ should you use TF Serving? What are its main features? What are some tools you\
+    \ can use to deploy it?\n3.\tHow do you deploy a model across multiple TF Serving\
+    \ instances?\n4.\tWhen should you use the gRPC API rather than the REST API to\
+    \ query a model served by TF Serving?\n5.\tWhat are the different ways TFLite\
+    \ reduces a model’s size to make it run on a mobile or embedded device?\n6.\t\
+    What is quantization-aware training, and why would you need it?\n7.\tWhat are\
+    \ model parallelism and data parallelism? Why is the latter generally recommended?\n\
+    8.\tWhen training a model across multiple servers, what distribution strategies\
+    \ can you use? How do you choose which one to use?\n9.\tTrain a model (any model\
+    \ you like) and deploy it to TF Serving or Google Cloud AI Platform. Write the\
+    \ client code to query it using the REST API or the gRPC"
   sentences:
-  - supervised learning
-  - hyperparameters
-  - stacked generalization
-- source_sentence: 'possible values of x, you always get 1; but if you integrate the
-    likelihood function over all possible values of θ, the result can be any positive
-    value.
-
-    Given a dataset X, a common task is to try to estimate the most likely values
-    for the model parameters. To do this, you must find the values that maximize the
-    likelihood function, given X. In this example, if you have observed a single instance
-    x=2.5, the maximum likelihood estimate (MLE) of θ is θ=1.5. If a prior probability
-    distribution g over θ exists, it is possible to take it into account by maximizing
-    ℒ(θ|x)g(θ) rather
-
-    than just maximizing ℒ(θ|x). This is called maximum a-posteriori (MAP) estimation.
-    Since MAP constrains the parameter values, you can think of it as a regularized
-    version of MLE.
-
-    Notice that maximizing the likelihood function is equivalent to maximizing its
-    logarithm (represented in the lower-righthand plot in Figure 9-20). Indeed the
-    logarithm is a strictly increasing function, so if θ maximizes the log likelihood,
-    it also maximizes the likelihood. It turns out that it is generally easier to
-    maximize the log likelihood. For example, if you observed several independent
-    instances x(1) to x(m), you would need to find the value of θ that maximizes the
-    product of the individual likelihood functions. But it is equivalent, and much
-    simpler, to maximize the sum (not the product) of the log likelihood functions,
-    thanks to the magic of the logarithm which converts products into sums: log(ab)=log(a)+log(b).
-
-    Once you have estimated θ, the value of θ that maximizes the likelihood function,
-    then you are ready to compute L = ℒ θ, X , which is the value used to compute
-    the AIC and BIC; you can think of it as a measure of how well the model fits the
-    data.'
+  - protobufs
+  - data parallelism
+  - Residual Network
+- source_sentence: "This diagram also illustrates the fact that training a model means\
+    \ searching for a combination of model parameters that minimizes a cost function\
+    \ (over the training set). It is a search in the model’s parameter space: the\
+    \ more parameters a model has, the more dimensions this space has, and the harder\
+    \ the search is: searching for a needle in a 300-dimensional haystack is much\
+    \ trickier than in 3 dimensions. Fortunately, since the cost function is convex\
+    \ in the case of Linear Regression, the needle is simply at the bottom of the\
+    \ bowl.\nBatch Gradient Descent\nTo implement Gradient Descent, you need to compute\
+    \ the gradient of the cost function with regard to each model parameter θj. In\
+    \ other words, you need to calculate how much the cost function will change if\
+    \ you change θj just a little bit. This is called a partial derivative. It is\
+    \ like asking “What is the slope of the mountain under my feet if I face east?”\
+    \ and then asking the same question facing north (and so on for all other dimensions,\
+    \ if you can imagine a universe with more than three dimensions). Equation 4-5\
+    \ computes the partial derivative of the cost function with regard to parameter\
+    \ θj, noted ∂ MSE(θ) / ∂θj.\nEquation 4-5. Partial derivatives of the cost function\n\
+    \ ∂ MSE θ  =  2 ∑m  θ⊺x i − y i  x i"
   sentences:
-  - p
-  - project goals
-  - Extra-Trees classifier
-- source_sentence: "3.\tTackle the Titanic dataset. A great place to start is on Kaggle.\n\
-    4.\tBuild a spam classifier (a more challenging exercise):\n•\tDownload examples\
-    \ of spam and ham from Apache SpamAssassin’s public datasets.\n•\tUnzip the datasets\
-    \ and familiarize yourself with the data format.\n•\tSplit the datasets into a\
-    \ training set and a test set.\n•\tWrite a data preparation pipeline to convert\
-    \ each email into a feature vector. Your preparation pipeline should transform\
-    \ an email into a (sparse) vector that indicates the presence or absence of each\
-    \ possible word. For example, if all emails only ever contain four words, “Hello,”\
-    \ “how,” “are,” “you,” then the email “Hello you Hello Hello you” would be converted\
-    \ into a vector [1, 0, 0, 1] (meaning [“Hello” is present, “how” is absent, “are”\
-    \ is absent, “you” is present]), or [3, 0, 0, 2] if you prefer to count the number\
-    \ of occurrences of each word.\nYou may want to add hyperparameters to your preparation\
-    \ pipeline to control whether or not to strip off email headers, convert each\
-    \ email to lowercase, remove punctuation, replace all URLs with “URL,” replace\
-    \ all numbers with “NUMBER,” or even perform stemming (i.e., trim off word endings;\
-    \ there are Python libraries available to do this).\nFinally, try out several\
-    \ classifiers and see if you can build a great spam classifier, with both high\
-    \ recall and high precision.\nSolutions to these exercises can be found in the\
-    \ Jupyter notebooks available at https:// github.com/ageron/handson-ml2."
+  - partial derivatives
+  - Machine Learning
+  - pooling layer
+- source_sentence: "Figure 1-7. An unlabeled training set for unsupervised learning\n\
+    Here are some of the most important unsupervised learning algorithms (most of\
+    \ these are covered in Chapters 8 and 9):\n•\tClustering\n—\tK-Means\n—\tDBSCAN\n\
+    —\tHierarchical Cluster Analysis (HCA)\n•\tAnomaly detection and novelty detection\n\
+    —\tOne-class SVM\n—\tIsolation Forest\n•\tVisualization and dimensionality reduction\n\
+    —\tPrincipal Component Analysis (PCA)\n—\tKernel PCA\n—\tLocally Linear Embedding\
+    \ (LLE)\n—\tt-Distributed Stochastic Neighbor Embedding (t-SNE)\n•\tAssociation\
+    \ rule learning\n—\tApriori\n—\tEclat\nFor example, say you have a lot of data\
+    \ about your blog’s visitors. You may want to run a clustering algorithm to try\
+    \ to detect groups of similar visitors (Figure 1-8). At no point do you tell the\
+    \ algorithm which group a visitor belongs to: it finds those connections without\
+    \ your help. For example, it might notice that 40% of your visitors are males\
+    \ who love comic books and generally read your blog in the evening, while 20%\
+    \ are young sci-fi lovers who visit during the weekends. If you use a hierarchical\
+    \ clustering algorithm, it may also subdivide each group into smaller groups.\
+    \ This may help you target your posts for each group."
   sentences:
-  - Dueling DQN
-  - Decision Stumps
-  - precision
-- source_sentence: 'Figure 3-6. This ROC curve plots the false positive rate against
-    the true positive rate for all possible thresholds; the red circle highlights
-    the chosen ratio (at 43.68% recall)
+  - parameter servers
+  - softmax
+  - anomaly detection
+- source_sentence: 'with a branch for every pair of clusters that merged, you would
+    get a binary tree of clusters, where the leaves are the individual instances.
+    This approach scales very well to large numbers of instances or clusters. It can
+    capture clusters of various shapes, it produces a flexible and informative cluster
+    tree instead of forcing you to choose a particular cluster scale, and it can be
+    used with any pairwise distance. It can scale nicely to large numbers of instances
+    if you provide a connectivity matrix, which is a sparse m × m matrix that indicates
+    which pairs of instances are neighbors (e.g., returned by sklearn.neighbors.kneighbors_graph()).
+    Without a connectivity matrix, the algorithm does not scale well to large datasets.
 
-    One way to compare classifiers is to measure the area under the curve (AUC). A
-    perfect classifier will have a ROC AUC equal to 1, whereas a purely random classifier
-    will have a ROC AUC equal to 0.5. Scikit-Learn provides a function to compute
-    the ROC AUC:
+    BIRCH
 
-    >>> from sklearn.metrics import roc_auc_score
+    The BIRCH (Balanced Iterative Reducing and Clustering using Hierarchies) algorithm
+    was designed specifically for very large datasets, and it can be faster than batch
+    K-Means, with similar results, as long as the number of features is not too large
+    (<20). During training, it builds a tree structure containing just enough information
+    to quickly assign each new instance to a cluster, without having to store all
+    the instances in the tree: this approach allows it to use limited memory, while
+    handling huge datasets.
 
-    >>> roc_auc_score(y_train_5, y_scores) 0.9611778893101814'
+    Mean-Shift
+
+    This algorithm starts by placing a circle centered on each instance; then for
+    each circle it computes the mean of all the instances located within it, and it
+    shifts the circle so that it is centered on the mean. Next, it iterates this mean-shifting
+    step until all the circles stop moving (i.e., until each of them is centered on
+    the mean of the instances it contains). Mean-Shift shifts the circles in the direction
+    of higher density, until each of them has found a local density maximum. Finally,
+    all the instances whose circles have settled in the same place (or close enough)
+    are assigned to the same cluster. Mean-Shift has some of the same features as
+    DBSCAN, like how it can find any number of clusters of any shape, it has very
+    few hyperparameters (just one—the radius of the circles, called the bandwidth),
+    and it relies on local density estimation. But unlike DBSCAN, Mean-Shift tends
+    to chop clusters into pieces when they have internal density variations. Unfortunately,
+    its computational complexity is O(m2), so it is not suited for large datasets.
+
+    Affinity propagation
+
+    This algorithm uses a voting system, where instances vote for similar instances
+    to be their representatives, and once the algorithm converges, each representative
+    and its voters form a cluster. Affinity propagation can detect any number of clusters
+    of different sizes. Unfortunately, this algorithm has a computational complexity
+    of O(m2), so it too is not suited for large datasets.
+
+    Spectral clustering
+
+    This algorithm takes a similarity matrix between the instances and creates a low-
+    dimensional embedding from it (i.e., it reduces its dimensionality), then it uses'
   sentences:
-  - recall
-  - encoders
-  - Mini-batch Gradient Descent
-- source_sentence: 'Now let’s look a bit more closely at the Keras preprocessing layers.
-
-    Keras Preprocessing Layers
-
-    The TensorFlow team is working on providing a set of standard Keras preprocessing
-    layers. They will probably be available by the time you read this; however, the
-    API may change slightly by then, so please refer to the notebook for this chapter
-    if anything behaves unexpectedly. This new API will likely supersede the existing
-    Feature'
+  - DBSCAN
+  - mAP
+  - vocabulary
+- source_sentence: "7.\tWhat is an off-policy RL algorithm?\n8.\tUse policy gradients\
+    \ to solve OpenAI Gym’s LunarLander-v2 environment. You will need to install the\
+    \ Box2D dependencies (python3 -m pip install -U gym[box2d]).\n9.\tUse TF-Agents\
+    \ to train an agent that can achieve a superhuman level at SpaceInvaders-v4 using\
+    \ any of the available algorithms.\n10.\tIf you have about $100 to spare, you\
+    \ can purchase a Raspberry Pi 3 plus some cheap robotics components, install TensorFlow\
+    \ on the Pi, and go wild! For an example, check out this fun post by Lukas Biewald,\
+    \ or take a look at GoPiGo or BrickPi. Start with simple goals, like making the\
+    \ robot turn around to find the brightest angle (if it has a light sensor) or\
+    \ the closest object (if it has a sonar sensor), and move in that direction. Then\
+    \ you can start using Deep Learning: for example, if the robot has a camera, you\
+    \ can try to implement an object detection algorithm so it detects people and\
+    \ moves toward them. You can also try to use RL to make the agent learn on its\
+    \ own how to use the motors to achieve that goal. Have fun!\nSolutions to these\
+    \ exercises are available in Appendix A."
   sentences:
-  - convolutional layer
-  - Pearson's r
-  - preprocessing layers
+  - policy gradients
+  - tolerance hyperparameter
+  - PER
 pipeline_tag: sentence-similarity
 library_name: sentence-transformers
 ---
@@ -164,9 +194,9 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("sentence_transformers_model_id")
 # Run inference
 sentences = [
-    'Now let’s look a bit more closely at the Keras preprocessing layers.\nKeras Preprocessing Layers\nThe TensorFlow team is working on providing a set of standard Keras preprocessing layers. They will probably be available by the time you read this; however, the API may change slightly by then, so please refer to the notebook for this chapter if anything behaves unexpectedly. This new API will likely supersede the existing Feature',
-    'preprocessing layers',
-    "Pearson's r",
+    '7.\tWhat is an off-policy RL algorithm?\n8.\tUse policy gradients to solve OpenAI Gym’s LunarLander-v2 environment. You will need to install the Box2D dependencies (python3 -m pip install -U gym[box2d]).\n9.\tUse TF-Agents to train an agent that can achieve a superhuman level at SpaceInvaders-v4 using any of the available algorithms.\n10.\tIf you have about $100 to spare, you can purchase a Raspberry Pi 3 plus some cheap robotics components, install TensorFlow on the Pi, and go wild! For an example, check out this fun post by Lukas Biewald, or take a look at GoPiGo or BrickPi. Start with simple goals, like making the robot turn around to find the brightest angle (if it has a light sensor) or the closest object (if it has a sonar sensor), and move in that direction. Then you can start using Deep Learning: for example, if the robot has a camera, you can try to implement an object detection algorithm so it detects people and moves toward them. You can also try to use RL to make the agent learn on its own how to use the motors to achieve that goal. Have fun!\nSolutions to these exercises are available in Appendix A.',
+    'PER',
+    'tolerance hyperparameter',
 ]
 embeddings = model.encode(sentences)
 print(embeddings.shape)
@@ -223,16 +253,16 @@ You can finetune this model on your own dataset.
 * Size: 3,552 training samples
 * Columns: <code>sentence_0</code>, <code>sentence_1</code>, and <code>sentence_2</code>
 * Approximate statistics based on the first 1000 samples:
-  |         | sentence_0                                                                          | sentence_1                                                                       | sentence_2                                                                       |
-  |:--------|:------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|
-  | type    | string                                                                              | string                                                                           | string                                                                           |
-  | details | <ul><li>min: 4 tokens</li><li>mean: 258.82 tokens</li><li>max: 384 tokens</li></ul> | <ul><li>min: 3 tokens</li><li>mean: 4.63 tokens</li><li>max: 11 tokens</li></ul> | <ul><li>min: 3 tokens</li><li>mean: 5.46 tokens</li><li>max: 14 tokens</li></ul> |
+  |         | sentence_0                                                                          | sentence_1                                                                      | sentence_2                                                                       |
+  |:--------|:------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------|:---------------------------------------------------------------------------------|
+  | type    | string                                                                              | string                                                                          | string                                                                           |
+  | details | <ul><li>min: 4 tokens</li><li>mean: 260.94 tokens</li><li>max: 384 tokens</li></ul> | <ul><li>min: 3 tokens</li><li>mean: 4.6 tokens</li><li>max: 11 tokens</li></ul> | <ul><li>min: 3 tokens</li><li>mean: 5.33 tokens</li><li>max: 14 tokens</li></ul> |
 * Samples:
-  | sentence_0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | sentence_1                     | sentence_2                             |
-  |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:---------------------------------------|
-  | <code>Figure 16-6. Neural machine translation using an Encoder–Decoder network with an attention model<br>But where do these α(t,i) weights come from? It’s actually pretty simple: they are generated by a type of small neural network called an alignment model (or an attention layer), which is trained jointly with the rest of the Encoder–Decoder model. This alignment model is illustrated on the righthand side of Figure 16-6. It starts with a time-distributed Dense layer15 with a single neuron, which receives as input all the encoder outputs, concatenated with the decoder’s previous hidden state (e.g., h(2)). This layer outputs a score (or energy) for each encoder output (e.g., e(3, 2)): this score measures how well each output is aligned with the decoder’s previous hidden state. Finally, all the scores go through a softmax layer to get a final weight for each encoder output (e.g., α(3,2)). All the weights for a given decoder time step add up to 1 (since the softmax layer is not time-distributed)....</code>    | <code>softmax</code>           | <code>recurrent neural networks</code> |
-  | <code>The dashed lines represent the points where the decision function is equal to 1 or –1: they are parallel and at equal distance to the decision boundary, and they form a margin around it. Training a linear SVM classifier means finding the values of w and b that make this margin as wide as possible while avoiding margin violations (hard margin) or limiting them (soft margin).<br>Training Objective<br>Consider the slope of the decision function: it is equal to the norm of the weight vector, ∥ w ∥. If we divide this slope by 2, the points where the decision function is equal to ±1 are going to be twice as far away from the decision boundary. In other words, dividing the slope by 2 will multiply the margin by 2. This may be easier to visualize in 2D, as shown in Figure 5-13. The smaller the weight vector w, the larger the margin.</code>                                                                                                                                                                              | <code>margin violations</code> | <code>meta learners</code>             |
-  | <code>the word “are,” and so on. Assuming the vocabulary has 10,000 words, each model will output 10,000 probabilities.<br>Next, we compute the probabilities of each of the 30,000 two-word sentences that these models considered (3 × 10,000). We do this by multiplying the estimated conditional probability of each word by the estimated probability of the sentence it completes. For example, the estimated probability of the sentence “How” was 75%, while the estimated conditional probability of the word “will” (given that the first word is “How”) was 36%, so the estimated probability of the sentence “How will” is 75% × 36% = 27%. After computing the probabilities of all 30,000 two-word sentences, we keep only the top 3. Perhaps they all start with the word “How”: “How will” (27%), “How are” (24%), and “How do” (12%). Right now, the sentence “How will” is winning, but “How are” has not been eliminated.<br>Then we repeat the same process: we use three models to predict the next word in each of these thre...</code> | <code>TensorFlow Addons</code> | <code>Elastic Net</code>               |
+  | sentence_0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | sentence_1               | sentence_2                       |
+  |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------------------------------|
+  | <code>Figure 18-7. Example of a Markov chain<br>Suppose that the process starts in state s0, and there is a 70% chance that it will remain in that state at the next step. Eventually it is bound to leave that state and never come back because no other state points back to s0. If it goes to state s1, it will then most likely go to state s2 (90% probability), then immediately back to state s1</code>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | <code>PPO</code>         | <code>SE-ResNet</code>           |
+  | <code>iance, generally yielding an overall better model. The following BaggingClassifier<br>is equivalent to the previous RandomForestClassifier:<br>bag_clf = BaggingClassifier( DecisionTreeClassifier(max_features="auto", max_leaf_nodes=16), n_estimators=500, max_samples=1.0, bootstrap=True, n_jobs=-1)<br>Extra-Trees<br>When you are growing a tree in a Random Forest, at each node only a random subset of the features is considered for splitting (as discussed earlier). It is possible to make trees even more random by also using random thresholds for each feature rather than searching for the best possible thresholds (like regular Decision Trees do).<br>A forest of such extremely random trees is called an Extremely Randomized Trees ensemble12 (or Extra-Trees for short). Once again, this technique trades more bias for a lower variance. It also makes Extra-Trees much faster to train than regular Random Forests, because finding the best possible threshold for each feature at every node is one of the most time-co...</code>             | <code>Extra-Trees</code> | <code>PCA</code>                 |
+  | <code>>>> env.observation_spec()<br>BoundedArraySpec(shape=(210, 160, 3), dtype=dtype('float32'), name=None,<br>minimum=[[[0. 0. 0.], [0. 0. 0.],...]],<br>maximum=[[[255., 255., 255.], [255., 255., 255.], ...]])<br>>>> env.action_spec()<br>BoundedArraySpec(shape=(), dtype=dtype('int64'), name=None, minimum=0, maximum=3)<br>>>> env.time_step_spec()<br>TimeStep(step_type=ArraySpec(shape=(), dtype=dtype('int32'), name='step_type'), reward=ArraySpec(shape=(), dtype=dtype('float32'), name='reward'), discount=BoundedArraySpec(shape=(), ..., minimum=0.0, maximum=1.0), observation=BoundedArraySpec(shape=(210, 160, 3), ...))<br>As you can see, the observations are simply screenshots of the Atari screen, represented as NumPy arrays of shape [210, 160, 3]. To render an environment, you can call env.render(mode="human"), and if you want to get back the image in the form of a NumPy array, just call env.render(mode="rgb_array") (unlike in OpenAI Gym, this is the default mode).<br>There are four actions available. Gym’s Atari enviro...</code> | <code>IS</code>          | <code>stratified sampling</code> |
 * Loss: [<code>TripletLoss</code>](https://sbert.net/docs/package_reference/sentence_transformer/losses.html#tripletloss) with these parameters:
   ```json
   {
@@ -373,7 +403,7 @@ You can finetune this model on your own dataset.
 ### Training Logs
 | Epoch  | Step | Training Loss |
 |:------:|:----:|:-------------:|
-| 2.2523 | 500  | 4.3522        |
+| 2.2523 | 500  | 4.3399        |
 
 
 ### Framework Versions

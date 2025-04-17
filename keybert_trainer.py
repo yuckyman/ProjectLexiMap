@@ -41,6 +41,9 @@ TEST_CHAPTERS = [6, 10, 11, 12]
 # Using only NLTK's stopwords
 CUSTOM_STOPWORDS = ['chapter', 'figure', 'section', 'example', 'page', 'table', 'see', 'shown', 'thus', 'since', 'however', 'therefore', 'might', 'may', 'could', 'would', 'should', 'can', 'one', 'two', 'three', 'first', 'second', 'third', 'use', 'using', 'used', 'uses', 'following', 'show', 'consider', 'case', 'different', 'given', 'set', 'called', 'define', 'contains', 'describes', 'way', 'mean', 'note', 'defined', 'definition', 'approach']
 
+# Define evaluation similarity threshold
+EVAL_SIMILARITY_THRESHOLD = 0.75
+
 @lru_cache(maxsize=1000)
 def get_embedding(text, model):
     """Cache embeddings to avoid recomputing them."""
@@ -179,6 +182,19 @@ def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 100,
                 print(f"Filtered out {len(keywords) - len(filtered_keywords)} invalid keywords")
             
             keywords = filtered_keywords
+            
+            # Add length filtering
+            length_filtered_keywords = []
+            for kw, score in keywords:
+                if len(kw.strip()) > 2:
+                    length_filtered_keywords.append((kw, score))
+                else:
+                    print(f"Filtered out short keyword: '{kw}'")
+
+            if len(length_filtered_keywords) < len(keywords):
+                print(f"Filtered out {len(keywords) - len(length_filtered_keywords)} short keywords (<=2 chars)")
+
+            keywords = length_filtered_keywords
             
             if len(keywords) > 0:
                 all_keywords.extend(keywords)
@@ -504,10 +520,17 @@ def extract_hybrid_keywords(text, keybert_model, top_n=100):
             all_keywords[kw.lower()] = normalized_score * 0.2
     
     # Convert back to list, sort, and take top_n
-    final_keywords = [(kw, score) for kw, score in all_keywords.items()]
-    final_keywords.sort(key=lambda x: x[1], reverse=True)
+    initial_keywords = [(kw, score) for kw, score in all_keywords.items()]
+    initial_keywords.sort(key=lambda x: x[1], reverse=True)
+    initial_keywords = initial_keywords[:top_n] # Apply top_n before length filtering
     
-    return final_keywords[:top_n]
+    # Filter keywords by length
+    final_keywords = [(kw, score) for kw, score in initial_keywords if len(kw.strip()) > 2]
+    
+    if len(final_keywords) < len(initial_keywords):
+        print(f"Filtered out {len(initial_keywords) - len(final_keywords)} short keywords (<=2 chars) from hybrid results.")
+    
+    return final_keywords
 
 def plot_metrics(metrics_by_chapter: Dict[int, Dict[str, float]], output_file: str = "keybert_evaluation.png"):
     """Plot evaluation metrics (precision, recall, f1) for each chapter."""
@@ -639,7 +662,7 @@ def main():
             # Evaluate against actual index keywords instead of training keywords
             actual_gt = index_keywords.get(chapter, [])
             actual_list = [(kw, 1.0) for kw in actual_gt]
-            metrics = evaluate_keywords(test_keywords, actual_list, sentence_model, similarity_threshold=0.7)
+            metrics = evaluate_keywords(test_keywords, actual_list, sentence_model, similarity_threshold=EVAL_SIMILARITY_THRESHOLD)
             
             print(f"Results for chapter {chapter}:")
             for metric, value in metrics.items():
@@ -673,7 +696,7 @@ def main():
                 "model": model_name,
                 "top_n": 100,
                 "diversity": 0.7,
-                "similarity_threshold": 0.7,
+                "similarity_threshold": EVAL_SIMILARITY_THRESHOLD,
                 "matching_approach": "hierarchical+embedding"
             }
         }, f, indent=2)
