@@ -23,11 +23,9 @@ CUSTOM_STOPWORDS = [
     'chapter', 'figure', 'section', 'example', 'et', 'al', 'et al',
     'ii', 'iii', 'also', 'thus', 'however', 'moreover', 'therefore',
     'hence', 'e.g.', 'i.e.', 'vs', 'etc', 'fig', 'mean', 'note',
-    'defined', 'definition', 'approach', 'way', 'www', 'org',
-    # additional domain-specific noise terms to filter singletons
-    'using', 'use', 'test', 'tests', 'result', 'results', 'select', 'always', 'hint'
+    'defined', 'definition', 'approach', 'way', 'www', 'org'
 ]
-EVAL_SIMILARITY_THRESHOLD = 0.80  # raise threshold to tighten match quality
+EVAL_SIMILARITY_THRESHOLD = 0.75
 TEXTBOOK_DIR = Path("textbook")
 RESULTS_DIR  = Path("results")
 
@@ -144,8 +142,8 @@ def extract_hybrid_keywords(
     )
     neural = [(kw, score) for kw, score in neural if is_valid_keyword(kw)]
 
-    # TF-IDF extraction using combined stop words and n-gram phrases
-    vectorizer = TfidfVectorizer(stop_words=stop_words_list, min_df=1, ngram_range=(1, 3))
+    # TF-IDF extraction using combined stop words
+    vectorizer = TfidfVectorizer(stop_words=stop_words_list, min_df=1)
     tfidf_mat = vectorizer.fit_transform(chunks)
     terms = vectorizer.get_feature_names_out()
     scores = np.asarray(tfidf_mat.sum(axis=0)).ravel()
@@ -155,12 +153,12 @@ def extract_hybrid_keywords(
     )[:top_n]
     tfidf_terms = [(kw, score) for kw, score in tfidf_terms if is_valid_keyword(kw)]
 
-    # improve precision by keeping only keywords found by both KeyBERT and TF-IDF
-    neural_dict = {kw: score for kw, score in neural}
-    tfidf_dict = {kw: score for kw, score in tfidf_terms}
-    common = set(neural_dict) & set(tfidf_dict)
-    combined = {kw: neural_dict[kw] + tfidf_dict[kw] for kw in common}
-    # pick top_n from intersection
+    # merge scores from both sources
+    combined = defaultdict(float)
+    for kw, score in neural + tfidf_terms:
+        combined[kw] += score
+
+    # pick top_n
     final = sorted(combined.items(), key=lambda x: x[1], reverse=True)[:top_n]
     return final
 
