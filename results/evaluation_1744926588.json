@@ -1,0 +1,965 @@
+{
+  "6": {
+    "precision": 0.32,
+    "recall": 0.6666666666666666,
+    "f1_score": 0.43243243243243246,
+    "matches": [
+      [
+        "decision",
+        "making predictions",
+        0.816314160823822
+      ],
+      [
+        "noticed decision trees",
+        "Decision Trees",
+        0.9931365847587585
+      ],
+      [
+        "training",
+        "black box models",
+        0.9650108218193054
+      ],
+      [
+        "tree",
+        "binary trees",
+        0.9053322076797485
+      ],
+      [
+        "noisy quadratic dataset",
+        "regularization hyperparameters",
+        0.9623663425445557
+      ],
+      [
+        "result",
+        "white box models",
+        0.8161583542823792
+      ],
+      [
+        "major",
+        "DecisionTreeRegressor class",
+        0.8076280355453491
+      ],
+      [
+        "really simple qualities",
+        "voting classifiers",
+        0.7747945785522461
+      ],
+      [
+        "set million instances",
+        "information theory",
+        0.7759987115859985
+      ],
+      [
+        "tells",
+        "prediction problems",
+        0.8329616785049438
+      ],
+      [
+        "figure figure decision",
+        "computational complexity",
+        0.8326573371887207
+      ],
+      [
+        "area",
+        "white versus black box",
+        0.795880138874054
+      ],
+      [
+        "trained random",
+        "ensembles",
+        0.7915092706680298
+      ],
+      [
+        "impurity hyperparameters described",
+        "entropy impurity measure",
+        0.919751763343811
+      ],
+      [
+        "considerably larger",
+        "Shannon's information theory",
+        0.8360790610313416
+      ],
+      [
+        "corresponding",
+        "root nodes",
+        0.7806208729743958
+      ],
+      [
+        "impurity",
+        "impurity",
+        0.9999997615814209
+      ],
+      [
+        "values max_leaf_nodes",
+        "leaf nodes",
+        0.8123674392700195
+      ],
+      [
+        "trees",
+        "Random Forests",
+        0.9322378635406494
+      ],
+      [
+        "presort true speed",
+        "presorting data with",
+        0.8597723245620728
+      ],
+      [
+        "iris",
+        "max_depth hyperparameter",
+        0.826606273651123
+      ],
+      [
+        "pruning",
+        "pruning",
+        1.0
+      ],
+      [
+        "solutions verified polynomial",
+        "regression tasks",
+        0.8911535739898682
+      ],
+      [
+        "entropy",
+        "Gini impurity versus entropy",
+        0.9705648422241211
+      ],
+      [
+        "vote",
+        "majority-vote predictions",
+        0.7964440584182739
+      ],
+      [
+        "stick closely data",
+        "training set rotation",
+        0.7656402587890625
+      ],
+      [
+        "predictions",
+        "Ensemble Learning",
+        0.9030123353004456
+      ],
+      [
+        "test",
+        "p-value",
+        0.8874959945678711
+      ],
+      [
+        "instances",
+        "wisdom of the crowd",
+        0.9087350368499756
+      ],
+      [
+        "algorithm",
+        "CART training algorithm",
+        0.8194586038589478
+      ],
+      [
+        "use",
+        "random_state hyperparameter",
+        0.8384615182876587
+      ],
+      [
+        "log2",
+        "parametric models",
+        0.9639927744865417
+      ]
+    ]
+  },
+  "10": {
+    "precision": 0.58,
+    "recall": 0.453125,
+    "f1_score": 0.5087719298245614,
+    "matches": [
+      [
+        "keras",
+        "tf.keras",
+        0.9958199858665466
+      ],
+      [
+        "model",
+        "epochs",
+        0.812592625617981
+      ],
+      [
+        "output",
+        "step function",
+        0.7712517976760864
+      ],
+      [
+        "training",
+        "MAE",
+        0.9457004070281982
+      ],
+      [
+        "layers",
+        "dense layer",
+        0.9885936975479126
+      ],
+      [
+        "layer",
+        "hidden layer",
+        0.9877955913543701
+      ],
+      [
+        "neurons",
+        "from biological to artificial neurons",
+        0.944015383720398
+      ],
+      [
+        "use",
+        "batch size",
+        0.8650445342063904
+      ],
+      [
+        "function",
+        "regression MLPs",
+        0.8503412008285522
+      ],
+      [
+        "network",
+        "input layers",
+        0.9497069716453552
+      ],
+      [
+        "neural",
+        "input layer",
+        0.9373012185096741
+      ],
+      [
+        "using",
+        "dynamic models",
+        0.8958860039710999
+      ],
+      [
+        "neuron",
+        "backpropagation",
+        0.9750437140464783
+      ],
+      [
+        "learning",
+        "Hebbian learning",
+        0.9026771187782288
+      ],
+      [
+        "activation",
+        "Theano",
+        0.8162755966186523
+      ],
+      [
+        "neural nets",
+        "feedforward neural networks",
+        0.966086208820343
+      ],
+      [
+        "loss",
+        "image classifiers",
+        0.8871791362762451
+      ],
+      [
+        "dense",
+        "dense",
+        1.0
+      ],
+      [
+        "api",
+        "Functional API",
+        0.8246097564697266
+      ],
+      [
+        "perceptron",
+        "Perceptron",
+        1.0
+      ],
+      [
+        "validation",
+        "Scikit-Optimize",
+        0.9139148592948914
+      ],
+      [
+        "tensorboard",
+        "TensorBoard",
+        1.0
+      ],
+      [
+        "step",
+        "hidden layers in MLPs",
+        0.9064242839813232
+      ],
+      [
+        "tensorflow",
+        "TensorFlow",
+        1.0
+      ],
+      [
+        "error",
+        "mean absolute error",
+        0.9363253116607666
+      ],
+      [
+        "rate",
+        "regression MLPs using Sequential API",
+        0.9276473522186279
+      ],
+      [
+        "input",
+        "implementing MLPs with Keras",
+        0.7868248820304871
+      ],
+      [
+        "networks",
+        "output layers",
+        0.9173591136932373
+      ],
+      [
+        "data",
+        "Spearmint library",
+        0.9173665642738342
+      ],
+      [
+        "inputs",
+        "from biological to artificial",
+        0.784880518913269
+      ],
+      [
+        "hyperparameters",
+        "fine-tuning hyperparameters",
+        0.9808160066604614
+      ],
+      [
+        "need",
+        "threshold logic unit",
+        0.7539325952529907
+      ],
+      [
+        "method",
+        "parameter efficiency",
+        0.8509730100631714
+      ],
+      [
+        "callbacks",
+        "callbacks",
+        1.0
+      ],
+      [
+        "just",
+        "event files",
+        0.8005313873291016
+      ],
+      [
+        "outputs",
+        "implementing MLPs with",
+        0.7734697461128235
+      ],
+      [
+        "artificial",
+        "classification MLPs",
+        0.8162207007408142
+      ],
+      [
+        "mnist",
+        "BNN",
+        0.8738230466842651
+      ],
+      [
+        "weights",
+        "mean squared error",
+        0.8389352560043335
+      ],
+      [
+        "cell bodies",
+        "biological neurons",
+        0.7606096267700195
+      ],
+      [
+        "relu",
+        "ReLU",
+        1.000000238418579
+      ],
+      [
+        "want",
+        "logical computations",
+        0.8521608114242554
+      ],
+      [
+        "deep",
+        "deep neural networks",
+        0.8693935871124268
+      ],
+      [
+        "time",
+        "using Sequential API",
+        0.8643474578857422
+      ],
+      [
+        "accuracy",
+        "Hebb's rule",
+        0.8503053188323975
+      ],
+      [
+        "batch",
+        "logical computations with",
+        0.7767852544784546
+      ],
+      [
+        "anns",
+        "cross-entropy loss",
+        0.8620278835296631
+      ],
+      [
+        "logistic",
+        "Logistic",
+        1.000000238418579
+      ],
+      [
+        "regression",
+        "log loss",
+        0.9578280448913574
+      ],
+      [
+        "connection",
+        "DNNs",
+        0.7795201539993286
+      ],
+      [
+        "algorithm",
+        "Python libraries for optimization",
+        0.7693078517913818
+      ],
+      [
+        "shape",
+        "per hidden layer",
+        0.8373390436172485
+      ],
+      [
+        "mlp",
+        "regression MLP",
+        0.8727271556854248
+      ],
+      [
+        "train",
+        "learning rate",
+        0.8366352319717407
+      ],
+      [
+        "compile loss mse",
+        "Hyperopt",
+        0.7691738605499268
+      ],
+      [
+        "fit",
+        "Exclusive OR",
+        0.83686363697052
+      ],
+      [
+        "pass",
+        "forward pass",
+        0.8157901763916016
+      ],
+      [
+        "sequential",
+        "Microsoft Cognitive Toolkit",
+        0.9018494486808777
+      ]
+    ]
+  },
+  "11": {
+    "precision": 0.55,
+    "recall": 0.6707317073170732,
+    "f1_score": 0.6043956043956045,
+    "matches": [
+      [
+        "layers",
+        "transfer learning",
+        0.9757351875305176
+      ],
+      [
+        "training",
+        "RBMs",
+        0.9672319889068604
+      ],
+      [
+        "model",
+        "Monte Carlo",
+        0.8745445013046265
+      ],
+      [
+        "layer",
+        "SELU",
+        0.9807229042053223
+      ],
+      [
+        "dropout",
+        "dropout",
+        0.9999999403953552
+      ],
+      [
+        "learning",
+        "overfitting",
+        0.9471848607063293
+      ],
+      [
+        "keras",
+        "tf.keras",
+        0.9958199858665466
+      ],
+      [
+        "function",
+        "momentum optimization",
+        0.8242670297622681
+      ],
+      [
+        "gradient",
+        "Hessians",
+        0.9053329229354858
+      ],
+      [
+        "rate",
+        "keep probability",
+        0.9429197311401367
+      ],
+      [
+        "momentum",
+        "momentum vector",
+        0.9132972359657288
+      ],
+      [
+        "batch",
+        "on auxiliary tasks",
+        0.8104936480522156
+      ],
+      [
+        "relu",
+        "randomized leaky ReLU",
+        0.9943505525588989
+      ],
+      [
+        "use",
+        "learning schedules",
+        0.8318811655044556
+      ],
+      [
+        "resulting neural network",
+        "PReLU",
+        0.9607815742492676
+      ],
+      [
+        "optimization",
+        "faster optimizers",
+        0.9235876798629761
+      ],
+      [
+        "input",
+        "He initialization",
+        0.8112854361534119
+      ],
+      [
+        "neural",
+        "reusing pretrained",
+        0.9172148704528809
+      ],
+      [
+        "network",
+        "skip connections",
+        0.9532397985458374
+      ],
+      [
+        "adam",
+        "reusing pretrained layers",
+        0.9165759086608887
+      ],
+      [
+        "networks",
+        "greedy layer-wise pretraining",
+        0.8845534324645996
+      ],
+      [
+        "regularization",
+        "RMSProp",
+        0.9651896953582764
+      ],
+      [
+        "using",
+        "performance scheduling",
+        0.8714757561683655
+      ],
+      [
+        "task",
+        "1cycle scheduling",
+        0.8935205936431885
+      ],
+      [
+        "gradients",
+        "first-order partial derivatives",
+        0.920944094657898
+      ],
+      [
+        "train",
+        "avoiding overfitting through",
+        0.8855066299438477
+      ],
+      [
+        "normalization",
+        "normalization",
+        0.9999999403953552
+      ],
+      [
+        "scheduling",
+        "exponential scheduling",
+        0.986304521560669
+      ],
+      [
+        "optimizer",
+        "adaptive learning rate",
+        0.9430570602416992
+      ],
+      [
+        "initialization",
+        "piecewise constant scheduling",
+        0.9033546447753906
+      ],
+      [
+        "data",
+        "RReLU",
+        0.9059715270996094
+      ],
+      [
+        "exploding gradients problem",
+        "exploding gradients problem",
+        0.9999998211860657
+      ],
+      [
+        "neurons",
+        "Adam and Nadam optimization",
+        0.89255690574646
+      ],
+      [
+        "just",
+        "implementing learning rate scheduling",
+        0.7860486507415771
+      ],
+      [
+        "dense",
+        "BN",
+        0.80125892162323
+      ],
+      [
+        "weights",
+        "adaptive moment estimation",
+        0.8982110619544983
+      ],
+      [
+        "algorithm",
+        "MC",
+        0.8204424977302551
+      ],
+      [
+        "elu",
+        "ELU",
+        1.000000238418579
+      ],
+      [
+        "vector",
+        "max-norm regularization",
+        0.8305598497390747
+      ],
+      [
+        "selu",
+        "transfer learning with",
+        0.9890563488006592
+      ],
+      [
+        "deep",
+        "self-normalization",
+        0.8535829782485962
+      ],
+      [
+        "try",
+        "NAG",
+        0.7661086320877075
+      ],
+      [
+        "want",
+        "learning rate scheduling",
+        0.8622053861618042
+      ],
+      [
+        "epoch",
+        "AdaGrad",
+        0.8383760452270508
+      ],
+      [
+        "trunk john",
+        "LeCun initialization",
+        0.802794337272644
+      ],
+      [
+        "accuracy",
+        "self-supervised learning",
+        0.8762203454971313
+      ],
+      [
+        "equation",
+        "Nesterov Accelerated Gradient",
+        0.8477864861488342
+      ],
+      [
+        "nonsaturating",
+        "nonsaturating",
+        0.9999998807907104
+      ],
+      [
+        "norm",
+        "Jacobians",
+        0.7879781723022461
+      ],
+      [
+        "tools able",
+        "TensorFlow custom models and training",
+        0.757537305355072
+      ],
+      [
+        "trained dropout model",
+        "implementing dropout",
+        0.7840433120727539
+      ],
+      [
+        "step",
+        "wall time",
+        0.9142320156097412
+      ],
+      [
+        "does",
+        "power scheduling",
+        0.8922955989837646
+      ],
+      [
+        "glorot",
+        "nonsaturating activation functions",
+        0.9222536087036133
+      ],
+      [
+        "rmsprop",
+        "Logistic",
+        0.9089531302452087
+      ]
+    ]
+  },
+  "12": {
+    "precision": 0.42,
+    "recall": 0.7,
+    "f1_score": 0.525,
+    "matches": [
+      [
+        "function",
+        "see cost functions",
+        0.8543961644172668
+      ],
+      [
+        "self",
+        "models",
+        0.806104302406311
+      ],
+      [
+        "tensorflow",
+        "TensorFlow Lite",
+        0.9905719757080078
+      ],
+      [
+        "layer",
+        "layers",
+        0.9965346455574036
+      ],
+      [
+        "keras",
+        "residual blocks",
+        0.9873265027999878
+      ],
+      [
+        "model",
+        "training loops",
+        0.8860272765159607
+      ],
+      [
+        "loss",
+        "kernels",
+        0.8592770099639893
+      ],
+      [
+        "custom",
+        "rules",
+        0.7737473845481873
+      ],
+      [
+        "layers",
+        "reconstruction loss",
+        0.9667547941207886
+      ],
+      [
+        "train tensorflow",
+        "custom with TensorFlow",
+        0.9591036438941956
+      ],
+      [
+        "method",
+        "variables",
+        0.8616072535514832
+      ],
+      [
+        "tensor",
+        "tensors",
+        0.9604853391647339
+      ],
+      [
+        "graph",
+        "FIFO",
+        0.8260993957519531
+      ],
+      [
+        "dtype",
+        "autodiff",
+        0.8219059705734253
+      ],
+      [
+        "deep",
+        "embedding",
+        0.8346548080444336
+      ],
+      [
+        "use",
+        "stateful metrics",
+        0.8669136762619019
+      ],
+      [
+        "training",
+        "accuracy",
+        0.9637537002563477
+      ],
+      [
+        "threshold",
+        "features",
+        0.9341616630554199
+      ],
+      [
+        "metrics",
+        "metrics",
+        0.9999998807907104
+      ],
+      [
+        "gradients",
+        "computing gradients using Autodiff",
+        0.9605715274810791
+      ],
+      [
+        "numpy",
+        "using TensorFlow like",
+        0.8966591358184814
+      ],
+      [
+        "metric",
+        "TPUs",
+        0.9176937341690063
+      ],
+      [
+        "precision",
+        "mean squared error",
+        0.8391996026039124
+      ],
+      [
+        "return",
+        "benefits xvi",
+        0.7920069694519043
+      ],
+      [
+        "shape",
+        "tensor processing units",
+        0.7897127866744995
+      ],
+      [
+        "tensors",
+        "symbolic tensors",
+        0.9268186092376709
+      ],
+      [
+        "softplus custom glorot",
+        "sparse tensors",
+        0.7988281846046448
+      ],
+      [
+        "inputs",
+        "TF Function rules",
+        0.7767664194107056
+      ],
+      [
+        "mean",
+        "losses and metrics",
+        0.7879481315612793
+      ],
+      [
+        "compute",
+        "computation graphs",
+        0.8680038452148438
+      ],
+      [
+        "create",
+        "eager execution/eager mode",
+        0.8857091665267944
+      ],
+      [
+        "build",
+        "JIT",
+        0.8136488199234009
+      ],
+      [
+        "using",
+        "First In First Out",
+        0.8248302936553955
+      ],
+      [
+        "batch",
+        "queues",
+        0.7736909985542297
+      ],
+      [
+        "losses",
+        "automatic differentiation",
+        0.815575122833252
+      ],
+      [
+        "example",
+        "getting help",
+        0.7612431049346924
+      ],
+      [
+        "array",
+        "TensorFlow data loading and preprocessing",
+        0.8692477941513062
+      ],
+      [
+        "gradient",
+        "loss functions",
+        0.8861308097839355
+      ],
+      [
+        "reconstruction",
+        "ragged tensors",
+        0.9327726364135742
+      ],
+      [
+        "api",
+        "low-level API",
+        0.8564552068710327
+      ],
+      [
+        "called autograph",
+        "AutoGraph and tracing",
+        0.8239238262176514
+      ],
+      [
+        "code",
+        "just-in-time",
+        0.7666349411010742
+      ]
+    ]
+  }
+}
