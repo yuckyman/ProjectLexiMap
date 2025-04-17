@@ -9,7 +9,10 @@ this project evaluates the performance of keybert for keyword extraction by comp
 ├── README.md
 ├── requirements.txt
 ├── keybert_trainer.py       # implementation for training keybert with enhanced methods
-├── keybert_evaluator.py     # main evaluation script
+├── finetune/              # code for fine-tuning the sentence transformer model
+│   ├── config.py          # fine-tuning configuration settings
+│   ├── data_prep.py       # data preparation for fine-tuning
+│   └── train.py          # main fine-tuning script
 ├── mindmap_generator.py     # creates interactive knowledge graph visualizations
 ├── index_mindmap_generator.py # creates ground truth mindmaps from the index
 ├── textbook/               
@@ -19,7 +22,9 @@ this project evaluates the performance of keybert for keyword extraction by comp
 ├── results/                # evaluation results directory
 │   ├── mindmaps/          # interactive html mindmaps
 │   └── *.png, *.json      # final results and visualizations
-└── cache/                  # cached data for faster processing
+├── cache/                  # cached data for faster processing
+├── models/                # directory for saving fine-tuned models
+└── checkpoints/           # interim directory during training
 ```
 
 ## setup
@@ -42,23 +47,49 @@ pip install -r requirements.txt
 ```bash
 # Extract keywords with optimized parameters
 python keybert_trainer.py
-
-# Evaluate extraction quality against textbook index
-python keybert_evaluator.py
 ```
 
-configurable parameters in both scripts:
-- `top_n`: number of keywords to extract (default now 100)
-- `diversity`: diversity factor for keyword selection (default now 0.7)
-- `similarity_threshold`: threshold for keyword matching (default 0.7)
+configurable parameters:
+-  `top_n`: number of keywords to extract (default now 100)
+-  `diversity`: diversity factor for keyword selection (default now 0.7)
+-  `similarity_threshold`: threshold for keyword matching (default 0.7)
+-
+-the script will:
+-  process all training chapters (1-5, 7-9, 13-19)
+-  extract keywords using the default model (all-mpnet-base-v2)
+-  combine neural and statistical approaches for better extraction
+-+- evaluate against test chapters (6, 10, 11, 12)
+-+- save results to the results directory
+-+- cache processed data and embeddings for faster subsequent runs
+-+- generate a metrics plot alongside the JSON results
 
-the scripts will:
-- process all training chapters (1-5, 7-9, 13-19)
-- extract keywords using the default model (all-mpnet-base-v2)
-- combine neural and statistical approaches for better extraction
-- evaluate against test chapters (6, 10, 11, 12)
-- save results to the results directory
-- cache processed data and embeddings for faster subsequent runs
+### fine-tuning sentence transformers
+
+to further improve keyword extraction, you can fine-tune the underlying sentence transformer model on your textbook content:
+
+```bash
+# Fine-tune the sentence transformer model using triplet loss
+python -m finetune.train
+
+# After fine-tuning, use the custom model in keybert_trainer.py by changing:
+# model_name = 'models/mpnet_textbook_tuned'
+```
+
+the fine-tuning process:
+1. processes all training chapters (1-5, 7-9, 13-19).
+2. locates ground truth keywords in paragraph contexts.
+3. creates triplet examples (context, positive keyword, negative keyword).
+4. trains the model using triplet loss to learn domain-specific relationships.
+
+configurable parameters (in `finetune/config.py`):
+- `BASE_MODEL_NAME`: base model to fine-tune (default: 'sentence-transformers/all-mpnet-base-v2')
+- `BATCH_SIZE`: batch size for training (default: 16)
+- `EPOCHS`: number of training epochs (default: 3)
+- `LEARNING_RATE`: learning rate for fine-tuning (default: 2e-5)
+
+requirements:
+- requires pytorch and the `accelerate` library
+- gpu recommended for faster training
 
 ### generating knowledge graph visualizations
 
@@ -105,11 +136,14 @@ the visualization allows:
 
 ### keyword extraction
 - uses keybert with sentence-transformer model:
-  - `all-mpnet-base-v2` (default)
+  - `all-mpnet-base-v2` (default, falls back from `allenai/scibert_scivocab_uncased`)
 - extracts up to 100 keywords per chapter (configurable)
 - uses n-grams (1-3 words) to capture phrases
 - implements high diversity in keyword selection (0.7)
-- **hybrid approach**: combines neural (transformer) and statistical (TF-IDF) methods
+- **sentence chunking**: splits text into sentence-based chunks using NLTK `sent_tokenize` before extraction.
+- **hybrid approach**: combines neural (transformer) and statistical (TF-IDF) methods:
+  - Filters TF-IDF candidates using `is_valid_keyword` before merging.
+  - Uses weighted averaging favouring neural results (0.8 neural / 0.2 TF-IDF).
 - **paragraph-aware processing**: treats paragraphs as separate documents for TF-IDF calculation
 - **embedding caching**: caches keyword embeddings to improve performance
 
@@ -117,7 +151,8 @@ the visualization allows:
 - precision: ratio of correctly identified keywords to total predicted keywords
 - recall: ratio of correctly identified keywords to total actual keywords
 - f1 score: harmonic mean of precision and recall
-- typical performance: ~13% precision, ~10% recall (index terms are chosen differently)
+- **ground truth**: evaluates test chapter keywords against actual index keywords for that chapter (loaded from `index_by_chapter.txt`).
+- performance significantly improved after fixing ground truth and refining extraction.
 
 ### keyword matching
 the evaluation implements advanced methods for matching keywords:
@@ -192,4 +227,16 @@ this split allows for evaluating the model's performance on both seen and unseen
 5. **ground truth visualization**:
    - added index-based mindmap generation
    - provides baseline for comparison
-   - helps assess extraction quality visually 
+   - helps assess extraction quality visually
+
+6. **correct evaluation:**
+  - fixed evaluation logic to use per-chapter ground truth index keywords.
+7. **refined extraction:**
+  - switched to sentence-based chunking for better semantic coherence.
+  - tuned hybrid extraction to filter TF-IDF noise and prioritize neural results. 
+
+8. **model fine-tuning:**
+   - added capability to fine-tune the sentence transformer model on textbook content
+   - uses triplet loss to learn domain-specific relationships between context and keywords
+   - creates a custom model that better understands the textbook's terminology and style
+   - can be directly plugged into the `keybert_trainer.py` to further improve extraction 

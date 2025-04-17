@@ -14,6 +14,9 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from sklearn.feature_extraction.text import TfidfVectorizer
 from functools import lru_cache
+from collections import defaultdict
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Create results directory if it doesn't exist
 RESULTS_DIR = Path("results")
@@ -24,6 +27,12 @@ try:
     nltk.data.find('corpora/stopwords')
 except LookupError:
     nltk.download('stopwords')
+
+# Download punkt tokenizer for sentence splitting
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 # define train and test chapters
 TRAIN_CHAPTERS = [1, 2, 3, 4, 5, 7, 8, 9, 13, 14, 15, 16, 17, 18, 19]
@@ -123,21 +132,20 @@ def extract_keywords(text: str, keybert: KeyBERT, top_n: int = 100,
     # Get English stopwords and add custom ones
     stop_words = list(stopwords.words('english')) + CUSTOM_STOPWORDS
     
-    # Split text into smaller chunks for more focused keyword extraction
-    # This helps with long textbook chapters
-    chunk_size = 5000  # characters
-    overlap = 1000
+    # Split text into sentence-based chunks for better semantic coherence
+    from nltk.tokenize import sent_tokenize
+    sentences = sent_tokenize(text)
+    chunk_size = 5000
     chunks = []
-    
-    if len(text) > chunk_size * 2:  # Only chunk if text is long enough
-        print(f"Text is {len(text)} chars, splitting into chunks...")
-        for i in range(0, len(text), chunk_size - overlap):
-            chunk = text[i:i + chunk_size]
-            if len(chunk) > 500:  # Only add reasonably sized chunks
-                chunks.append(chunk)
-        print(f"Split into {len(chunks)} chunks")
-    else:
-        chunks = [text]
+    current_chunk = ""
+    for sent in sentences:
+        if len(current_chunk) + len(sent) <= chunk_size:
+            current_chunk += sent + " "
+        else:
+            chunks.append(current_chunk.strip())
+            current_chunk = sent + " "
+    if current_chunk:
+        chunks.append(current_chunk.strip())
     
     # Extract keywords from each chunk
     all_keywords = []
@@ -462,9 +470,19 @@ def extract_hybrid_keywords(text, keybert_model, top_n=100):
     feature_names = vectorizer.get_feature_names_out()
     tfidf_sum = np.sum(tfidf_matrix, axis=0).A1
     
-    # Get top TF-IDF terms
-    top_indices = tfidf_sum.argsort()[-top_n:][::-1]
-    tfidf_keywords = [(feature_names[idx], float(tfidf_sum[idx])) for idx in top_indices]
+    # Filter TF-IDF keywords for validity before combining
+    valid_tfidf_keywords = []
+    all_tfidf_keywords = [(feature_names[idx], float(tfidf_sum[idx])) for idx in tfidf_sum.argsort()[::-1]]
+    for kw, score in all_tfidf_keywords:
+        if is_valid_keyword(kw):
+            valid_tfidf_keywords.append((kw, score))
+        else:
+            print(f"Filtered out invalid TF-IDF keyword: {kw}")
+    
+    # Limit to top_n valid TF-IDF keywords
+    tfidf_keywords = valid_tfidf_keywords[:top_n]
+    if len(valid_tfidf_keywords) < len(tfidf_keywords):
+         print(f"Filtered out {len(all_tfidf_keywords) - len(tfidf_keywords)} invalid TF-IDF keywords total")
     
     # Combine keywords from both methods
     all_keywords = {}
@@ -479,10 +497,11 @@ def extract_hybrid_keywords(text, keybert_model, top_n=100):
     for kw, score in tfidf_keywords:
         normalized_score = score / max_tfidf
         if kw.lower() in all_keywords:
-            # If key exists in both, take weighted average
-            all_keywords[kw.lower()] = all_keywords[kw.lower()] * 0.6 + normalized_score * 0.4
+            # Weighted average, favouring neural (0.8) over TF-IDF (0.2)
+            all_keywords[kw.lower()] = all_keywords[kw.lower()] * 0.8 + normalized_score * 0.2
         else:
-            all_keywords[kw.lower()] = normalized_score * 0.8  # Slightly lower weight for TF-IDF only terms
+            # TF-IDF only terms get a lower initial weight
+            all_keywords[kw.lower()] = normalized_score * 0.2
     
     # Convert back to list, sort, and take top_n
     final_keywords = [(kw, score) for kw, score in all_keywords.items()]
@@ -490,12 +509,80 @@ def extract_hybrid_keywords(text, keybert_model, top_n=100):
     
     return final_keywords[:top_n]
 
+def plot_metrics(metrics_by_chapter: Dict[int, Dict[str, float]], output_file: str = "keybert_evaluation.png"):
+    """Plot evaluation metrics (precision, recall, f1) for each chapter."""
+    print(f"Plotting metrics to {output_file}...")
+    chapters = sorted(metrics_by_chapter.keys())
+    if not chapters:
+        print("No metrics data to plot.")
+        return
+
+    precisions = [metrics_by_chapter[ch].get("precision", 0.0) for ch in chapters]
+    recalls = [metrics_by_chapter[ch].get("recall", 0.0) for ch in chapters]
+    f1_scores = [metrics_by_chapter[ch].get("f1_score", 0.0) for ch in chapters] # Adjusted key name
+    
+    plt.figure(figsize=(15, 8))
+    x = np.arange(len(chapters))
+    width = 0.25
+    
+    plt.bar(x - width, precisions, width, label='Precision')
+    plt.bar(x, recalls, width, label='Recall')
+    plt.bar(x + width, f1_scores, width, label='F1 Score')
+    
+    plt.xlabel('Chapter')
+    plt.ylabel('Score')
+    plt.title('KeyBERT Performance by Chapter')
+    plt.xticks(x, chapters)
+    plt.legend()
+    plt.ylim(0, 1.05) # Ensure y-axis goes from 0 to 1
+    plt.grid(True, axis='y', alpha=0.3)
+    
+    plt.tight_layout()
+    try:
+        plt.savefig(output_file)
+        print(f"Plot saved successfully to {output_file}")
+    except Exception as e:
+        print(f"Error saving plot: {e}")
+    plt.close() # Close the plot to free memory
+
+def load_index_keywords(index_file: str = 'textbook/index_by_chapter.txt') -> Dict[int, List[str]]:
+    """Load ground truth keywords per chapter from the index file."""
+    keywords = defaultdict(list)
+    current_chapter = None
+    try:
+        with open(index_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                if line.startswith('Chapter '):
+                    parts = line.split()
+                    if len(parts) >= 2 and parts[1].isdigit():
+                        current_chapter = int(parts[1])
+                else:
+                    if current_chapter is not None:
+                        kw = normalize_keyword(line)
+                        if kw:
+                            keywords[current_chapter].append(kw)
+    except Exception as e:
+        print(f"Error loading index keywords: {e}")
+    return keywords
+
 def main():
     print("Initializing KeyBERT with SentenceTransformer...")
-    # Initialize keybert with a better sentence transformer model for educational content
-    model_name = 'all-mpnet-base-v2'  # Better model for educational content
+    # Initialize keybert with our fine-tuned MPNet model
+    model_name = 'models/mpnet_textbook_tuned'  # our fine-tuned model
     print(f"Loading model: {model_name}")
-    sentence_model = SentenceTransformer(model_name)
+    try:
+        # Load our fine-tuned model
+        sentence_model = SentenceTransformer(model_name)
+    except Exception as e:
+        print(f"Error loading fine-tuned model: {e}")
+        print("Falling back to base model")
+        model_name = 'sentence-transformers/all-mpnet-base-v2'
+        sentence_model = SentenceTransformer(model_name)
+        print(f"Loaded fallback model: {model_name}")
+    
     keybert = KeyBERT(model=sentence_model)
     
     print(f"Processing {len(TRAIN_CHAPTERS)} training chapters...")
@@ -534,6 +621,10 @@ def main():
     for kw, score in train_keywords[:10]:
         print(f"  - {kw}: {score:.4f}")
     
+    # load ground truth keywords for evaluation
+    print("Loading ground truth index keywords...")
+    index_keywords = load_index_keywords()
+    
     # Evaluate on test chapters
     print(f"\nEvaluating on {len(TEST_CHAPTERS)} test chapters...")
     test_results = {}
@@ -545,8 +636,10 @@ def main():
             # Extract keywords for test chapter with higher diversity
             test_keywords = extract_hybrid_keywords(test_text, keybert, top_n=100)
             
-            # Evaluate against training keywords using hierarchical matching and embedding similarity
-            metrics = evaluate_keywords(test_keywords, train_keywords, sentence_model, similarity_threshold=0.7)
+            # Evaluate against actual index keywords instead of training keywords
+            actual_gt = index_keywords.get(chapter, [])
+            actual_list = [(kw, 1.0) for kw in actual_gt]
+            metrics = evaluate_keywords(test_keywords, actual_list, sentence_model, similarity_threshold=0.7)
             
             print(f"Results for chapter {chapter}:")
             for metric, value in metrics.items():
@@ -570,7 +663,7 @@ def main():
     
     # Save results
     timestamp = time.strftime("%Y%m%d_%H%M%S", time.localtime())
-    model_name_short = model_name.split('/')[-1]
+    model_name_short = model_name.split('/')[-1]  # Extract just the model name without path
     output_file = RESULTS_DIR / f"keybert_{model_name_short}_results_{timestamp}.json"
     with open(output_file, "w") as f:
         json.dump({
@@ -586,6 +679,11 @@ def main():
         }, f, indent=2)
     
     print(f"\nResults saved to {output_file}")
+
+    # Generate metrics plot
+    metrics_for_plot = {int(k.split('_')[1]): v['metrics'] for k, v in test_results.items()}
+    plot_filename = RESULTS_DIR / f"keybert_{model_name_short}_metrics_{timestamp}.png"
+    plot_metrics(metrics_for_plot, output_file=str(plot_filename))
 
 if __name__ == "__main__":
     main() 
